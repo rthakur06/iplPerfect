@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { MAX_OVERSEAS, MIN_BOWLING_OPTIONS, XI_SIZE } from "@/engine/rules";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { AccountNav } from "./components/AccountNav";
+import { Analytics } from "@vercel/analytics/next"
 
 const TIERS = [
   "Wooden Spoon",
