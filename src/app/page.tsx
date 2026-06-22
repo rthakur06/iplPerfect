@@ -37,8 +37,8 @@ export default function FrontPage() {
         <header className="sheet print-shadow relative overflow-hidden p-7 sm:p-12">
           <div className="absolute right-0 top-0 h-full w-2" style={{ background: "var(--spot)" }} />
           <div className="flex items-center justify-between">
-            <span className="eyebrow">Souvenir matchday programme</span>
-            <span className="eyebrow">No. 01</span>
+            <span className="eyebrow">IPL Perfect Season</span>
+            <span className="eyebrow">Est. 2026</span>
           </div>
           <div className="rule-double my-4" />
           <h1 className="font-display text-5xl leading-[0.9] sm:text-8xl">
@@ -49,7 +49,7 @@ export default function FrontPage() {
             <span style={{ color: "var(--spot)" }}>Season</span>
           </h1>
           <p className="mt-5 max-w-md text-base leading-relaxed" style={{ color: "var(--ink-soft)" }}>
-            Spin the wheel, draft real IPL legends from any season in history, and chase an unbeaten,
+            No IPL team can claim a perfect season — but you can. Spin the wheel, draft real IPL legends from any season in history, and chase an unbeaten,
             title-winning campaign.
           </p>
 
@@ -155,7 +155,7 @@ function HowToPlay({ onClose }: { onClose: () => void }) {
               single-use rerolls swap just the team or just the year.
             </Step>
             <Step n={3} title="Build a balanced XI">
-              Every player is tagged by where they really batted — you can only field them in those
+              Every player is tagged by where they really batted. You can only field them in those
               positions, so a finisher can&rsquo;t open and your tail has to bowl.
             </Step>
             <Step n={4} title="Play the season">
