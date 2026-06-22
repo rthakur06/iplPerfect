@@ -1,0 +1,628 @@
+{
+  "MI-2017": {
+    "result": "CHAMPION"
+  },
+  "RISING_PUNE-2017": {
+    "result": "RUNNER_UP"
+  },
+  "SRH-2017": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "KKR-2017": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "PBKS-2017": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "DC-2017": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "GUJARAT_LIONS-2017": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "RCB-2017": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "CSK-2018": {
+    "result": "CHAMPION"
+  },
+  "SRH-2018": {
+    "result": "RUNNER_UP"
+  },
+  "KKR-2018": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "RR-2018": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "MI-2018": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "PBKS-2018": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "RCB-2018": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "DC-2018": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "MI-2019": {
+    "result": "CHAMPION"
+  },
+  "CSK-2019": {
+    "result": "RUNNER_UP"
+  },
+  "DC-2019": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "SRH-2019": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "KKR-2019": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "PBKS-2019": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "RCB-2019": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "RR-2019": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "MI-2020": {
+    "result": "CHAMPION"
+  },
+  "DC-2020": {
+    "result": "RUNNER_UP"
+  },
+  "SRH-2020": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "RCB-2020": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "KKR-2020": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "CSK-2020": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "PBKS-2020": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "RR-2020": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "CSK-2021": {
+    "result": "CHAMPION"
+  },
+  "KKR-2021": {
+    "result": "RUNNER_UP"
+  },
+  "DC-2021": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "RCB-2021": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "MI-2021": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "PBKS-2021": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "RR-2021": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "SRH-2021": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "GT-2022": {
+    "result": "CHAMPION"
+  },
+  "RR-2022": {
+    "result": "RUNNER_UP"
+  },
+  "LSG-2022": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "RCB-2022": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "DC-2022": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "PBKS-2022": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "KKR-2022": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "SRH-2022": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "CSK-2022": {
+    "result": "LEAGUE_STAGE",
+    "rank": 9
+  },
+  "MI-2022": {
+    "result": "LEAGUE_STAGE",
+    "rank": 10
+  },
+  "CSK-2023": {
+    "result": "CHAMPION"
+  },
+  "GT-2023": {
+    "result": "RUNNER_UP"
+  },
+  "LSG-2023": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "MI-2023": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "RR-2023": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "RCB-2023": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "PBKS-2023": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "KKR-2023": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "DC-2023": {
+    "result": "LEAGUE_STAGE",
+    "rank": 9
+  },
+  "SRH-2023": {
+    "result": "LEAGUE_STAGE",
+    "rank": 10
+  },
+  "KKR-2024": {
+    "result": "CHAMPION"
+  },
+  "SRH-2024": {
+    "result": "RUNNER_UP"
+  },
+  "RR-2024": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "RCB-2024": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "CSK-2024": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "DC-2024": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "LSG-2024": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "GT-2024": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "PBKS-2024": {
+    "result": "LEAGUE_STAGE",
+    "rank": 9
+  },
+  "MI-2024": {
+    "result": "LEAGUE_STAGE",
+    "rank": 10
+  },
+  "RCB-2025": {
+    "result": "CHAMPION"
+  },
+  "PBKS-2025": {
+    "result": "RUNNER_UP"
+  },
+  "GT-2025": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "MI-2025": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "DC-2025": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "SRH-2025": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "LSG-2025": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "KKR-2025": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "RR-2025": {
+    "result": "LEAGUE_STAGE",
+    "rank": 9
+  },
+  "CSK-2025": {
+    "result": "LEAGUE_STAGE",
+    "rank": 10
+  },
+  "RCB-2026": {
+    "result": "CHAMPION"
+  },
+  "GT-2026": {
+    "result": "RUNNER_UP"
+  },
+  "SRH-2026": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "RR-2026": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "PBKS-2026": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "DC-2026": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "KKR-2026": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "CSK-2026": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "LSG-2026": {
+    "result": "LEAGUE_STAGE",
+    "rank": 9
+  },
+  "MI-2026": {
+    "result": "LEAGUE_STAGE",
+    "rank": 10
+  },
+  "RR-2008": {
+    "result": "CHAMPION"
+  },
+  "CSK-2008": {
+    "result": "RUNNER_UP"
+  },
+  "PBKS-2008": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "DC-2008": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "MI-2008": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "KKR-2008": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "RCB-2008": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "DECCAN-2008": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "DECCAN-2009": {
+    "result": "CHAMPION"
+  },
+  "RCB-2009": {
+    "result": "RUNNER_UP"
+  },
+  "DC-2009": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "CSK-2009": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "PBKS-2009": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "RR-2009": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "MI-2009": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "KKR-2009": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "CSK-2010": {
+    "result": "CHAMPION"
+  },
+  "MI-2010": {
+    "result": "RUNNER_UP"
+  },
+  "DECCAN-2010": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "RCB-2010": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "KKR-2010": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "DC-2010": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "RR-2010": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "PBKS-2010": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "CSK-2011": {
+    "result": "CHAMPION"
+  },
+  "RCB-2011": {
+    "result": "RUNNER_UP"
+  },
+  "MI-2011": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "KKR-2011": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "PBKS-2011": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "RR-2011": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "DECCAN-2011": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "KOCHI-2011": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "DC-2011": {
+    "result": "LEAGUE_STAGE",
+    "rank": 9
+  },
+  "PUNE_WARRIORS-2011": {
+    "result": "LEAGUE_STAGE",
+    "rank": 10
+  },
+  "KKR-2012": {
+    "result": "CHAMPION"
+  },
+  "CSK-2012": {
+    "result": "RUNNER_UP"
+  },
+  "DC-2012": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "MI-2012": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "RCB-2012": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "PBKS-2012": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "RR-2012": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "DECCAN-2012": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "PUNE_WARRIORS-2012": {
+    "result": "LEAGUE_STAGE",
+    "rank": 9
+  },
+  "MI-2013": {
+    "result": "CHAMPION"
+  },
+  "CSK-2013": {
+    "result": "RUNNER_UP"
+  },
+  "RR-2013": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "SRH-2013": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "RCB-2013": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "PBKS-2013": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "KKR-2013": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "PUNE_WARRIORS-2013": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "DC-2013": {
+    "result": "LEAGUE_STAGE",
+    "rank": 9
+  },
+  "KKR-2014": {
+    "result": "CHAMPION"
+  },
+  "PBKS-2014": {
+    "result": "RUNNER_UP"
+  },
+  "CSK-2014": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "MI-2014": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "RR-2014": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "SRH-2014": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "RCB-2014": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "DC-2014": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "MI-2015": {
+    "result": "CHAMPION"
+  },
+  "CSK-2015": {
+    "result": "RUNNER_UP"
+  },
+  "RR-2015": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "RCB-2015": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "KKR-2015": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "SRH-2015": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "DC-2015": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "PBKS-2015": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  },
+  "SRH-2016": {
+    "result": "CHAMPION"
+  },
+  "RCB-2016": {
+    "result": "RUNNER_UP"
+  },
+  "GUJARAT_LIONS-2016": {
+    "result": "PLAYOFFS",
+    "rank": 3
+  },
+  "KKR-2016": {
+    "result": "PLAYOFFS",
+    "rank": 4
+  },
+  "MI-2016": {
+    "result": "LEAGUE_STAGE",
+    "rank": 5
+  },
+  "DC-2016": {
+    "result": "LEAGUE_STAGE",
+    "rank": 6
+  },
+  "RISING_PUNE-2016": {
+    "result": "LEAGUE_STAGE",
+    "rank": 7
+  },
+  "PBKS-2016": {
+    "result": "LEAGUE_STAGE",
+    "rank": 8
+  }
+}

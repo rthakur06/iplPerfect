@@ -1,0 +1,12 @@
+{
+  "PBKS-2019": { "personId": "b17e2f24", "name": "KL Rahul", "source": "web search: KL Rahul was Kings XI Punjab's primary keeper in 2019 (top run-scorer that season, kept wicket); a 3-way catches tie with Agarwal/Miller made the automatic most-catches fallback unreliable here." },
+  "DC-2023": { "personId": "3d284ca3", "name": "PD Salt", "source": "web search: Phil Salt was Delhi Capitals' primary designated wicketkeeper in IPL 2023 (with Manish Pandey as backup); neither led the squad in catches that season, so the automatic fallback would have picked a non-keeper." },
+  "KKR-2025": { "personId": "372455c4", "name": "Q de Kock", "source": "web search: KKR's 2025 squad listed both Quinton de Kock and Rahmanullah Gurbaz as wicketkeepers; de Kock had more catches between the two (3 vs 2) so picked as primary." },
+  "PBKS-2008": { "personId": "6b71e6cf", "name": "KC Sangakkara", "source": "web search: Kumar Sangakkara was Kings XI Punjab's primary wicketkeeper in the inaugural 2008 IPL season." },
+  "KKR-2009": { "personId": "b8a55852", "name": "BB McCullum", "source": "web search: Brendon McCullum captained and kept wicket for Kolkata Knight Riders in IPL 2009." },
+  "SRH-2017": { "personId": "890946a0", "name": "NV Ojha", "source": "web search: Naman Ojha was SRH's primary wicketkeeper through 2014-17; the most-catches fallback wrongly picked David Warner (10 catches) over Ojha (6)." },
+  "DC-2011": { "personId": "890946a0", "name": "NV Ojha", "source": "web search: Naman Ojha was Delhi Daredevils' first-choice wicketkeeper in 2011; the most-catches fallback wrongly picked captain Virender Sehwag (9 catches) over Ojha (8)." },
+  "CSK-2021": { "personId": "4a8a2e3b", "name": "MS Dhoni", "source": "MS Dhoni was CSK's wicketkeeper-captain in 2021 (title-winning comeback season); tied 13-13 catches with Ravindra Jadeja, and the fallback's tiebreak picked Jadeja instead." },
+  "CSK-2008": { "personId": "4a8a2e3b", "name": "MS Dhoni", "source": "MS Dhoni was CSK's wicketkeeper-captain from the franchise's inception in 2008; the most-catches fallback wrongly picked Suresh Raina (10 catches) over Dhoni (6)." },
+  "SRH-2025": { "personId": "235c2bb6", "name": "H Klaasen", "source": "Heinrich Klaasen was SRH's primary wicketkeeper in 2025; the most-catches fallback wrongly picked Abhishek Sharma (8 catches) over Klaasen (7)." }
+}

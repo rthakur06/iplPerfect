@@ -1,0 +1,7311 @@
+[
+  {
+    "personId": "dcce6f09",
+    "name": "DA Warner",
+    "cricinfoId": "219889",
+    "wikidataLabel": "David Warner",
+    "countries": [
+      "Australia",
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0a476045",
+    "name": "S Dhawan",
+    "cricinfoId": "28235",
+    "wikidataLabel": "Shikhar Dhawan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "890946a0",
+    "name": "NV Ojha",
+    "cricinfoId": "32102",
+    "wikidataLabel": "Naman Ojha",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2e81a32d",
+    "name": "B Kumar",
+    "cricinfoId": "326016",
+    "wikidataLabel": "Bhuvneshwar Kumar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "5f547c8b",
+    "name": "Rashid Khan",
+    "cricinfoId": "793463",
+    "wikidataLabel": "Rashid Khan",
+    "countries": [
+      "Afghanistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "32198ae0",
+    "name": "MC Henriques",
+    "cricinfoId": "5961",
+    "wikidataLabel": "Moisés Henriques",
+    "countries": [
+      "Portugal",
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1c914163",
+    "name": "Yuvraj Singh",
+    "cricinfoId": "36084",
+    "wikidataLabel": "Yuvraj Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "73ad96ed",
+    "name": "DJ Hooda",
+    "cricinfoId": "497121",
+    "wikidataLabel": "Deepak Hooda",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "dcf81436",
+    "name": "S Kaul",
+    "cricinfoId": "326017",
+    "wikidataLabel": "Siddarth Kaul",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c18496e1",
+    "name": "Bipul Sharma",
+    "cricinfoId": "35928",
+    "wikidataLabel": "Bipul Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d027ba9f",
+    "name": "KS Williamson",
+    "cricinfoId": "277906",
+    "wikidataLabel": "Kane Williamson",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "96fd40ae",
+    "name": "A Nehra",
+    "cricinfoId": "31820",
+    "wikidataLabel": "Ashish Nehra",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2f49c897",
+    "name": "Mohammed Siraj",
+    "cricinfoId": "940973",
+    "wikidataLabel": "Mohammed Siraj",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2e11c706",
+    "name": "BCJ Cutting",
+    "cricinfoId": "230371",
+    "wikidataLabel": "Ben Cutting",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0994d0ae",
+    "name": "V Shankar",
+    "cricinfoId": "477021",
+    "wikidataLabel": "Vijay Shankar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "62af8546",
+    "name": "Mohammad Nabi",
+    "cricinfoId": "25913",
+    "wikidataLabel": "Mohammad Nabi",
+    "countries": [
+      "Afghanistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ffe699c0",
+    "name": "CJ Jordan",
+    "cricinfoId": "288992",
+    "wikidataLabel": "Chris Jordan",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0a8fce53",
+    "name": "Mustafizur Rahman",
+    "cricinfoId": "330902",
+    "wikidataLabel": "Mustafizur Rahman",
+    "countries": [
+      "Bangladesh"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d8b2f218",
+    "name": "BB Sran",
+    "cricinfoId": "537126",
+    "wikidataLabel": "Brainder Sran",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "99d63244",
+    "name": "KM Jadhav",
+    "cricinfoId": "290716",
+    "wikidataLabel": "Kedar Jadhav",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "57ee1fde",
+    "name": "YS Chahal",
+    "cricinfoId": "430246",
+    "wikidataLabel": "Yuzvendra Chahal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f62772e5",
+    "name": "P Negi",
+    "cricinfoId": "530773",
+    "wikidataLabel": "Pawan Negi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c3a96caf",
+    "name": "Mandeep Singh",
+    "cricinfoId": "398506",
+    "wikidataLabel": "Mandeep Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "957532de",
+    "name": "S Aravind",
+    "cricinfoId": "290632",
+    "wikidataLabel": "Sreenath Aravind",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ba607b88",
+    "name": "V Kohli",
+    "cricinfoId": "253802",
+    "wikidataLabel": "Virat Kohli",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "db584dad",
+    "name": "CH Gayle",
+    "cricinfoId": "51880",
+    "wikidataLabel": "Chris Gayle",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c4487b84",
+    "name": "AB de Villiers",
+    "cricinfoId": "44936",
+    "wikidataLabel": "AB de Villiers",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "4329fbb5",
+    "name": "SR Watson",
+    "cricinfoId": "8180",
+    "wikidataLabel": "Shane Watson",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "bd17b45f",
+    "name": "STR Binny",
+    "cricinfoId": "27223",
+    "wikidataLabel": "Stuart Binny",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "12b610c2",
+    "name": "TM Head",
+    "cricinfoId": "530011",
+    "wikidataLabel": "Travis Head",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "245c97cb",
+    "name": "TS Mills",
+    "cricinfoId": "459257",
+    "wikidataLabel": "Tymal Mills",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "18e6906e",
+    "name": "A Choudhary",
+    "cricinfoId": "527299",
+    "wikidataLabel": "Aniket Choudhary",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "350bb1b1",
+    "name": "AF Milne",
+    "cricinfoId": "450860",
+    "wikidataLabel": "Adam Milne",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "dc9dd038",
+    "name": "Sachin Baby",
+    "cricinfoId": "432783",
+    "wikidataLabel": "Sachin Baby",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0494fa6e",
+    "name": "Vishnu Vinod",
+    "cricinfoId": "732293",
+    "wikidataLabel": "Vishnu Vinod",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "85aae393",
+    "name": "Iqbal Abdulla",
+    "cricinfoId": "277237",
+    "wikidataLabel": "Iqbal Abdulla",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6834d1f2",
+    "name": "B Stanlake",
+    "cricinfoId": "533042",
+    "wikidataLabel": "Billy Stanlake",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f986ca1a",
+    "name": "HV Patel",
+    "cricinfoId": "390481",
+    "wikidataLabel": "Harshal Patel",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "eef2536f",
+    "name": "Avesh Khan",
+    "cricinfoId": "694211",
+    "wikidataLabel": "Avesh Khan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "29e95537",
+    "name": "AM Rahane",
+    "cricinfoId": "277916",
+    "wikidataLabel": "Ajinkya Rahane",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "cricinfoId": "28081",
+    "wikidataLabel": "Mahendra Singh Dhoni",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "30a45b23",
+    "name": "SPD Smith",
+    "cricinfoId": "267192",
+    "wikidataLabel": "Steve Smith",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "26e5cabf",
+    "name": "MK Tiwary",
+    "cricinfoId": "35565",
+    "wikidataLabel": "Manoj Tiwary",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "77255a9e",
+    "name": "RA Tripathi",
+    "cricinfoId": "446763",
+    "wikidataLabel": "Rahul Tripathi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2a2e6343",
+    "name": "DT Christian",
+    "cricinfoId": "4864",
+    "wikidataLabel": "Daniel Christian",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "e087956b",
+    "name": "BA Stokes",
+    "cricinfoId": "311158",
+    "wikidataLabel": "Ben Stokes",
+    "countries": [
+      "United Kingdom",
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "acee4cc4",
+    "name": "Imran Tahir",
+    "cricinfoId": "40618",
+    "wikidataLabel": "Imran Tahir",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1abb78f8",
+    "name": "SN Thakur",
+    "cricinfoId": "475281",
+    "wikidataLabel": "Shardul Thakur",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "1e66c162",
+    "name": "JD Unadkat",
+    "cricinfoId": "390484",
+    "wikidataLabel": "Jaydev Unadkat",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f19ccfad",
+    "name": "Washington Sundar",
+    "cricinfoId": "719715",
+    "wikidataLabel": "Washington Sundar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "14f96089",
+    "name": "A Zampa",
+    "cricinfoId": "379504",
+    "wikidataLabel": "Adam Zampa",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "2f9d0389",
+    "name": "LH Ferguson",
+    "cricinfoId": "493773",
+    "wikidataLabel": "Lockie Ferguson",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "00ea847a",
+    "name": "MA Agarwal",
+    "cricinfoId": "398438",
+    "wikidataLabel": "Mayank Agarwal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "33a364a6",
+    "name": "R Bhatia",
+    "cricinfoId": "26907",
+    "wikidataLabel": "Rajat Bhatia",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "23eeb873",
+    "name": "DL Chahar",
+    "cricinfoId": "447261",
+    "wikidataLabel": "Deepak Chahar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "66b30f71",
+    "name": "AB Dinda",
+    "cricinfoId": "227712",
+    "wikidataLabel": "Ashok Dinda",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2ed569a0",
+    "name": "RD Chahar",
+    "cricinfoId": "1064812",
+    "wikidataLabel": "Rahul Chahar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "3355b542",
+    "name": "F du Plessis",
+    "cricinfoId": "44828",
+    "wikidataLabel": "Faf du Plessis",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "24d94623",
+    "name": "Ankit Sharma",
+    "cricinfoId": "422992",
+    "wikidataLabel": "Ankit Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "740742ef",
+    "name": "RG Sharma",
+    "cricinfoId": "34102",
+    "wikidataLabel": "Rohit Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a757b0d8",
+    "name": "KA Pollard",
+    "cricinfoId": "230559",
+    "wikidataLabel": "Kieron Pollard",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "dbe50b21",
+    "name": "HH Pandya",
+    "cricinfoId": "625371",
+    "wikidataLabel": "Hardik Pandya",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b5da6c24",
+    "name": "PA Patel",
+    "cricinfoId": "32242",
+    "wikidataLabel": "Parthiv Patel",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "462411b3",
+    "name": "JJ Bumrah",
+    "cricinfoId": "625383",
+    "wikidataLabel": "Jasprit Bumrah",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "51a3c5ef",
+    "name": "MJ McClenaghan",
+    "cricinfoId": "319439",
+    "wikidataLabel": "Mitchell McClenaghan",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "fb2d1dda",
+    "name": "N Rana",
+    "cricinfoId": "604527",
+    "wikidataLabel": "Nitish Rana",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "5b8c830e",
+    "name": "KH Pandya",
+    "cricinfoId": "471342",
+    "wikidataLabel": "Krunal Pandya",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a12e1d51",
+    "name": "SL Malinga",
+    "cricinfoId": "49758",
+    "wikidataLabel": "Lasith Malinga",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "8b5b6769",
+    "name": "Harbhajan Singh",
+    "cricinfoId": "29264",
+    "wikidataLabel": "Harbhajan Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "99b75528",
+    "name": "JC Buttler",
+    "cricinfoId": "308967",
+    "wikidataLabel": "Jos Buttler",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "119678fd",
+    "name": "KV Sharma",
+    "cricinfoId": "30288",
+    "wikidataLabel": "Karn Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "70d205c9",
+    "name": "AT Rayudu",
+    "cricinfoId": "33141",
+    "wikidataLabel": "Ambati Rayudu",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f5180fe6",
+    "name": "MG Johnson",
+    "cricinfoId": "6033",
+    "wikidataLabel": "Mitchell Johnson",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "13c35c9e",
+    "name": "TG Southee",
+    "cricinfoId": "232364",
+    "wikidataLabel": "Tim Southee",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "709b0bac",
+    "name": "SS Tiwary",
+    "cricinfoId": "35390",
+    "wikidataLabel": "Saurabh Tiwary",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "41eb4a4f",
+    "name": "R Vinay Kumar",
+    "cricinfoId": "35731",
+    "wikidataLabel": "Vinay Kumar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "4125d931",
+    "name": "J Suchith",
+    "cricinfoId": "527663",
+    "wikidataLabel": "Jagadeesha Suchith",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "1dc12ab9",
+    "name": "SK Raina",
+    "cricinfoId": "33335",
+    "wikidataLabel": "Suresh Raina",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "cricinfoId": "30045",
+    "wikidataLabel": "Dinesh Karthik",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b8d490fd",
+    "name": "AJ Finch",
+    "cricinfoId": "5334",
+    "wikidataLabel": "Aaron Finch",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "35205dfc",
+    "name": "DR Smith",
+    "cricinfoId": "53118",
+    "wikidataLabel": "Dwayne Smith",
+    "countries": [
+      "Barbados"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "871e9faf",
+    "name": "Basil Thampi",
+    "cricinfoId": "732291",
+    "wikidataLabel": "Basil Thampi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "fe93fd9d",
+    "name": "RA Jadeja",
+    "cricinfoId": "234675",
+    "wikidataLabel": "Ravindra Jadeja",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b8a55852",
+    "name": "BB McCullum",
+    "cricinfoId": "37737",
+    "wikidataLabel": "Brendon McCullum",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "752f7486",
+    "name": "Ishan Kishan",
+    "cricinfoId": "720471",
+    "wikidataLabel": "Ishan Kishan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "808f425a",
+    "name": "JP Faulkner",
+    "cricinfoId": "270484",
+    "wikidataLabel": "James Faulkner",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f18ba07f",
+    "name": "Ankit Soni",
+    "cricinfoId": "1083128",
+    "wikidataLabel": "Ankit Soni",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e938e1bc",
+    "name": "P Kumar",
+    "cricinfoId": "30732",
+    "wikidataLabel": "Praveen Kumar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d2a989fc",
+    "name": "DS Kulkarni",
+    "cricinfoId": "277955",
+    "wikidataLabel": "Dhawal Kulkarni",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "7c7d63a2",
+    "name": "AJ Tye",
+    "cricinfoId": "459508",
+    "wikidataLabel": "Andrew Tye",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "9fc0ef64",
+    "name": "PJ Sangwan",
+    "cricinfoId": "279545",
+    "wikidataLabel": "Pradeep Sangwan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d1c36f5c",
+    "name": "JJ Roy",
+    "cricinfoId": "298438",
+    "wikidataLabel": "Jason Roy",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1da489ff",
+    "name": "S Kaushik",
+    "cricinfoId": "917213",
+    "wikidataLabel": "Shivil Kaushik",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c8179c68",
+    "name": "SB Jakati",
+    "cricinfoId": "29655",
+    "wikidataLabel": "Shadab Jakati",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f0f628c7",
+    "name": "MM Patel",
+    "cricinfoId": "32965",
+    "wikidataLabel": "Munaf Patel",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b822e99c",
+    "name": "NB Singh",
+    "cricinfoId": "853259",
+    "wikidataLabel": "Nathu Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ae78bc32",
+    "name": "MS Gony",
+    "cricinfoId": "317293",
+    "wikidataLabel": "Manpreet Gony",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c28e9f12",
+    "name": "Tejas Baroka",
+    "cricinfoId": "1082859",
+    "wikidataLabel": "Tejas Baroka",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f10e94c4",
+    "name": "AD Nath",
+    "cricinfoId": "500360",
+    "wikidataLabel": "Akshdeep Nath",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b51f72a5",
+    "name": "SS Agarwal",
+    "cricinfoId": "1079668",
+    "wikidataLabel": "Shubham Agarwal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "5fa06777",
+    "name": "IK Pathan",
+    "cricinfoId": "32685",
+    "wikidataLabel": "Irfan Pathan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "bb345e0b",
+    "name": "G Gambhir",
+    "cricinfoId": "28763",
+    "wikidataLabel": "Gautam Gambhir",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9d430b40",
+    "name": "SP Narine",
+    "cricinfoId": "230558",
+    "wikidataLabel": "Sunil Narine",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "3c6ffae8",
+    "name": "YK Pathan",
+    "cricinfoId": "32498",
+    "wikidataLabel": "Yusuf Pathan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "1c17e270",
+    "name": "RV Uthappa",
+    "cricinfoId": "35582",
+    "wikidataLabel": "Robin Uthappa",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "93b4fc78",
+    "name": "MK Pandey",
+    "cricinfoId": "290630",
+    "wikidataLabel": "Manish Pandey",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "cc1e8c68",
+    "name": "UT Yadav",
+    "cricinfoId": "376116",
+    "wikidataLabel": "Umesh Yadav",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "4c5d73db",
+    "name": "CR Woakes",
+    "cricinfoId": "247235",
+    "wikidataLabel": "Chris Woakes",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "8d2c70ad",
+    "name": "Kuldeep Yadav",
+    "cricinfoId": "559235",
+    "wikidataLabel": "Kuldeep Yadav",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "94d7f855",
+    "name": "C de Grandhomme",
+    "cricinfoId": "55395",
+    "wikidataLabel": "Colin de Grandhomme",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "271f83cd",
+    "name": "SA Yadav",
+    "cricinfoId": "446507",
+    "wikidataLabel": "Suryakumar Yadav",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "56ab442f",
+    "name": "NM Coulter-Nile",
+    "cricinfoId": "261354",
+    "wikidataLabel": "Nathan Coulter-Nile",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "45eda7c8",
+    "name": "CA Lynn",
+    "cricinfoId": "326637",
+    "wikidataLabel": "Chris Lynn",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "98ae73b1",
+    "name": "PP Chawla",
+    "cricinfoId": "32966",
+    "wikidataLabel": "Piyush Chawla",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a818c1be",
+    "name": "TA Boult",
+    "cricinfoId": "277912",
+    "wikidataLabel": "Trent Boult",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "db31895a",
+    "name": "AS Rajpoot",
+    "cricinfoId": "591650",
+    "wikidataLabel": "Ankit Rajpoot",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "acc1aeda",
+    "name": "SP Jackson",
+    "cricinfoId": "237696",
+    "wikidataLabel": "Sheldon Jackson",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "dded65e7",
+    "name": "IR Jaggi",
+    "cricinfoId": "279554",
+    "wikidataLabel": "Ishank Jaggi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "7dc35884",
+    "name": "Shakib Al Hasan",
+    "cricinfoId": "56143",
+    "wikidataLabel": "Shakib Al Hasan",
+    "countries": [
+      "Bangladesh"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "26a85969",
+    "name": "R Dhawan",
+    "cricinfoId": "290727",
+    "wikidataLabel": "Rishi Dhawan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "650d5e49",
+    "name": "R Powell",
+    "cricinfoId": "820351",
+    "wikidataLabel": "Rovman Powell",
+    "countries": [
+      "Jamaica"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "fe11caa6",
+    "name": "WP Saha",
+    "cricinfoId": "279810",
+    "wikidataLabel": "Wriddhiman Saha",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2e171977",
+    "name": "AR Patel",
+    "cricinfoId": "554691",
+    "wikidataLabel": "Axar Patel",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b681e71e",
+    "name": "GJ Maxwell",
+    "cricinfoId": "325026",
+    "wikidataLabel": "Glenn Maxwell",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "759ac88f",
+    "name": "MM Sharma",
+    "cricinfoId": "537119",
+    "wikidataLabel": "Mohit Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ce820073",
+    "name": "Sandeep Sharma",
+    "cricinfoId": "438362",
+    "wikidataLabel": "Sandeep Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c03e2850",
+    "name": "M Vohra",
+    "cricinfoId": "532856",
+    "wikidataLabel": "Manan Vohra",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e798611a",
+    "name": "HM Amla",
+    "cricinfoId": "43906",
+    "wikidataLabel": "Hashim Amla",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "508a1ea7",
+    "name": "SE Marsh",
+    "cricinfoId": "6683",
+    "wikidataLabel": "Shaun Marsh",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "2be41edb",
+    "name": "MJ Guptill",
+    "cricinfoId": "226492",
+    "wikidataLabel": "Martin Guptill",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ce794613",
+    "name": "T Natarajan",
+    "cricinfoId": "802575",
+    "wikidataLabel": "Thangarasu Natarajan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0a3d54b9",
+    "name": "VR Aaron",
+    "cricinfoId": "360911",
+    "wikidataLabel": "Varun Aaron",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "5bb1a1c4",
+    "name": "I Sharma",
+    "cricinfoId": "236779",
+    "wikidataLabel": "Ishant Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d67d5f00",
+    "name": "DA Miller",
+    "cricinfoId": "321777",
+    "wikidataLabel": "David Miller",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d9273ee7",
+    "name": "MP Stoinis",
+    "cricinfoId": "325012",
+    "wikidataLabel": "Marcus Stoinis",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "983f2f61",
+    "name": "Swapnil Singh",
+    "cricinfoId": "232292",
+    "wikidataLabel": "Swapnil Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d2a6c0e6",
+    "name": "EJG Morgan",
+    "cricinfoId": "24598",
+    "wikidataLabel": "Eoin Morgan",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "edb3d4f8",
+    "name": "KC Cariappa",
+    "cricinfoId": "777537",
+    "wikidataLabel": "KC Cariappa",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "39a2dfa8",
+    "name": "R Tewatia",
+    "cricinfoId": "423838",
+    "wikidataLabel": "Rahul Tewatia",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6eb146d2",
+    "name": "Gurkeerat Singh",
+    "cricinfoId": "537124",
+    "wikidataLabel": "Gurkeerat Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e84ac20c",
+    "name": "MJ Henry",
+    "cricinfoId": "506612",
+    "wikidataLabel": "Matt Henry",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "69be866a",
+    "name": "Anureet Singh",
+    "cricinfoId": "376324",
+    "wikidataLabel": "Anureet Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "944533a5",
+    "name": "KK Nair",
+    "cricinfoId": "398439",
+    "wikidataLabel": "Karun Nair",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a4cc73aa",
+    "name": "SV Samson",
+    "cricinfoId": "425943",
+    "wikidataLabel": "Sanju Samson",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "919a3be2",
+    "name": "RR Pant",
+    "cricinfoId": "931581",
+    "wikidataLabel": "Rishabh Pant",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6b19d823",
+    "name": "A Mishra",
+    "cricinfoId": "31107",
+    "wikidataLabel": "Amit Mishra",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ded9240e",
+    "name": "PJ Cummins",
+    "cricinfoId": "489889",
+    "wikidataLabel": "Pat Cummins",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "85ec8e33",
+    "name": "SS Iyer",
+    "cricinfoId": "642519",
+    "wikidataLabel": "Shreyas Iyer",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "91a4a398",
+    "name": "Z Khan",
+    "cricinfoId": "30102",
+    "wikidataLabel": "Zaheer Khan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "8abdf100",
+    "name": "CJ Anderson",
+    "cricinfoId": "277662",
+    "wikidataLabel": "Corey Anderson",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "fb66ce1f",
+    "name": "CH Morris",
+    "cricinfoId": "439952",
+    "wikidataLabel": "Chris Morris",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "8cf9814c",
+    "name": "Mohammed Shami",
+    "cricinfoId": "481896",
+    "wikidataLabel": "Mohammed Shami",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9d80c5e1",
+    "name": "S Nadeem",
+    "cricinfoId": "31872",
+    "wikidataLabel": "Shahbaz Nadeem",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c16d4035",
+    "name": "SW Billings",
+    "cricinfoId": "297628",
+    "wikidataLabel": "Sam Billings",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "e62dd25d",
+    "name": "K Rabada",
+    "cricinfoId": "550215",
+    "wikidataLabel": "Kagiso Rabada",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f846de6a",
+    "name": "MN Samuels",
+    "cricinfoId": "52983",
+    "wikidataLabel": "Marlon Samuels",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "855a210c",
+    "name": "AP Tare",
+    "cricinfoId": "333904",
+    "wikidataLabel": "Aditya Tare",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "896d78ad",
+    "name": "AD Mathews",
+    "cricinfoId": "49764",
+    "wikidataLabel": "Angelo Mathews",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "81049310",
+    "name": "J Yadav",
+    "cricinfoId": "447587",
+    "wikidataLabel": "Jayant Yadav",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "afe3355a",
+    "name": "AR Bawne",
+    "cricinfoId": "327123",
+    "wikidataLabel": "Ankit Bawne",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a9fd84fb",
+    "name": "M Markande",
+    "cricinfoId": "1081442",
+    "wikidataLabel": "Mayank Markande",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2e8994e7",
+    "name": "JP Duminy",
+    "cricinfoId": "44932",
+    "wikidataLabel": "JP Duminy",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5b16a806",
+    "name": "A Dananjaya",
+    "cricinfoId": "574178",
+    "wikidataLabel": "Akila Dananjaya",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "87e562a9",
+    "name": "DJ Bravo",
+    "cricinfoId": "51439",
+    "wikidataLabel": "Dwayne Bravo",
+    "countries": [
+      "Trinidad and Tobago"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f834dcfc",
+    "name": "L Ngidi",
+    "cricinfoId": "542023",
+    "wikidataLabel": "Lungi Ngidi",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "7f048519",
+    "name": "DJ Willey",
+    "cricinfoId": "308251",
+    "wikidataLabel": "David Willey",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "798cc28e",
+    "name": "KM Asif",
+    "cricinfoId": "1083030",
+    "wikidataLabel": "KM Asif",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "8d92a2c3",
+    "name": "MA Wood",
+    "cricinfoId": "351588",
+    "wikidataLabel": "Mark Wood",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "4b57e452",
+    "name": "M Vijay",
+    "cricinfoId": "237095",
+    "wikidataLabel": "Murali Vijay",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "faa7365d",
+    "name": "DR Shorey",
+    "cricinfoId": "590327",
+    "wikidataLabel": "Dhruv Shorey",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "8b3e9c7c",
+    "name": "PP Shaw",
+    "cricinfoId": "1070168",
+    "wikidataLabel": "Prithvi Shaw",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9a963804",
+    "name": "LE Plunkett",
+    "cricinfoId": "19264",
+    "wikidataLabel": "Liam Plunkett",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "af2c687b",
+    "name": "C Munro",
+    "cricinfoId": "232359",
+    "wikidataLabel": "Colin Munro",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f29185a1",
+    "name": "Abhishek Sharma",
+    "cricinfoId": "1070183",
+    "wikidataLabel": "Abhishek Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b410bd3d",
+    "name": "S Lamichhane",
+    "cricinfoId": "960361",
+    "wikidataLabel": "Sandeep Lamichhane",
+    "countries": [
+      "Nepal"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1cb14aa4",
+    "name": "CJ Dala",
+    "cricinfoId": "545467",
+    "wikidataLabel": "Junior Dala",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b17e2f24",
+    "name": "KL Rahul",
+    "cricinfoId": "422108",
+    "wikidataLabel": "KL Rahul",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "495d42a5",
+    "name": "R Ashwin",
+    "cricinfoId": "26421",
+    "wikidataLabel": "Ravichandran Ashwin",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "7d92277a",
+    "name": "Mujeeb Ur Rahman",
+    "cricinfoId": "974109",
+    "wikidataLabel": "Mujeeb Ur Rahman",
+    "countries": [
+      "Afghanistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "372455c4",
+    "name": "Q de Kock",
+    "cricinfoId": "379143",
+    "wikidataLabel": "Quinton de Kock",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f088b960",
+    "name": "SN Khan",
+    "cricinfoId": "642525",
+    "wikidataLabel": "Sarfaraz Khan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "bb351c23",
+    "name": "MM Ali",
+    "cricinfoId": "8917",
+    "wikidataLabel": "Moeen Ali",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "fa2f1dde",
+    "name": "K Khejroliya",
+    "cricinfoId": "1083033",
+    "wikidataLabel": "Kulwant Khejroliya",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e2db2409",
+    "name": "M Ashwin",
+    "cricinfoId": "528067",
+    "wikidataLabel": "Murugan Ashwin",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "bbd41817",
+    "name": "AD Russell",
+    "cricinfoId": "276298",
+    "wikidataLabel": "Andre Russell",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b4b99816",
+    "name": "Shubman Gill",
+    "cricinfoId": "1070173",
+    "wikidataLabel": "Shubman Gill",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c38d3503",
+    "name": "Shivam Mavi",
+    "cricinfoId": "1079848",
+    "wikidataLabel": "Shivam Mavi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "85e0cf10",
+    "name": "M Prasidh Krishna",
+    "cricinfoId": "917159",
+    "wikidataLabel": "Prasidh Krishna",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e86754b2",
+    "name": "TK Curran",
+    "cricinfoId": "550235",
+    "wikidataLabel": "Tom Curran",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0a509d6b",
+    "name": "RK Singh",
+    "cricinfoId": "723105",
+    "wikidataLabel": "Rinku Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "99ed60f8",
+    "name": "JPR Scantlebury-Searles",
+    "cricinfoId": "230554",
+    "wikidataLabel": "Javon Searles",
+    "countries": [
+      "Barbados"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "90de905a",
+    "name": "K Gowtham",
+    "cricinfoId": "424377",
+    "wikidataLabel": "Krishnappa Gowtham",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "7a8bd078",
+    "name": "S Gopal",
+    "cricinfoId": "344580",
+    "wikidataLabel": "Shreyas Gopal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "5574750c",
+    "name": "JC Archer",
+    "cricinfoId": "669855",
+    "wikidataLabel": "Jofra Archer",
+    "countries": [
+      "Barbados"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1a156c88",
+    "name": "DJM Short",
+    "cricinfoId": "308798",
+    "wikidataLabel": "D'Arcy Short",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b2a79f17",
+    "name": "B Laughlin",
+    "cricinfoId": "315623",
+    "wikidataLabel": "Ben Laughlin",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "641ac5ff",
+    "name": "IS Sodhi",
+    "cricinfoId": "559066",
+    "wikidataLabel": "Ish Sodhi",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "235c2bb6",
+    "name": "H Klaasen",
+    "cricinfoId": "436757",
+    "wikidataLabel": "Heinrich Klaasen",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "da934ee8",
+    "name": "MK Lomror",
+    "cricinfoId": "853265",
+    "wikidataLabel": "Mahipal Lomror",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "8ac93ca2",
+    "name": "P Chopra",
+    "cricinfoId": "500135",
+    "wikidataLabel": "Prashant Chopra",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "92aeac25",
+    "name": "AD Hales",
+    "cricinfoId": "249866",
+    "wikidataLabel": "Alex Hales",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "541f85c9",
+    "name": "SP Goswami",
+    "cricinfoId": "302579",
+    "wikidataLabel": "Shreevats Goswami",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b63e358a",
+    "name": "RK Bhui",
+    "cricinfoId": "642531",
+    "wikidataLabel": "Ricky Bhui",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a2f46292",
+    "name": "KK Ahmed",
+    "cricinfoId": "942645",
+    "wikidataLabel": "Khaleel Ahmed",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "21d4e29b",
+    "name": "Navdeep Saini",
+    "cricinfoId": "700167",
+    "wikidataLabel": "Navdeep Saini",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a4e37e47",
+    "name": "S Dube",
+    "cricinfoId": "714451",
+    "wikidataLabel": "Shivam Dube",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "8fd1a8f5",
+    "name": "DW Steyn",
+    "cricinfoId": "47492",
+    "wikidataLabel": "Dale Steyn",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "441c72ae",
+    "name": "P Ray Barman",
+    "cricinfoId": "1159712",
+    "wikidataLabel": "Prayas Ray Barman",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b4296080",
+    "name": "Milind Kumar",
+    "cricinfoId": "451947",
+    "wikidataLabel": "Milind Kumar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e4a0deae",
+    "name": "MJ Santner",
+    "cricinfoId": "502714",
+    "wikidataLabel": "Mitchell Santner",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "fef92afc",
+    "name": "SC Kuggeleijn",
+    "cricinfoId": "539548",
+    "wikidataLabel": "Scott Kuggeleijn",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "abb83e27",
+    "name": "JM Bairstow",
+    "cricinfoId": "297433",
+    "wikidataLabel": "Jonny Bairstow",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "e412cb64",
+    "name": "HF Gurney",
+    "cricinfoId": "244639",
+    "wikidataLabel": "Harry Gurney",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "cdc6bdba",
+    "name": "S Sandeep Warrier",
+    "cricinfoId": "592735",
+    "wikidataLabel": "Sandeep Warrier",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "cfa4bd2b",
+    "name": "Y Prithvi Raj",
+    "cricinfoId": "1121579",
+    "wikidataLabel": "Prithvi Raj",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "aedc3b7c",
+    "name": "NS Naik",
+    "cricinfoId": "554700",
+    "wikidataLabel": "Nikhil Naik",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "bdadf7da",
+    "name": "JL Denly",
+    "cricinfoId": "12454",
+    "wikidataLabel": "Joe Denly",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c995d726",
+    "name": "CA Ingram",
+    "cricinfoId": "45705",
+    "wikidataLabel": "Colin Ingram",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "75224f22",
+    "name": "KMA Paul",
+    "cricinfoId": "677081",
+    "wikidataLabel": "Keemo Paul",
+    "countries": [
+      "Guyana"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d014d5ac",
+    "name": "SE Rutherford",
+    "cricinfoId": "914541",
+    "wikidataLabel": "Sherfane Rutherford",
+    "countries": [
+      "Guyana"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "94253925",
+    "name": "GH Vihari",
+    "cricinfoId": "452044",
+    "wikidataLabel": "Hanuma Vihari",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "4933f499",
+    "name": "JP Behrendorff",
+    "cricinfoId": "272477",
+    "wikidataLabel": "Jason Behrendorff",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b0946605",
+    "name": "AS Joseph",
+    "cricinfoId": "670031",
+    "wikidataLabel": "Alzarri Joseph",
+    "countries": [
+      "Antigua and Barbuda"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b8527c3d",
+    "name": "Rasikh Salam",
+    "cricinfoId": "1161489",
+    "wikidataLabel": "Rasikh Salam",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9601c534",
+    "name": "SD Lad",
+    "cricinfoId": "422342",
+    "wikidataLabel": "Siddhesh Lad",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e4cdf230",
+    "name": "AS Roy",
+    "cricinfoId": "1079839",
+    "wikidataLabel": "Anukul Roy priyansh Kumar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e94915e6",
+    "name": "SM Curran",
+    "cricinfoId": "662973",
+    "wikidataLabel": "Sam Curran",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "a316d663",
+    "name": "GC Viljoen",
+    "cricinfoId": "375126",
+    "wikidataLabel": "Hardus Viljoen",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "244048f6",
+    "name": "Arshdeep Singh",
+    "cricinfoId": "1125976",
+    "wikidataLabel": "Arshdeep Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c05edf8e",
+    "name": "Harpreet Brar",
+    "cricinfoId": "1168641",
+    "wikidataLabel": "Harpreet Brar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "04a418e8",
+    "name": "R Parag",
+    "cricinfoId": "1079434",
+    "wikidataLabel": "Riyan Parag",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "50c6bc2b",
+    "name": "LS Livingstone",
+    "cricinfoId": "403902",
+    "wikidataLabel": "Liam Livingstone",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ff1e12a0",
+    "name": "AJ Turner",
+    "cricinfoId": "500268",
+    "wikidataLabel": "Ashton Turner",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c6097d68",
+    "name": "O Thomas",
+    "cricinfoId": "914567",
+    "wikidataLabel": "Oshane Thomas",
+    "countries": [
+      "Jamaica"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ade90de7",
+    "name": "S Midhun",
+    "cricinfoId": "1131619",
+    "wikidataLabel": "Sudhesan Midhun",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f752db61",
+    "name": "JL Pattinson",
+    "cricinfoId": "272465",
+    "wikidataLabel": "James Pattinson",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "45a43fe2",
+    "name": "RD Gaikwad",
+    "cricinfoId": "1060380",
+    "wikidataLabel": "Ruturaj Gaikwad",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "bd54eef5",
+    "name": "N Jagadeesan",
+    "cricinfoId": "1048813",
+    "wikidataLabel": "Narayan Jagadeesan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "03806cf8",
+    "name": "JR Hazlewood",
+    "cricinfoId": "288284",
+    "wikidataLabel": "Josh Hazlewood",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "fb24e76c",
+    "name": "Monu Kumar",
+    "cricinfoId": "694209",
+    "wikidataLabel": "Monu Kumar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "acdc62f5",
+    "name": "A Nortje",
+    "cricinfoId": "481979",
+    "wikidataLabel": "Anrich Nortje",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "46a9bea1",
+    "name": "TU Deshpande",
+    "cricinfoId": "822553",
+    "wikidataLabel": "Tushar Deshpande",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "caf69bf7",
+    "name": "DR Sams",
+    "cricinfoId": "826901",
+    "wikidataLabel": "Daniel Sams",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "69d03465",
+    "name": "AT Carey",
+    "cricinfoId": "326434",
+    "wikidataLabel": "Alex Carey",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ed5a5510",
+    "name": "P Dubey",
+    "cricinfoId": "777515",
+    "wikidataLabel": "Praveen Dubey",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ad427b5c",
+    "name": "Lalit Yadav",
+    "cricinfoId": "930189",
+    "wikidataLabel": "Lalit Yadav",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "df064e1a",
+    "name": "Ravi Bishnoi",
+    "cricinfoId": "1175441",
+    "wikidataLabel": "Ravi Bishnoi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a1d053dd",
+    "name": "SS Cottrell",
+    "cricinfoId": "495551",
+    "wikidataLabel": "Sheldon Cottrell",
+    "countries": [
+      "Jamaica"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "9219eff0",
+    "name": "JDS Neesham",
+    "cricinfoId": "355269",
+    "wikidataLabel": "James Neesham",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b4f5c2d9",
+    "name": "KL Nagarkoti",
+    "cricinfoId": "1070188",
+    "wikidataLabel": "Kamlesh Nagarkoti",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "25f7b7d6",
+    "name": "T Banton",
+    "cricinfoId": "877051",
+    "wikidataLabel": "Tom Banton",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "19b9f399",
+    "name": "CJ Green",
+    "cricinfoId": "787073",
+    "wikidataLabel": "Chris Green",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ac5ae4af",
+    "name": "I Udana",
+    "cricinfoId": "328026",
+    "wikidataLabel": "Isuru Udana",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "39086549",
+    "name": "JR Philippe",
+    "cricinfoId": "1124282",
+    "wikidataLabel": "Josh Philippe",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f9e6e7ef",
+    "name": "Shahbaz Ahmed",
+    "cricinfoId": "1159711",
+    "wikidataLabel": "Sahabaz Ahmed",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "bb965e9a",
+    "name": "PK Garg",
+    "cricinfoId": "1070180",
+    "wikidataLabel": "Priyam Garg",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0f721006",
+    "name": "JO Holder",
+    "cricinfoId": "391485",
+    "wikidataLabel": "Jason Holder",
+    "countries": [
+      "Barbados"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "3d8feaf8",
+    "name": "MR Marsh",
+    "cricinfoId": "272450",
+    "wikidataLabel": "Mitchell Marsh",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5d2eea49",
+    "name": "Kartik Tyagi",
+    "cricinfoId": "1122918",
+    "wikidataLabel": "Kartik Tyagi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6c19c6e5",
+    "name": "YBK Jaiswal",
+    "cricinfoId": "1151278",
+    "wikidataLabel": "Yashasvi Jaiswal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "81c36ee9",
+    "name": "M Jansen",
+    "cricinfoId": "696401",
+    "wikidataLabel": "Marco Jansen",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "68c56d09",
+    "name": "KA Jamieson",
+    "cricinfoId": "625960",
+    "wikidataLabel": "Kyle Jamieson",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "44a89551",
+    "name": "KS Bharat",
+    "cricinfoId": "529436",
+    "wikidataLabel": "Srikar Bharat",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "be869ccf",
+    "name": "GHS Garton",
+    "cricinfoId": "643433",
+    "wikidataLabel": "George Garton",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c740ea83",
+    "name": "RM Patidar",
+    "cricinfoId": "823703",
+    "wikidataLabel": "Rajat Patidar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a97c8ec2",
+    "name": "PWH de Silva",
+    "cricinfoId": "784379",
+    "wikidataLabel": "Wanindu Hasaranga",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "dfc4d8b5",
+    "name": "KW Richardson",
+    "cricinfoId": "272262",
+    "wikidataLabel": "Kane Richardson",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f1f99156",
+    "name": "TH David",
+    "cricinfoId": "892749",
+    "wikidataLabel": "Tim David",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d3611425",
+    "name": "LI Meriwala",
+    "cricinfoId": "573930",
+    "wikidataLabel": "Lukman Meriwala",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a24be938",
+    "name": "VR Iyer",
+    "cricinfoId": "851403",
+    "wikidataLabel": "Venkatesh Iyer",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "4663bd23",
+    "name": "TL Seifert",
+    "cricinfoId": "625964",
+    "wikidataLabel": "Tim Seifert",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "26d76ad9",
+    "name": "Virat Singh",
+    "cricinfoId": "720465",
+    "wikidataLabel": "Virat Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "81c08fa3",
+    "name": "Umran Malik",
+    "cricinfoId": "1246528",
+    "wikidataLabel": "Umran Malik",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6a26221c",
+    "name": "AK Markram",
+    "cricinfoId": "600498",
+    "wikidataLabel": "Aiden Markram",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "64775749",
+    "name": "RP Meredith",
+    "cricinfoId": "961713",
+    "wikidataLabel": "Riley Meredith",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b52ffbbd",
+    "name": "FA Allen",
+    "cricinfoId": "670013",
+    "wikidataLabel": "Fabian Allen",
+    "countries": [
+      "Jamaica"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1ee08e9a",
+    "name": "JA Richardson",
+    "cricinfoId": "774223",
+    "wikidataLabel": "Jhye Richardson",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "249abedf",
+    "name": "Jalaj S Saxena",
+    "cricinfoId": "237199",
+    "wikidataLabel": "Jalaj Saxena",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ad9c32a2",
+    "name": "DJ Malan",
+    "cricinfoId": "236489",
+    "wikidataLabel": "Dawid Malan",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "fdf7491e",
+    "name": "IC Porel",
+    "cricinfoId": "967603",
+    "wikidataLabel": "Ishan Porel",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "249d60c9",
+    "name": "AU Rashid",
+    "cricinfoId": "244497",
+    "wikidataLabel": "Adil Rashid",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "2cdce1be",
+    "name": "C Sakariya",
+    "cricinfoId": "1131754",
+    "wikidataLabel": "Chetan Sakariya",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9a46c4e5",
+    "name": "GD Phillips",
+    "cricinfoId": "823509",
+    "wikidataLabel": "Glenn Phillips",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c8f5f961",
+    "name": "Anuj Rawat",
+    "cricinfoId": "1123073",
+    "wikidataLabel": "Anuj Rawat",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a03bba42",
+    "name": "T Shamsi",
+    "cricinfoId": "379145",
+    "wikidataLabel": "Tabraiz Shamsi",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "765a4731",
+    "name": "Mukesh Choudhary",
+    "cricinfoId": "1125688",
+    "wikidataLabel": "Mukesh Choudhary",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "df5a6881",
+    "name": "DP Conway",
+    "cricinfoId": "379140",
+    "wikidataLabel": "Devon Conway",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "11614d87",
+    "name": "D Pretorius",
+    "cricinfoId": "327830",
+    "wikidataLabel": "Dwaine Pretorius",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "30df8c66",
+    "name": "Simarjeet Singh",
+    "cricinfoId": "1159722",
+    "wikidataLabel": "Simarjeet Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "64839cb3",
+    "name": "M Pathirana",
+    "cricinfoId": "1194795",
+    "wikidataLabel": "Matheesha Pathirana",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ff1e68fa",
+    "name": "B Indrajith",
+    "cricinfoId": "477069",
+    "wikidataLabel": "Baba Indrajith",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "aa5d8c9e",
+    "name": "A Tomar",
+    "cricinfoId": "1081183",
+    "wikidataLabel": "Abhijeet Tomar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b0482a1d",
+    "name": "Tilak Varma",
+    "cricinfoId": "1170265",
+    "wikidataLabel": "Tilak Varma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "844e79d1",
+    "name": "D Brevis",
+    "cricinfoId": "1070665",
+    "wikidataLabel": "Dewald Brevis",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "be24ead0",
+    "name": "Ramandeep Singh",
+    "cricinfoId": "1079470",
+    "wikidataLabel": "Ramandeep Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0c9652b0",
+    "name": "HR Shokeen",
+    "cricinfoId": "1175423",
+    "wikidataLabel": "Hrithik Shokeen",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "33ffc3dd",
+    "name": "R Sanjay Yadav",
+    "cricinfoId": "1048841",
+    "wikidataLabel": "Sanjay Yadav",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0a67aec0",
+    "name": "Akash Deep",
+    "cricinfoId": "1176959",
+    "wikidataLabel": "Akash Deep",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9385de2e",
+    "name": "SS Prabhudessai",
+    "cricinfoId": "1083851",
+    "wikidataLabel": "Suyash Prabhudessai",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "800d2d97",
+    "name": "JM Sharma",
+    "cricinfoId": "721867",
+    "wikidataLabel": "Jitesh Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6c882e9a",
+    "name": "PBB Rajapaksa",
+    "cricinfoId": "342619",
+    "wikidataLabel": "Bhanuka Rajapaksa",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "23cca426",
+    "name": "OF Smith",
+    "cricinfoId": "820691",
+    "wikidataLabel": "Odean Smith",
+    "countries": [
+      "Jamaica"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "7c3b3b78",
+    "name": "VG Arora",
+    "cricinfoId": "1209292",
+    "wikidataLabel": "Vaibhav Arora",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ba6b2f91",
+    "name": "RA Bawa",
+    "cricinfoId": "1292502",
+    "wikidataLabel": "Raj Angad Bawa",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "663b5e34",
+    "name": "PN Mankad",
+    "cricinfoId": "956871",
+    "wikidataLabel": "Prerak Mankad",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "327b58d3",
+    "name": "PVD Chameera",
+    "cricinfoId": "552152",
+    "wikidataLabel": "Dushmantha Chameera",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c33d8116",
+    "name": "Mohsin Khan",
+    "cricinfoId": "1132005",
+    "wikidataLabel": "Mohsin Khan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "afa7e784",
+    "name": "MS Wade",
+    "cricinfoId": "230193",
+    "wikidataLabel": "Matthew Wade",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "7210d461",
+    "name": "Yash Dayal",
+    "cricinfoId": "1159720",
+    "wikidataLabel": "Yash Dayal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d5130a30",
+    "name": "B Sai Sudharsan",
+    "cricinfoId": "1151288",
+    "wikidataLabel": "Sai Sudharsan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c7a995d3",
+    "name": "R Sai Kishore",
+    "cricinfoId": "1048739",
+    "wikidataLabel": "Ravisrinivasan Sai Kishore",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "cd8d2859",
+    "name": "DG Nalkande",
+    "cricinfoId": "1111917",
+    "wikidataLabel": "Darshan Nalkande",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9948e262",
+    "name": "HE van der Dussen",
+    "cricinfoId": "337790",
+    "wikidataLabel": "Rassie van der Dussen",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "eade4650",
+    "name": "DJ Mitchell",
+    "cricinfoId": "381743",
+    "wikidataLabel": "Daryl Mitchell",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "26989d80",
+    "name": "Shashank Singh",
+    "cricinfoId": "377534",
+    "wikidataLabel": "Shashank Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c5aef772",
+    "name": "R Shepherd",
+    "cricinfoId": "677077",
+    "wikidataLabel": "Romario Shepherd",
+    "countries": [
+      "Guyana"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "e9c7f0d0",
+    "name": "Fazalhaq Farooqi",
+    "cricinfoId": "974175",
+    "wikidataLabel": "Fazalhaq Farooqi",
+    "countries": [
+      "Afghanistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1a2676c5",
+    "name": "SA Abbott",
+    "cricinfoId": "398666",
+    "wikidataLabel": "Sean Abbott",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c3c92b42",
+    "name": "RS Hangargekar",
+    "cricinfoId": "1175429",
+    "wikidataLabel": "Rajvardhan Hangargekar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "8361e524",
+    "name": "SSB Magala",
+    "cricinfoId": "379776",
+    "wikidataLabel": "Sisanda Magala",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "cbf58a86",
+    "name": "SK Rasheed",
+    "cricinfoId": "1292497",
+    "wikidataLabel": "Shaik Rasheed",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0edcb652",
+    "name": "Subhransu Senapati",
+    "cricinfoId": "1059577",
+    "wikidataLabel": "Subhranshu Senapati",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "efc04be7",
+    "name": "Noor Ahmad",
+    "cricinfoId": "1182529",
+    "wikidataLabel": "Noor Ahmad",
+    "countries": [
+      "Afghanistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "3ff033bb",
+    "name": "MD Shanaka",
+    "cricinfoId": "437316",
+    "wikidataLabel": "Dasun Shanaka",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "26d041c4",
+    "name": "Sikandar Raza",
+    "cricinfoId": "299572",
+    "wikidataLabel": "Sikandar Raza",
+    "countries": [
+      "Zimbabwe"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1ac746c8",
+    "name": "Atharva Taide",
+    "cricinfoId": "1125958",
+    "wikidataLabel": "Atharva Taide",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a90e53ec",
+    "name": "MW Short",
+    "cricinfoId": "605575",
+    "wikidataLabel": "Matthew Short",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "28c78fb3",
+    "name": "Harpreet Singh",
+    "cricinfoId": "340854",
+    "wikidataLabel": "Harpreet Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0bacade8",
+    "name": "Rahmanullah Gurbaz",
+    "cricinfoId": "974087",
+    "wikidataLabel": "Rahmanullah Gurbaz",
+    "countries": [
+      "Afghanistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "aa8d28ae",
+    "name": "D Wiese",
+    "cricinfoId": "221140",
+    "wikidataLabel": "David Wiese",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0404d43c",
+    "name": "Liton Das",
+    "cricinfoId": "536936",
+    "wikidataLabel": "Litton Das",
+    "countries": [
+      "Bangladesh"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "73c18486",
+    "name": "KR Mayers",
+    "cricinfoId": "348056",
+    "wikidataLabel": "Kyle Mayers",
+    "countries": [
+      "Barbados"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "4b31f3a3",
+    "name": "Yash Thakur",
+    "cricinfoId": "1070196",
+    "wikidataLabel": "Yash Thakur",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c0c411cb",
+    "name": "Naveen-ul-Haq",
+    "cricinfoId": "793447",
+    "wikidataLabel": "Naveen-ul-Haq",
+    "countries": [
+      "Afghanistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "2cffab74",
+    "name": "Mukesh Kumar",
+    "cricinfoId": "926851",
+    "wikidataLabel": "Mukesh Kumar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "cad00a4d",
+    "name": "RR Rossouw",
+    "cricinfoId": "318845",
+    "wikidataLabel": "Rilee Rossouw",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "3d284ca3",
+    "name": "PD Salt",
+    "cricinfoId": "669365",
+    "wikidataLabel": "Philip Salt",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ad3b6e95",
+    "name": "Abishek Porel",
+    "cricinfoId": "1277545",
+    "wikidataLabel": "Abishek Porel",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "dd7e9b3b",
+    "name": "YV Dhull",
+    "cricinfoId": "1292498",
+    "wikidataLabel": "Yash Dhull",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a343262c",
+    "name": "JE Root",
+    "cricinfoId": "303669",
+    "wikidataLabel": "Joe Root",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "cc777ffa",
+    "name": "Abdul Basith",
+    "cricinfoId": "1287067",
+    "wikidataLabel": "Abdul Basith",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "4ae1755b",
+    "name": "HC Brook",
+    "cricinfoId": "911707",
+    "wikidataLabel": "Harry Brook",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "a457cfb5",
+    "name": "Mayank Dagar",
+    "cricinfoId": "942367",
+    "wikidataLabel": "Mayank Dagar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "eaa76d3c",
+    "name": "C Green",
+    "cricinfoId": "1076713",
+    "wikidataLabel": "Cameron Green",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "4bd09374",
+    "name": "Akash Madhwal",
+    "cricinfoId": "1206039",
+    "wikidataLabel": "Akash Mandwaal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "12314277",
+    "name": "Arshad Khan",
+    "cricinfoId": "1244751",
+    "wikidataLabel": "Arshad Khan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "44aac2f0",
+    "name": "Arjun Tendulkar",
+    "cricinfoId": "1148776",
+    "wikidataLabel": "Arjun Tendulkar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "3a60e0b5",
+    "name": "WD Parnell",
+    "cricinfoId": "265564",
+    "wikidataLabel": "Wayne Parnell",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "e38bce7a",
+    "name": "MG Bracewell",
+    "cricinfoId": "326968",
+    "wikidataLabel": "Michael Bracewell",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "8db7f47f",
+    "name": "RJW Topley",
+    "cricinfoId": "461632",
+    "wikidataLabel": "Reece Topley",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "52294a79",
+    "name": "H Sharma",
+    "cricinfoId": "1350761",
+    "wikidataLabel": "Himanshu Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9caf69a1",
+    "name": "WG Jacks",
+    "cricinfoId": "897549",
+    "wikidataLabel": "Will Jacks",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ba5e1069",
+    "name": "R Ravindra",
+    "cricinfoId": "959767",
+    "wikidataLabel": "Rachin Ravindra",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "402f8494",
+    "name": "RJ Gleeson",
+    "cricinfoId": "473191",
+    "wikidataLabel": "Richard Gleeson",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "8998a68f",
+    "name": "Sumit Kumar",
+    "cricinfoId": "1159734",
+    "wikidataLabel": "Sumit Kumar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "57ca01b3",
+    "name": "Kumar Kushagra",
+    "cricinfoId": "1207295",
+    "wikidataLabel": "Kumar Kushagra",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a1d95bd8",
+    "name": "LB Williams",
+    "cricinfoId": "379887",
+    "wikidataLabel": "Lizaad Williams",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "9f77963a",
+    "name": "Gulbadin Naib",
+    "cricinfoId": "352048",
+    "wikidataLabel": "Gulbudeen Naib",
+    "countries": [
+      "Pakistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "84d9c311",
+    "name": "Ashutosh Sharma",
+    "cricinfoId": "1131978",
+    "wikidataLabel": "Ashutosh Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d4d929b0",
+    "name": "V Kaverappa",
+    "cricinfoId": "1155262",
+    "wikidataLabel": "Vidwath Kaverappa",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f1809c03",
+    "name": "Tanay Thyagarajan",
+    "cricinfoId": "1080008",
+    "wikidataLabel": "Tanay Thyagarajan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "3fb19989",
+    "name": "MA Starc",
+    "cricinfoId": "311592",
+    "wikidataLabel": "Mitchell Starc",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d7017798",
+    "name": "A Raghuvanshi",
+    "cricinfoId": "1292495",
+    "wikidataLabel": "Angkrish Raghuvanshi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "465aa633",
+    "name": "N Burger",
+    "cricinfoId": "971349",
+    "wikidataLabel": "Nandre Burger",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f836b33d",
+    "name": "T Kohler-Cadmore",
+    "cricinfoId": "470633",
+    "wikidataLabel": "Tom Kohler-Cadmore",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0b60eb09",
+    "name": "KA Maharaj",
+    "cricinfoId": "267724",
+    "wikidataLabel": "Keshav Maharaj",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b1ad996b",
+    "name": "MP Yadav",
+    "cricinfoId": "1292563",
+    "wikidataLabel": "Mayank Yadav",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "8f6dd463",
+    "name": "Azmatullah Omarzai",
+    "cricinfoId": "819429",
+    "wikidataLabel": "Azmatullah Omarzai",
+    "countries": [
+      "Afghanistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "83c3e8e3",
+    "name": "SH Johnson",
+    "cricinfoId": "1123718",
+    "wikidataLabel": "Spencer Johnson",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c2dd89ea",
+    "name": "BR Sharath",
+    "cricinfoId": "917231",
+    "wikidataLabel": "BR Sharath",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "025c4400",
+    "name": "MJ Suthar",
+    "cricinfoId": "1175426",
+    "wikidataLabel": "Manav Suthar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "3204c99f",
+    "name": "G Coetzee",
+    "cricinfoId": "596010",
+    "wikidataLabel": "Gerald Coetzee",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ee1b6c27",
+    "name": "N Thushara",
+    "cricinfoId": "955235",
+    "wikidataLabel": "Nuwan Thushara",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "65b6943c",
+    "name": "L Wood",
+    "cricinfoId": "573170",
+    "wikidataLabel": "Luke Wood",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "9d704f6f",
+    "name": "SZ Mulani",
+    "cricinfoId": "1131607",
+    "wikidataLabel": "Shams Mulani",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e96801ea",
+    "name": "MS Bhandage",
+    "cricinfoId": "1057399",
+    "wikidataLabel": "Manoj Bhandage",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a3b0600d",
+    "name": "Aniket Verma",
+    "cricinfoId": "1409976",
+    "wikidataLabel": "Aniket Verma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "36619795",
+    "name": "Zeeshan Ansari",
+    "cricinfoId": "942371",
+    "wikidataLabel": "Zeeshan Ansari",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "08548b13",
+    "name": "PHKD Mendis",
+    "cricinfoId": "784373",
+    "wikidataLabel": "Kamindu Mendis",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c96f6ac5",
+    "name": "PWA Mulder",
+    "cricinfoId": "698189",
+    "wikidataLabel": "Wiaan Mulder",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "470f446b",
+    "name": "V Suryavanshi",
+    "cricinfoId": "1408688",
+    "wikidataLabel": "Vaibhav Suryavanshi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "50c09020",
+    "name": "Ashok Sharma",
+    "cricinfoId": "1299879",
+    "wikidataLabel": "Ashok Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e66732f8",
+    "name": "RD Rickelton",
+    "cricinfoId": "605661",
+    "wikidataLabel": "Ryan Rickelton",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1e030637",
+    "name": "V Puthur",
+    "cricinfoId": "1460388",
+    "wikidataLabel": "Vignesh Puthur",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "172dff15",
+    "name": "C Bosch",
+    "cricinfoId": "594322",
+    "wikidataLabel": "Corbin Bosch",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "bafd0398",
+    "name": "R Minz",
+    "cricinfoId": "1350762",
+    "wikidataLabel": "Robin Minz",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c27b5a0e",
+    "name": "PVSN Raju",
+    "cricinfoId": "1392201",
+    "wikidataLabel": "Satyanarayana Raju",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b2b4f545",
+    "name": "A Mhatre",
+    "cricinfoId": "1452455",
+    "wikidataLabel": "Ayush Mhatre",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "59559bc2",
+    "name": "J Overton",
+    "cricinfoId": "510530",
+    "wikidataLabel": "Jamie Overton",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "cf59b3f0",
+    "name": "Urvil Patel",
+    "cricinfoId": "1131570",
+    "wikidataLabel": "Urvil Patel",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ebcfef83",
+    "name": "Himmat Singh",
+    "cricinfoId": "805235",
+    "wikidataLabel": "Himmat Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "35f173a0",
+    "name": "MP Breetzke",
+    "cricinfoId": "595267",
+    "wikidataLabel": "Matthew Breetzke",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "fb5f69e4",
+    "name": "M Tiwari",
+    "cricinfoId": "1460385",
+    "wikidataLabel": "Madhav Tiwari",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "3c28853f",
+    "name": "Sediqullah Atal",
+    "cricinfoId": "1161050",
+    "wikidataLabel": "Sediqullah Atal",
+    "countries": [
+      "Afghanistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "51ec3919",
+    "name": "T Vijay",
+    "cricinfoId": "1292527",
+    "wikidataLabel": "Tripurana Vijay",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "989889ff",
+    "name": "JP Inglis",
+    "cricinfoId": "662235",
+    "wikidataLabel": "Josh Inglis",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "970ddd24",
+    "name": "Suryansh Shedge",
+    "cricinfoId": "1339698",
+    "wikidataLabel": "Suryansh Shedge",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "3b53243a",
+    "name": "XC Bartlett",
+    "cricinfoId": "1050545",
+    "wikidataLabel": "Xavier Bartlett",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f2c936d7",
+    "name": "MJ Owen",
+    "cricinfoId": "1213979",
+    "wikidataLabel": "Mitchell Owen",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d621b427",
+    "name": "Musheer Khan",
+    "cricinfoId": "1316430",
+    "wikidataLabel": "Musheer Khan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "62175638",
+    "name": "Karim Janat",
+    "cricinfoId": "793467",
+    "wikidataLabel": "Karim Janat",
+    "countries": [
+      "Afghanistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5d1e7582",
+    "name": "BKG Mendis",
+    "cricinfoId": "629074",
+    "wikidataLabel": "Kusal Mendis",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "280fff14",
+    "name": "Sakib Hussain",
+    "cricinfoId": "1340422",
+    "wikidataLabel": "Sakib Hussain",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6c79c098",
+    "name": "DA Payne",
+    "cricinfoId": "362710",
+    "wikidataLabel": "David Payne",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "dadbdb68",
+    "name": "JA Duffy",
+    "cricinfoId": "547766",
+    "wikidataLabel": "Jacob Duffy",
+    "countries": [
+      "New Zealand",
+      "Pakistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "bf74b130",
+    "name": "FH Allen",
+    "cricinfoId": "959759",
+    "wikidataLabel": "Finn Allen",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "11061889",
+    "name": "SR Dubey",
+    "cricinfoId": "1206492",
+    "wikidataLabel": "Saurabh Dubey",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "449f4e3c",
+    "name": "B Muzarabani",
+    "cricinfoId": "827051",
+    "wikidataLabel": "Blessing Muzarabani",
+    "countries": [
+      "Zimbabwe"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "9ca68676",
+    "name": "AM Ghazanfar",
+    "cricinfoId": "1326798",
+    "wikidataLabel": "Allah Mohammad Ghazanfar",
+    "countries": [
+      "Afghanistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5b615e7c",
+    "name": "Raghu Sharma",
+    "cricinfoId": "1122621",
+    "wikidataLabel": "Raghu Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "fe366f34",
+    "name": "C Connolly",
+    "cricinfoId": "1210488",
+    "wikidataLabel": "Cooper Connolly",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "e1b9f3a9",
+    "name": "BJ Dwarshuis",
+    "cricinfoId": "679567",
+    "wikidataLabel": "Ben Dwarshuis",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "e5437608",
+    "name": "GF Linde",
+    "cricinfoId": "481875",
+    "wikidataLabel": "George Linde",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "8ee36b18",
+    "name": "P Nissanka",
+    "cricinfoId": "1028655",
+    "wikidataLabel": "Pathum Nissanka",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "7c3c0337",
+    "name": "Auqib Nabi",
+    "cricinfoId": "1159732",
+    "wikidataLabel": "Auqib Nabi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0184dc35",
+    "name": "R Dravid",
+    "cricinfoId": "28114",
+    "wikidataLabel": "Rahul Dravid",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "86dc8f2e",
+    "name": "JH Kallis",
+    "cricinfoId": "45789",
+    "wikidataLabel": "Jacques Kallis",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f3cb53a1",
+    "name": "MV Boucher",
+    "cricinfoId": "44111",
+    "wikidataLabel": "Mark Boucher",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0c2730df",
+    "name": "A Kumble",
+    "cricinfoId": "30176",
+    "wikidataLabel": "Anil Kumble",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d0513f63",
+    "name": "CL White",
+    "cricinfoId": "8291",
+    "wikidataLabel": "Cameron White",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "7eae4418",
+    "name": "Misbah-ul-Haq",
+    "cricinfoId": "41378",
+    "wikidataLabel": "Misbah-ul-Haq",
+    "countries": [
+      "Pakistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "af7dadf7",
+    "name": "B Akhil",
+    "cricinfoId": "26206",
+    "wikidataLabel": "Balachandra Akhil",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "619aa81f",
+    "name": "W Jaffer",
+    "cricinfoId": "29646",
+    "wikidataLabel": "Wasim Jaffer",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "670709ec",
+    "name": "SB Joshi",
+    "cricinfoId": "29725",
+    "wikidataLabel": "Sunil Joshi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b61a3e1a",
+    "name": "LRPL Taylor",
+    "cricinfoId": "38699",
+    "wikidataLabel": "Ross Taylor",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "881a9bdd",
+    "name": "S Chanderpaul",
+    "cricinfoId": "51469",
+    "wikidataLabel": "Shivnarine Chanderpaul",
+    "countries": [
+      "Guyana"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5451a2c1",
+    "name": "B Chipli",
+    "cricinfoId": "27685",
+    "wikidataLabel": "Bharat Chipli",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f663ef00",
+    "name": "J Arunkumar",
+    "cricinfoId": "26291",
+    "wikidataLabel": "J. Arunkumar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f48cf4da",
+    "name": "DT Patil",
+    "cricinfoId": "32389",
+    "wikidataLabel": "Devraj Patil",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b69e69ed",
+    "name": "AA Noffke",
+    "cricinfoId": "6938",
+    "wikidataLabel": "Ashley Noffke",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "888e32bf",
+    "name": "Abdur Razzak",
+    "cricinfoId": "56283",
+    "wikidataLabel": "Abdur Razzak",
+    "countries": [
+      "Bangladesh"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "725529bc",
+    "name": "SC Ganguly",
+    "cricinfoId": "28779",
+    "wikidataLabel": "Sourav Ganguly",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "fd835ab3",
+    "name": "DJ Hussey",
+    "cricinfoId": "5766",
+    "wikidataLabel": "David Hussey",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b1451597",
+    "name": "LR Shukla",
+    "cricinfoId": "34019",
+    "wikidataLabel": "Laxmi Ratan Shukla",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "fa463154",
+    "name": "AB Agarkar",
+    "cricinfoId": "26184",
+    "wikidataLabel": "Ajit Agarkar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9ab63e7b",
+    "name": "Mohammad Hafeez",
+    "cricinfoId": "41434",
+    "wikidataLabel": "Mohammad Hafeez",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "4d6d6280",
+    "name": "Salman Butt",
+    "cricinfoId": "42683",
+    "wikidataLabel": "Salman Butt",
+    "countries": [
+      "Pakistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "abfeb126",
+    "name": "M Kartik",
+    "cricinfoId": "30049",
+    "wikidataLabel": "Murali Kartik",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "7050a1e7",
+    "name": "DB Das",
+    "cricinfoId": "328163",
+    "wikidataLabel": "Debabrata Das",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "16dfcc19",
+    "name": "Umar Gul",
+    "cricinfoId": "43524",
+    "wikidataLabel": "Umar Gul",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "e249fdaa",
+    "name": "A Chopra",
+    "cricinfoId": "27639",
+    "wikidataLabel": "Aakash Chopra",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "7d415ea5",
+    "name": "RT Ponting",
+    "cricinfoId": "7133",
+    "wikidataLabel": "Ricky Ponting",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b57f8a9a",
+    "name": "BJ Hodge",
+    "cricinfoId": "5674",
+    "wikidataLabel": "Brad Hodge",
+    "countries": [
+      "Australia",
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "75de770f",
+    "name": "T Taibu",
+    "cricinfoId": "55805",
+    "wikidataLabel": "Tatenda Taibu",
+    "countries": [
+      "Namibia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "10a91f35",
+    "name": "Shoaib Akhtar",
+    "cricinfoId": "42655",
+    "wikidataLabel": "Shoaib Akhtar",
+    "countries": [
+      "Pakistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ea0cdc12",
+    "name": "BAW Mendis",
+    "cricinfoId": "268739",
+    "wikidataLabel": "Ajantha Mendis",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "6b8eb6e5",
+    "name": "S Sreesanth",
+    "cricinfoId": "34274",
+    "wikidataLabel": "S. Sreesanth",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d18f9182",
+    "name": "DPMD Jayawardene",
+    "cricinfoId": "49289",
+    "wikidataLabel": "Mahela Jayawardene",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "034b4b7d",
+    "name": "VRV Singh",
+    "cricinfoId": "35281",
+    "wikidataLabel": "V. R. V. Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2498e163",
+    "name": "JR Hopes",
+    "cricinfoId": "5702",
+    "wikidataLabel": "James Hopes",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "6b71e6cf",
+    "name": "KC Sangakkara",
+    "cricinfoId": "50710",
+    "wikidataLabel": "Kumar Sangakkara",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "a1f1829d",
+    "name": "K Goel",
+    "cricinfoId": "28997",
+    "wikidataLabel": "Karan Goel",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a76d10ba",
+    "name": "TM Srivastava",
+    "cricinfoId": "35401",
+    "wikidataLabel": "Tanmay Srivastava",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "622cc511",
+    "name": "U Kaul",
+    "cricinfoId": "30235",
+    "wikidataLabel": "Uday Kaul",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b63ab531",
+    "name": "LA Pomersbach",
+    "cricinfoId": "232284",
+    "wikidataLabel": "Luke Pomersbach",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5d096f3d",
+    "name": "RR Powar",
+    "cricinfoId": "32391",
+    "wikidataLabel": "Ramesh Powar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "dd09ff8e",
+    "name": "B Lee",
+    "cricinfoId": "6278",
+    "wikidataLabel": "Brett Lee",
+    "countries": [
+      "Australia",
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "3dba85c2",
+    "name": "WA Mota",
+    "cricinfoId": "31041",
+    "wikidataLabel": "Wilkin Mota",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "fdedb37c",
+    "name": "SM Katich",
+    "cricinfoId": "6128",
+    "wikidataLabel": "Simon Katich",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "3fca55af",
+    "name": "S Sohal",
+    "cricinfoId": "228943",
+    "wikidataLabel": "Sunny Sohal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "eaa90ab4",
+    "name": "P Dharmani",
+    "cricinfoId": "28067",
+    "wikidataLabel": "Pankaj Dharmani",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "3576e47e",
+    "name": "S Badrinath",
+    "cricinfoId": "26806",
+    "wikidataLabel": "Subramaniam Badrinath",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "4ba44e19",
+    "name": "M Muralitharan",
+    "cricinfoId": "49636",
+    "wikidataLabel": "Muttiah Muralitharan",
+    "countries": [
+      "New Zealand",
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c3d35165",
+    "name": "JA Morkel",
+    "cricinfoId": "46248",
+    "wikidataLabel": "Albie Morkel",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "eea6b7f1",
+    "name": "SP Fleming",
+    "cricinfoId": "37000",
+    "wikidataLabel": "Stephen Fleming",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "756389bd",
+    "name": "S Vidyut",
+    "cricinfoId": "35619",
+    "wikidataLabel": "Vidyut Sivaramakrishnan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "20a941bb",
+    "name": "M Ntini",
+    "cricinfoId": "46592",
+    "wikidataLabel": "Makhaya Ntini",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b2b50355",
+    "name": "L Balaji",
+    "cricinfoId": "26829",
+    "wikidataLabel": "Lakshmipathy Balaji",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9f961c14",
+    "name": "Joginder Sharma",
+    "cricinfoId": "29976",
+    "wikidataLabel": "Joginder Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6ad3a659",
+    "name": "P Amarnath",
+    "cricinfoId": "290629",
+    "wikidataLabel": "Palani Amarnath",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "cfad138c",
+    "name": "CK Kapugedera",
+    "cricinfoId": "209457",
+    "wikidataLabel": "Chamara Kapugedera",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d8699ab7",
+    "name": "ML Hayden",
+    "cricinfoId": "5616",
+    "wikidataLabel": "Matthew Hayden",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "48fd7349",
+    "name": "MEK Hussey",
+    "cricinfoId": "5939",
+    "wikidataLabel": "Michael Hussey",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "3eac9d95",
+    "name": "JDP Oram",
+    "cricinfoId": "38062",
+    "wikidataLabel": "Jacob Oram",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "6165bca6",
+    "name": "A Mukund",
+    "cricinfoId": "302582",
+    "wikidataLabel": "Abhinav Mukund",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "95a2ea61",
+    "name": "S Anirudha",
+    "cricinfoId": "26798",
+    "wikidataLabel": "Anirudha Srikkanth",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "8ba8195d",
+    "name": "V Sehwag",
+    "cricinfoId": "35263",
+    "wikidataLabel": "Virender Sehwag",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ee7d0c82",
+    "name": "GD McGrath",
+    "cricinfoId": "6565",
+    "wikidataLabel": "Glenn McGrath",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "93a17209",
+    "name": "VY Mahesh",
+    "cricinfoId": "31732",
+    "wikidataLabel": "Yo Mahesh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ab89348d",
+    "name": "MF Maharoof",
+    "cricinfoId": "49638",
+    "wikidataLabel": "Farveez Maharoof",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "e03b66ec",
+    "name": "Mohammad Asif",
+    "cricinfoId": "41411",
+    "wikidataLabel": "Mohammad Asif",
+    "countries": [
+      "Pakistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "64c34cd0",
+    "name": "Shoaib Malik",
+    "cricinfoId": "42657",
+    "wikidataLabel": "Shoaib Malik",
+    "countries": [
+      "Pakistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5bdcdb72",
+    "name": "TM Dilshan",
+    "cricinfoId": "48472",
+    "wikidataLabel": "Tillakaratne Dilshan",
+    "countries": [
+      "Malaysia",
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "50758325",
+    "name": "B Geeves",
+    "cricinfoId": "5472",
+    "wikidataLabel": "Brett Geeves",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d7c6af50",
+    "name": "DL Vettori",
+    "cricinfoId": "38710",
+    "wikidataLabel": "Daniel Vettori",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c42aaf71",
+    "name": "M Manhas",
+    "cricinfoId": "31001",
+    "wikidataLabel": "Mithun Manhas",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d84378a4",
+    "name": "M Kaif",
+    "cricinfoId": "29990",
+    "wikidataLabel": "Mohammad Kaif",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "bb18be76",
+    "name": "SK Warne",
+    "cricinfoId": "8166",
+    "wikidataLabel": "Shane Warne",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "3d7e087f",
+    "name": "SK Trivedi",
+    "cricinfoId": "35353",
+    "wikidataLabel": "Siddharth Trivedi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "72861603",
+    "name": "GC Smith",
+    "cricinfoId": "47270",
+    "wikidataLabel": "Graeme Smith",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "de8d3876",
+    "name": "M Rawat",
+    "cricinfoId": "33440",
+    "wikidataLabel": "Mahesh Rawat",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "64d43928",
+    "name": "Sohail Tanvir",
+    "cricinfoId": "43265",
+    "wikidataLabel": "Sohail Tanvir",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ae091d39",
+    "name": "SA Asnodkar",
+    "cricinfoId": "26782",
+    "wikidataLabel": "Swapnil Asnodkar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0264c10e",
+    "name": "D Salunkhe",
+    "cricinfoId": "278482",
+    "wikidataLabel": "Dinesh Salunkhe",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ff077124",
+    "name": "Kamran Akmal",
+    "cricinfoId": "41028",
+    "wikidataLabel": "Kamran Akmal",
+    "countries": [
+      "Pakistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "e32d22f6",
+    "name": "Pankaj Singh",
+    "cricinfoId": "32973",
+    "wikidataLabel": "Pankaj Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a2870fb7",
+    "name": "NK Patel",
+    "cricinfoId": "32240",
+    "wikidataLabel": "Niraj Patel",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "40caa465",
+    "name": "T Kohli",
+    "cricinfoId": "331855",
+    "wikidataLabel": "Taruwar Kohli",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "53fe6ee4",
+    "name": "DS Lehmann",
+    "cricinfoId": "6285",
+    "wikidataLabel": "Darren Lehmann",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "3edb58fc",
+    "name": "AD Mascarenhas",
+    "cricinfoId": "16932",
+    "wikidataLabel": "Dimitri Mascarenhas",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "33cb3411",
+    "name": "Younis Khan",
+    "cricinfoId": "43652",
+    "wikidataLabel": "Younus Khan",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f233bbb4",
+    "name": "ST Jayasuriya",
+    "cricinfoId": "49209",
+    "wikidataLabel": "Sanath Jayasuriya",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "a45a5e8d",
+    "name": "AM Nayar",
+    "cricinfoId": "32091",
+    "wikidataLabel": "Abhishek Nayar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "88fccd6c",
+    "name": "SM Pollock",
+    "cricinfoId": "46774",
+    "wikidataLabel": "Shaun Pollock",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "4e04666c",
+    "name": "YV Takawale",
+    "cricinfoId": "35357",
+    "wikidataLabel": "Yogesh Takawale",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d2c2b2d5",
+    "name": "SR Tendulkar",
+    "cricinfoId": "35320",
+    "wikidataLabel": "Sachin Tendulkar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "7d3937ed",
+    "name": "DJ Thornely",
+    "cricinfoId": "8002",
+    "wikidataLabel": "Dominic Thornely",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5f4e9e8f",
+    "name": "RR Raje",
+    "cricinfoId": "290713",
+    "wikidataLabel": "Rohan Raje",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0aadc906",
+    "name": "PR Shah",
+    "cricinfoId": "34282",
+    "wikidataLabel": "Pinal Shah",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "342d8ade",
+    "name": "CRD Fernando",
+    "cricinfoId": "48835",
+    "wikidataLabel": "Dilhara Fernando",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0fa5042b",
+    "name": "L Ronchi",
+    "cricinfoId": "7502",
+    "wikidataLabel": "Luke Ronchi",
+    "countries": [
+      "Australia",
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "facb9086",
+    "name": "SD Chitnis",
+    "cricinfoId": "337916",
+    "wikidataLabel": "Siddharth Chitnis",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c9d33ef5",
+    "name": "RV Pawar",
+    "cricinfoId": "32305",
+    "wikidataLabel": "Rajesh Pawar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2503e881",
+    "name": "A Nel",
+    "cricinfoId": "46569",
+    "wikidataLabel": "André Nel",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "2b6e6dec",
+    "name": "AC Gilchrist",
+    "cricinfoId": "5390",
+    "wikidataLabel": "Adam Gilchrist",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c3d1402f",
+    "name": "RP Singh",
+    "cricinfoId": "35280",
+    "wikidataLabel": "R. P. Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6c6591ab",
+    "name": "PP Ojha",
+    "cricinfoId": "32130",
+    "wikidataLabel": "Pragyan Ojha",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "fe763256",
+    "name": "Y Venugopal Rao",
+    "cricinfoId": "35805",
+    "wikidataLabel": "Yalaka Venugopal Rao",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0604ef16",
+    "name": "SB Bangar",
+    "cricinfoId": "27225",
+    "wikidataLabel": "Sanjay Bangar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0dc00542",
+    "name": "Shahid Afridi",
+    "cricinfoId": "42639",
+    "wikidataLabel": "Shahid Afridi",
+    "countries": [
+      "Pakistan"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "e1d1b294",
+    "name": "HH Gibbs",
+    "cricinfoId": "45224",
+    "wikidataLabel": "Herschelle Gibbs",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "acd4f5dc",
+    "name": "DP Vijaykumar",
+    "cricinfoId": "272949",
+    "wikidataLabel": "Paidikalva Vijaykumar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "57efa3be",
+    "name": "SB Styris",
+    "cricinfoId": "38407",
+    "wikidataLabel": "Scott Styris",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b9be6507",
+    "name": "AS Yadav",
+    "cricinfoId": "36110",
+    "wikidataLabel": "Arjun Yadav",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b720a5d6",
+    "name": "DB Ravi Teja",
+    "cricinfoId": "237701",
+    "wikidataLabel": "Dwaraka Ravi Teja",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "de8cce37",
+    "name": "VVS Laxman",
+    "cricinfoId": "30750",
+    "wikidataLabel": "VVS Laxman",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "bcce309e",
+    "name": "WPUJC Vaas",
+    "cricinfoId": "50804",
+    "wikidataLabel": "Chaminda Vaas",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "bd77eb62",
+    "name": "A Symonds",
+    "cricinfoId": "7702",
+    "wikidataLabel": "Andrew Symonds",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "94bc776b",
+    "name": "D Kalyankrishna",
+    "cricinfoId": "30719",
+    "wikidataLabel": "Doddapaneni Kalyankrishna",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e0351c86",
+    "name": "DNT Zoysa",
+    "cricinfoId": "51050",
+    "wikidataLabel": "Nuwan Zoysa",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1be70c88",
+    "name": "LPC Silva",
+    "cricinfoId": "50431",
+    "wikidataLabel": "Chamara Silva",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "4b4d1957",
+    "name": "PM Sarvesh Kumar",
+    "cricinfoId": "327127",
+    "wikidataLabel": "Sarvesh Kumar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0ed0cdbf",
+    "name": "H Das",
+    "cricinfoId": "236810",
+    "wikidataLabel": "Halhadar Das",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c24a2c5d",
+    "name": "S Tyagi",
+    "cricinfoId": "317784",
+    "wikidataLabel": "Sudeep Tyagi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ddc0828d",
+    "name": "A Flintoff",
+    "cricinfoId": "12856",
+    "wikidataLabel": "Andrew Flintoff",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5056011d",
+    "name": "GJ Bailey",
+    "cricinfoId": "4451",
+    "wikidataLabel": "George Bailey",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b2ae53f5",
+    "name": "T Thushara",
+    "cricinfoId": "49677",
+    "wikidataLabel": "Thilan Thushara",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f24ca2ba",
+    "name": "C Nanda",
+    "cricinfoId": "32093",
+    "wikidataLabel": "Chetanya Nanda",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "611926bc",
+    "name": "GR Napier",
+    "cricinfoId": "17991",
+    "wikidataLabel": "Graham Napier",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "2bb09eb2",
+    "name": "Mohammad Ashraful",
+    "cricinfoId": "55988",
+    "wikidataLabel": "Mohammad Ashraful",
+    "countries": [
+      "Bangladesh"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "05c2ca46",
+    "name": "RE van der Merwe",
+    "cricinfoId": "47850",
+    "wikidataLabel": "Roelof van der Merwe",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "39f01cdb",
+    "name": "KP Pietersen",
+    "cricinfoId": "19296",
+    "wikidataLabel": "Kevin Pietersen",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "91ffa6c6",
+    "name": "JD Ryder",
+    "cricinfoId": "38373",
+    "wikidataLabel": "Jesse Ryder",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d92e42f5",
+    "name": "KP Appanna",
+    "cricinfoId": "269170",
+    "wikidataLabel": "KP Appanna",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "4d5a1617",
+    "name": "R Bishnoi",
+    "cricinfoId": "236766",
+    "wikidataLabel": "Rajesh Bishnoi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d7a57f75",
+    "name": "D du Preez",
+    "cricinfoId": "44938",
+    "wikidataLabel": "Dillon du Preez",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "66cf56a5",
+    "name": "A Mithun",
+    "cricinfoId": "310958",
+    "wikidataLabel": "Abhimanyu Mithun",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c69a7b5c",
+    "name": "AS Raut",
+    "cricinfoId": "230593",
+    "wikidataLabel": "Abhishek Raut",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "23ac69e6",
+    "name": "RJ Quiney",
+    "cricinfoId": "211854",
+    "wikidataLabel": "Rob Quiney",
+    "countries": [
+      "Australia",
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "6ef60d3a",
+    "name": "Kamran Khan",
+    "cricinfoId": "391121",
+    "wikidataLabel": "Kamran Khan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d872f52a",
+    "name": "LA Carseldine",
+    "cricinfoId": "4541",
+    "wikidataLabel": "Lee Carseldine",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5b040b81",
+    "name": "A Singh",
+    "cricinfoId": "26789",
+    "wikidataLabel": "Amit Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "63bff7f9",
+    "name": "SM Harwood",
+    "cricinfoId": "5605",
+    "wikidataLabel": "Shane Harwood",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "7c503806",
+    "name": "J Botha",
+    "cricinfoId": "44149",
+    "wikidataLabel": "Johan Botha",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0a4ebc61",
+    "name": "T Henderson",
+    "cricinfoId": "45434",
+    "wikidataLabel": "Tyron Henderson",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "25eeb281",
+    "name": "PC Valthaty",
+    "cricinfoId": "35630",
+    "wikidataLabel": "Paul Valthaty",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "5bb5a915",
+    "name": "M Morkel",
+    "cricinfoId": "46538",
+    "wikidataLabel": "Morné Morkel",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c404f58a",
+    "name": "DP Nannes",
+    "cricinfoId": "6981",
+    "wikidataLabel": "Dirk Nannes",
+    "countries": [
+      "Australia",
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "260fd380",
+    "name": "AM Salvi",
+    "cricinfoId": "34264",
+    "wikidataLabel": "Aavishkar Salvi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "16043342",
+    "name": "AB McDonald",
+    "cricinfoId": "6553",
+    "wikidataLabel": "Andrew McDonald",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "662c47a6",
+    "name": "Y Nagar",
+    "cricinfoId": "317786",
+    "wikidataLabel": "Yogesh Nagar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "4353bba5",
+    "name": "YA Abdulla",
+    "cricinfoId": "224367",
+    "wikidataLabel": "Yusuf Abdulla",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "7ca5e05d",
+    "name": "RS Bopara",
+    "cricinfoId": "10582",
+    "wikidataLabel": "Ravi Bopara",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5f26df4f",
+    "name": "VS Malik",
+    "cricinfoId": "31738",
+    "wikidataLabel": "Vikramjeet Malik",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "21ac077a",
+    "name": "RR Bose",
+    "cricinfoId": "27572",
+    "wikidataLabel": "Ranadeb Bose",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "aaa1b522",
+    "name": "TL Suman",
+    "cricinfoId": "34281",
+    "wikidataLabel": "Tirumalasetti Suman",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "8a668774",
+    "name": "Shoaib Ahmed",
+    "cricinfoId": "317709",
+    "wikidataLabel": "Shoaib Ahmed",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "12eddf28",
+    "name": "RJ Harris",
+    "cricinfoId": "5779",
+    "wikidataLabel": "Ryan Harris",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "2a72fd4f",
+    "name": "Harmeet Singh",
+    "cricinfoId": "391128",
+    "wikidataLabel": "Harmeet Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a7c226e1",
+    "name": "FH Edwards",
+    "cricinfoId": "51782",
+    "wikidataLabel": "Fidel Edwards",
+    "countries": [
+      "Barbados"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d7b3a420",
+    "name": "Jaskaran Singh",
+    "cricinfoId": "376102",
+    "wikidataLabel": "Jaskaran Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "297b26da",
+    "name": "Yashpal Singh",
+    "cricinfoId": "36130",
+    "wikidataLabel": "Yashpal Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "710dd98c",
+    "name": "MN van Wyk",
+    "cricinfoId": "47711",
+    "wikidataLabel": "Morné van Wyk",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "7023d182",
+    "name": "AN Ghosh",
+    "cricinfoId": "220435",
+    "wikidataLabel": "Arindam Ghosh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "caa89a48",
+    "name": "SS Sarkar",
+    "cricinfoId": "34402",
+    "wikidataLabel": "Sourav Sarkar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "5f5d3ad4",
+    "name": "SS Shaikh",
+    "cricinfoId": "377437",
+    "wikidataLabel": "Shoaib Shaikh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e186f49c",
+    "name": "Mashrafe Mortaza",
+    "cricinfoId": "56007",
+    "wikidataLabel": "Mashrafe Bin Mortaza",
+    "countries": [
+      "Bangladesh"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d1c94b25",
+    "name": "CK Langeveldt",
+    "cricinfoId": "45963",
+    "wikidataLabel": "Charl Langeveldt",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "6afb26d6",
+    "name": "MD Mishra",
+    "cricinfoId": "31028",
+    "wikidataLabel": "Mohnish Mishra",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "5d9a1a73",
+    "name": "R Sharma",
+    "cricinfoId": "272994",
+    "wikidataLabel": "Rahul Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "7bb62642",
+    "name": "Anirudh Singh",
+    "cricinfoId": "26252",
+    "wikidataLabel": "Anirudh Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f4f0fafd",
+    "name": "B Sumanth",
+    "cricinfoId": "253798",
+    "wikidataLabel": "Bodapati Sumanth",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "78eb4223",
+    "name": "KAJ Roach",
+    "cricinfoId": "230553",
+    "wikidataLabel": "Kemar Roach",
+    "countries": [
+      "Barbados"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d4f9dbd4",
+    "name": "CA Pujara",
+    "cricinfoId": "32540",
+    "wikidataLabel": "Cheteshwar Pujara",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "4f629497",
+    "name": "SE Bond",
+    "cricinfoId": "36326",
+    "wikidataLabel": "Shane Edward Bond",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "7bf96684",
+    "name": "OA Shah",
+    "cricinfoId": "20123",
+    "wikidataLabel": "Owais Shah",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "9ff100a6",
+    "name": "RS Gavaskar",
+    "cricinfoId": "28792",
+    "wikidataLabel": "Rohan Gavaskar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "86ae8ef2",
+    "name": "MB Parmar",
+    "cricinfoId": "240734",
+    "wikidataLabel": "Monish Parmar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "626c5379",
+    "name": "R Sathish",
+    "cricinfoId": "33870",
+    "wikidataLabel": "Rajagopal Sathish",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c654af19",
+    "name": "R McLaren",
+    "cricinfoId": "46393",
+    "wikidataLabel": "Ryan McLaren",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ef5da05c",
+    "name": "AG Murtaza",
+    "cricinfoId": "26490",
+    "wikidataLabel": "Ali Murtaza",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2af1b6d2",
+    "name": "AN Ahmed",
+    "cricinfoId": "228430",
+    "wikidataLabel": "Abu Nechim",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2eeb4370",
+    "name": "C Madan",
+    "cricinfoId": "31104",
+    "wikidataLabel": "Chandan Madan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2815fe50",
+    "name": "AA Jhunjhunwala",
+    "cricinfoId": "29702",
+    "wikidataLabel": "Abhishek Jhunjhunwala",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "11df3dc8",
+    "name": "MJ Lumb",
+    "cricinfoId": "16406",
+    "wikidataLabel": "Michael Lumb",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "c15e2193",
+    "name": "FY Fazal",
+    "cricinfoId": "28671",
+    "wikidataLabel": "Faiz Fazal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2728e7e9",
+    "name": "P Dogra",
+    "cricinfoId": "28160",
+    "wikidataLabel": "Paras Dogra",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "864c199e",
+    "name": "AC Voges",
+    "cricinfoId": "8119",
+    "wikidataLabel": "Adam Voges",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "addfb70e",
+    "name": "SW Tait",
+    "cricinfoId": "8076",
+    "wikidataLabel": "Shaun Tait",
+    "countries": [
+      "Australia",
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "287686fd",
+    "name": "S Narwal",
+    "cricinfoId": "32084",
+    "wikidataLabel": "Sumit Narwal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "dbc50253",
+    "name": "AP Dole",
+    "cricinfoId": "236694",
+    "wikidataLabel": "Aditya Dole",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "fdcb08c2",
+    "name": "A Uniyal",
+    "cricinfoId": "35586",
+    "wikidataLabel": "Amit Uniyal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "69762509",
+    "name": "DR Martyn",
+    "cricinfoId": "6513",
+    "wikidataLabel": "Damien Martyn",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "dddca1d6",
+    "name": "SB Wagh",
+    "cricinfoId": "279552",
+    "wikidataLabel": "Shrikant Wagh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "3a02626a",
+    "name": "AG Paunikar",
+    "cricinfoId": "324444",
+    "wikidataLabel": "Amit Paunikar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "5afd4539",
+    "name": "MS Bisla",
+    "cricinfoId": "27280",
+    "wikidataLabel": "Manvinder Bisla",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2049f3a0",
+    "name": "SJ Srivastava",
+    "cricinfoId": "34245",
+    "wikidataLabel": "Shalabh Srivastava",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "dec8e038",
+    "name": "J Theron",
+    "cricinfoId": "223642",
+    "wikidataLabel": "Rusty Theron",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "a3ecf01f",
+    "name": "RS Sodhi",
+    "cricinfoId": "34078",
+    "wikidataLabel": "Reetinder Singh Sodhi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "8b9704ae",
+    "name": "L Ablish",
+    "cricinfoId": "26236",
+    "wikidataLabel": "Love Ablish",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a386e91b",
+    "name": "PD Collingwood",
+    "cricinfoId": "10772",
+    "wikidataLabel": "Paul Collingwood",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "fb693839",
+    "name": "S Ladda",
+    "cricinfoId": "317292",
+    "wikidataLabel": "Sarabjit Ladda",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "64a4c383",
+    "name": "S Sriram",
+    "cricinfoId": "34118",
+    "wikidataLabel": "Sridharan Sriram",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6ec424a9",
+    "name": "ND Doshi",
+    "cricinfoId": "12440",
+    "wikidataLabel": "Nayan Doshi",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "45c2196c",
+    "name": "DE Bollinger",
+    "cricinfoId": "4508",
+    "wikidataLabel": "Doug Bollinger",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "6581d753",
+    "name": "JM Kemp",
+    "cricinfoId": "45797",
+    "wikidataLabel": "Justin Kemp",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0f12f9df",
+    "name": "NLTC Perera",
+    "cricinfoId": "233514",
+    "wikidataLabel": "Thisara Perera",
+    "countries": [
+      "Australia",
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "7daedf2f",
+    "name": "KB Arun Karthik",
+    "cricinfoId": "319745",
+    "wikidataLabel": "Arun Karthik",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "798934ea",
+    "name": "C Ganapathy",
+    "cricinfoId": "28764",
+    "wikidataLabel": "C. Ganapathy",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f5f18a18",
+    "name": "S Randiv",
+    "cricinfoId": "50438",
+    "wikidataLabel": "Suraj Randiv",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "469ea22b",
+    "name": "KMDN Kulasekara",
+    "cricinfoId": "49535",
+    "wikidataLabel": "Nuwan Kulasekara",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "4ec07775",
+    "name": "RN ten Doeschate",
+    "cricinfoId": "47660",
+    "wikidataLabel": "Ryan ten Doeschate",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b0c772ee",
+    "name": "BJ Haddin",
+    "cricinfoId": "5560",
+    "wikidataLabel": "Brad Haddin",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d2340a43",
+    "name": "Anand Rajan",
+    "cricinfoId": "26797",
+    "wikidataLabel": "Anand Rajan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "943fd425",
+    "name": "I Malhotra",
+    "cricinfoId": "31088",
+    "wikidataLabel": "Ishan Malhotra",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "62e07f92",
+    "name": "KH Devdhar",
+    "cricinfoId": "340063",
+    "wikidataLabel": "Kedar Devdhar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "8291f939",
+    "name": "AL Menaria",
+    "cricinfoId": "371150",
+    "wikidataLabel": "Ashok Menaria",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "063b3673",
+    "name": "DH Yagnik",
+    "cricinfoId": "36071",
+    "wikidataLabel": "Dishant Yagnik",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "29d72eb2",
+    "name": "AA Chavan",
+    "cricinfoId": "337913",
+    "wikidataLabel": "Ankeet Chavan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b2570b38",
+    "name": "RV Gomez",
+    "cricinfoId": "28846",
+    "wikidataLabel": "Raiphi Gomez",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0c432afb",
+    "name": "P Parameswaran",
+    "cricinfoId": "279562",
+    "wikidataLabel": "Prasanth Parameswaran",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b970a03f",
+    "name": "M Klinger",
+    "cricinfoId": "6161",
+    "wikidataLabel": "Michael Klinger",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "bae11797",
+    "name": "Y Gnaneswara Rao",
+    "cricinfoId": "28830",
+    "wikidataLabel": "Gnaneshwara Rao",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "ddb00822",
+    "name": "P Prasanth",
+    "cricinfoId": "32211",
+    "wikidataLabel": "Padmanabhan Prasanth",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "3ae3f034",
+    "name": "AUK Pathan",
+    "cricinfoId": "430401",
+    "wikidataLabel": "Asad Ullah Khan Pathan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c64c2443",
+    "name": "J Syed Mohammad",
+    "cricinfoId": "35261",
+    "wikidataLabel": "Syed Mohammed",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6821ac10",
+    "name": "JJ van der Wath",
+    "cricinfoId": "47693",
+    "wikidataLabel": "Johan van der Wath",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ce4cc4d5",
+    "name": "R Ninan",
+    "cricinfoId": "353669",
+    "wikidataLabel": "Ryan Ninan",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "16605a1b",
+    "name": "AA Kazi",
+    "cricinfoId": "422106",
+    "wikidataLabel": "Abrar Kazi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d2d4bb0a",
+    "name": "TR Birt",
+    "cricinfoId": "4292",
+    "wikidataLabel": "Travis Birt",
+    "countries": [
+      "Australia",
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0c94f480",
+    "name": "UBT Chand",
+    "cricinfoId": "446499",
+    "wikidataLabel": "Unmukt Chand",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "cf73ad76",
+    "name": "JEC Franklin",
+    "cricinfoId": "37004",
+    "wikidataLabel": "James Franklin",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "a84468fe",
+    "name": "DJ Jacobs",
+    "cricinfoId": "45782",
+    "wikidataLabel": "Davy Jacobs",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1efb8a28",
+    "name": "AC Blizzard",
+    "cricinfoId": "4498",
+    "wikidataLabel": "Aiden Blizzard",
+    "countries": [
+      "Australia",
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "67af6f81",
+    "name": "RW Price",
+    "cricinfoId": "55698",
+    "wikidataLabel": "Ray Price",
+    "countries": [
+      "Zimbabwe"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b552a935",
+    "name": "AC Thomas",
+    "cricinfoId": "47569",
+    "wikidataLabel": "Alfonso Thomas",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "9b4935c8",
+    "name": "CJ Ferguson",
+    "cricinfoId": "5236",
+    "wikidataLabel": "Callum Ferguson",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5673a3fc",
+    "name": "NL McCullum",
+    "cricinfoId": "37749",
+    "wikidataLabel": "Nathan McCullum",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5748e866",
+    "name": "TD Paine",
+    "cricinfoId": "7252",
+    "wikidataLabel": "Tim Paine",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "90edaaa9",
+    "name": "S Rana",
+    "cricinfoId": "33757",
+    "wikidataLabel": "Sachin Rana",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0af3426f",
+    "name": "SS Mundhe",
+    "cricinfoId": "279862",
+    "wikidataLabel": "Shrikant Mundhe",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "dc4686e6",
+    "name": "BA Bhatt",
+    "cricinfoId": "433410",
+    "wikidataLabel": "Bhargav Bhatt",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "30e37810",
+    "name": "Sunny Singh",
+    "cricinfoId": "35282",
+    "wikidataLabel": "Sunny Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6042bf26",
+    "name": "NJ Rimmington",
+    "cricinfoId": "7443",
+    "wikidataLabel": "Nathan Rimmington",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f3171936",
+    "name": "BW Hilfenhaus",
+    "cricinfoId": "5941",
+    "wikidataLabel": "Ben Hilfenhaus",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "18c78b11",
+    "name": "RE Levi",
+    "cricinfoId": "46148",
+    "wikidataLabel": "Richard Levi",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "26ff4c29",
+    "name": "RJ Peterson",
+    "cricinfoId": "46750",
+    "wikidataLabel": "Robin Peterson",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "94eac556",
+    "name": "CJ McKay",
+    "cricinfoId": "6903",
+    "wikidataLabel": "Clint McKay",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "de4b0555",
+    "name": "R Shukla",
+    "cricinfoId": "390547",
+    "wikidataLabel": "Rahul Shukla",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d4eef961",
+    "name": "M de Lange",
+    "cricinfoId": "393279",
+    "wikidataLabel": "Marchant de Lange",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "2e9fdf9b",
+    "name": "DAJ Bracewell",
+    "cricinfoId": "362541",
+    "wikidataLabel": "Doug Bracewell",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ee3dfa89",
+    "name": "Sunny Gupta",
+    "cricinfoId": "271315",
+    "wikidataLabel": "Sunny Gupta",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f842c2cf",
+    "name": "MJ Clarke",
+    "cricinfoId": "4578",
+    "wikidataLabel": "Michael Clarke",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "f4cb4f53",
+    "name": "AP Majumdar",
+    "cricinfoId": "31750",
+    "wikidataLabel": "Anustup Majumdar",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "cca50cd6",
+    "name": "LJ Wright",
+    "cricinfoId": "23460",
+    "wikidataLabel": "Luke Wright",
+    "countries": [
+      "United Kingdom"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "27e71d47",
+    "name": "K Upadhyay",
+    "cricinfoId": "431876",
+    "wikidataLabel": "Krishnakant Upadhyay",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f708a0bc",
+    "name": "GB Hogg",
+    "cricinfoId": "5681",
+    "wikidataLabel": "Brad Hogg",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "557153ca",
+    "name": "KK Cooper",
+    "cricinfoId": "371814",
+    "wikidataLabel": "Kevon Cooper",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "99b202b3",
+    "name": "A Chandila",
+    "cricinfoId": "27783",
+    "wikidataLabel": "Ajit Chandila",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "1a0c3177",
+    "name": "P Awana",
+    "cricinfoId": "323131",
+    "wikidataLabel": "Parvinder Awana",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9a158001",
+    "name": "Azhar Mahmood",
+    "cricinfoId": "39024",
+    "wikidataLabel": "Azhar Mahmood",
+    "countries": [
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "addbde6c",
+    "name": "N Saini",
+    "cricinfoId": "274785",
+    "wikidataLabel": "Nitin Saini",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "7d3720ba",
+    "name": "RR Bhatkal",
+    "cricinfoId": "27150",
+    "wikidataLabel": "Rajoo Bhatkal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d718440b",
+    "name": "V Pratap Singh",
+    "cricinfoId": "528967",
+    "wikidataLabel": "Veer Pratap Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "1c2a64cd",
+    "name": "A Ashish Reddy",
+    "cricinfoId": "389605",
+    "wikidataLabel": "Ashish Reddy",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2461eef2",
+    "name": "PA Reddy",
+    "cricinfoId": "376109",
+    "wikidataLabel": "Akshath Reddy",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "39f82db3",
+    "name": "DJ Harris",
+    "cricinfoId": "5583",
+    "wikidataLabel": "Daniel Harris",
+    "countries": [
+      "Australia",
+      "New Zealand"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "2f3817ce",
+    "name": "TP Sudhindra",
+    "cricinfoId": "34139",
+    "wikidataLabel": "TP Sudhindra",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c9cac448",
+    "name": "T Mishra",
+    "cricinfoId": "24790",
+    "wikidataLabel": "Tanmay Mishra",
+    "countries": [
+      "Kenya",
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "53f27a35",
+    "name": "BB Samantray",
+    "cricinfoId": "430125",
+    "wikidataLabel": "Biplab Samantray",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "4c4fa80b",
+    "name": "SMSM Senanayake",
+    "cricinfoId": "273439",
+    "wikidataLabel": "Sachithra Senanayake",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "27af6414",
+    "name": "BJ Rohrer",
+    "cricinfoId": "7547",
+    "wikidataLabel": "Ben Rohrer",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "605b7efa",
+    "name": "MC Juneja",
+    "cricinfoId": "390480",
+    "wikidataLabel": "Manpreet Juneja",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9868bc75",
+    "name": "BMAJ Mendis",
+    "cricinfoId": "49700",
+    "wikidataLabel": "Jeevan Mendis",
+    "countries": [
+      "Australia",
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "30a2649b",
+    "name": "CM Gautam",
+    "cricinfoId": "302208",
+    "wikidataLabel": "Muralidharen Gautam",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "d68e7f48",
+    "name": "R Rampaul",
+    "cricinfoId": "52912",
+    "wikidataLabel": "Ravi Rampaul",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "cedc1d9a",
+    "name": "P Suyal",
+    "cricinfoId": "431213",
+    "wikidataLabel": "Pawan Suyal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "c03c6200",
+    "name": "DJG Sammy",
+    "cricinfoId": "53115",
+    "wikidataLabel": "Darren Sammy",
+    "countries": [
+      "Saint Lucia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1763bc6c",
+    "name": "X Thalaivan Sargunam",
+    "cricinfoId": "319744",
+    "wikidataLabel": "Thalaivan Sargunam",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "e0407c01",
+    "name": "IC Pandey",
+    "cricinfoId": "447439",
+    "wikidataLabel": "Ishwar Pandey",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "91b9300b",
+    "name": "UA Birla",
+    "cricinfoId": "262533",
+    "wikidataLabel": "Udit Birla",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9170ff49",
+    "name": "Parvez Rasool",
+    "cricinfoId": "378496",
+    "wikidataLabel": "Parvez Rasool",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6aed7e79",
+    "name": "PV Tambe",
+    "cricinfoId": "587152",
+    "wikidataLabel": "Pravin Tambe",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "f21043a5",
+    "name": "MDKJ Perera",
+    "cricinfoId": "300631",
+    "wikidataLabel": "Kushal Janith Perera",
+    "countries": [
+      "Sri Lanka"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0bf15e52",
+    "name": "Harmeet Singh",
+    "cricinfoId": "422847",
+    "wikidataLabel": "Harmeet Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "0164b064",
+    "name": "MG Neser",
+    "cricinfoId": "376169",
+    "wikidataLabel": "Michael Neser",
+    "countries": [
+      "Australia",
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "272d796e",
+    "name": "BR Dunk",
+    "cricinfoId": "388678",
+    "wikidataLabel": "Ben Dunk",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "5708d0b6",
+    "name": "AV Wankhade",
+    "cricinfoId": "505773",
+    "wikidataLabel": "Apoorv Wankhade",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6dbcf855",
+    "name": "VH Zol",
+    "cricinfoId": "554699",
+    "wikidataLabel": "Vijay Zol",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "44afbf2d",
+    "name": "NJ Maddinson",
+    "cricinfoId": "333780",
+    "wikidataLabel": "Nic Maddinson",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "012829ff",
+    "name": "JW Hastings",
+    "cricinfoId": "228622",
+    "wikidataLabel": "John Hastings",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1647bd37",
+    "name": "Karanveer Singh",
+    "cricinfoId": "322535",
+    "wikidataLabel": "Karanveer Singh",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "6f49cc6e",
+    "name": "Shivam Sharma",
+    "cricinfoId": "717201",
+    "wikidataLabel": "Shivam Sharma",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "b56dc5f7",
+    "name": "BE Hendricks",
+    "cricinfoId": "379927",
+    "wikidataLabel": "Beuran Hendricks",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b2b23612",
+    "name": "RG More",
+    "cricinfoId": "424219",
+    "wikidataLabel": "Ronit More",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "5b627626",
+    "name": "B Aparajith",
+    "cricinfoId": "477071",
+    "wikidataLabel": "Baba Aparajith",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2c76b512",
+    "name": "DJ Muthuswami",
+    "cricinfoId": "528985",
+    "wikidataLabel": "Domnic Joseph",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "1558d83b",
+    "name": "GS Sandhu",
+    "cricinfoId": "499660",
+    "wikidataLabel": "Gurinder Sandhu",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "331ea488",
+    "name": "UT Khawaja",
+    "cricinfoId": "215155",
+    "wikidataLabel": "Usman Khawaja",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "ada15e88",
+    "name": "PSP Handscomb",
+    "cricinfoId": "334337",
+    "wikidataLabel": "Peter Handscomb",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d167edd3",
+    "name": "SM Boland",
+    "cricinfoId": "446548",
+    "wikidataLabel": "Scott Boland",
+    "countries": [
+      "Australia"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "9a0146b3",
+    "name": "P Sahu",
+    "cricinfoId": "34155",
+    "wikidataLabel": "Pardeep Sahu",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "a9da7784",
+    "name": "KJ Abbott",
+    "cricinfoId": "297583",
+    "wikidataLabel": "Kyle Abbott",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "dce2019b",
+    "name": "F Behardien",
+    "cricinfoId": "44410",
+    "wikidataLabel": "Farhaan Behardien",
+    "countries": [
+      "South Africa"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "b274dbbd",
+    "name": "ER Dwivedi",
+    "cricinfoId": "340841",
+    "wikidataLabel": "Eklavya Dwivedi",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "76388dc8",
+    "name": "S Badree",
+    "cricinfoId": "51433",
+    "wikidataLabel": "Samuel Badree",
+    "countries": [
+      "West Indies"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "89f64c19",
+    "name": "LMP Simmons",
+    "cricinfoId": "53116",
+    "wikidataLabel": "Lendl Simmons",
+    "countries": [
+      "West Indies"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "14b14cd8",
+    "name": "DM Bravo",
+    "cricinfoId": "277472",
+    "wikidataLabel": "Darren Bravo",
+    "countries": [
+      "West Indies"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "e342e5fb",
+    "name": "CR Brathwaite",
+    "cricinfoId": "457249",
+    "wikidataLabel": "Carlos Brathwaite",
+    "countries": [
+      "West Indies"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "0ebfb1ad",
+    "name": "E Lewis",
+    "cricinfoId": "431901",
+    "wikidataLabel": "Evin Lewis",
+    "countries": [
+      "West Indies"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "48a1d7b7",
+    "name": "SO Hetmyer",
+    "cricinfoId": "670025",
+    "wikidataLabel": "Shimron Hetmyer",
+    "countries": [
+      "West Indies"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "3241e3fd",
+    "name": "N Pooran",
+    "cricinfoId": "604302",
+    "wikidataLabel": "Nicolas Pooran",
+    "countries": [
+      "West Indies"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "2c25d4f5",
+    "name": "D Padikkal",
+    "cricinfoId": "1119026",
+    "wikidataLabel": "Devdutt Padikkal",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "2e78f685",
+    "name": "KR Sen",
+    "cricinfoId": "1163695",
+    "wikidataLabel": "Kuldeep Sen",
+    "countries": [
+      "India"
+    ],
+    "isOverseas": false
+  },
+  {
+    "personId": "9061a703",
+    "name": "J Little",
+    "cricinfoId": "928067",
+    "wikidataLabel": "Joshua Little",
+    "countries": [
+      "Ireland"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "1fc6ef83",
+    "name": "SD Hope",
+    "cricinfoId": "581379",
+    "wikidataLabel": "Shai Hope",
+    "countries": [
+      "West Indies"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "36d33dd0",
+    "name": "RR Sarwan",
+    "cricinfoId": "52969",
+    "wikidataLabel": "Ramnaresh Sarwan",
+    "countries": [
+      "West Indies"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "d3a3e82d",
+    "name": "AB Barath",
+    "cricinfoId": "274926",
+    "wikidataLabel": "Adrian Barath",
+    "countries": [
+      "West Indies"
+    ],
+    "isOverseas": true
+  },
+  {
+    "personId": "4180d897",
+    "name": "JE Taylor",
+    "cricinfoId": "53191",
+    "wikidataLabel": "Jerome Taylor",
+    "countries": [
+      "West Indies"
+    ],
+    "isOverseas": true
+  }
+]

@@ -1,17 +1,51 @@
+@import "tailwindcss";
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* ── Matchday program / screenprint ──────────────────────────────────────────
+     Warm printed paper, near-black ink, and ONE bold spot colour (vermilion).
+     Each franchise's own colour is layered on per spin via inline styles; this
+     base stays neutral so the spot work reads as deliberate, not decorative. */
+  --paper: #ece3d0;        /* page — warm newsprint stock */
+  --paper-2: #f6efe0;      /* cards / team-sheet — brighter printed stock */
+  --paper-3: #e2d7bf;      /* sunken panels, fills, empty slots */
+  --ink: #1b1712;          /* primary ink */
+  --ink-soft: #6a5d49;     /* secondary text */
+  --ink-faint: #9c8e75;    /* captions, disabled */
+  --rule: #c9b99c;         /* hairline rules */
+  --spot: #d8402a;         /* screenprint vermilion — the single bold accent */
+  --spot-deep: #a82c1a;
+  --spot-ink: #fbf2e9;     /* text on spot */
+  --pitch: #356b46;        /* pitch green — used sparingly for "good" states */
+
+  --shadow-color: #1b1712;
+  --halftone: rgba(27, 23, 18, 0.05);
+
+  --font-display: var(--font-anton), "Arial Narrow", ui-sans-serif, sans-serif;
+  --font-body: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-space-mono), ui-monospace, monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* ── Floodlit night: the dark print run ──────────────────────────────────────
+   White-ink-on-charcoal screenprint. Same vermilion spot, warmed for low light. */
+[data-theme="dark"] {
+  --paper: #14120d;
+  --paper-2: #1f1b14;
+  --paper-3: #2b261c;
+  --ink: #f1e9d6;
+  --ink-soft: #b0a085;
+  --ink-faint: #7c6f57;
+  --rule: #3b3327;
+  --spot: #ec5a40;
+  --spot-deep: #c23b26;
+  --spot-ink: #16120c;
+  --pitch: #5aa873;
+  --shadow-color: #000000;
+  --halftone: rgba(241, 233, 214, 0.045);
 }
 
 html {
   height: 100%;
+  color-scheme: light;
 }
 
 html,
@@ -22,19 +56,19 @@ body {
 
 body {
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--ink);
+  background-color: var(--paper);
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* Halftone dot screen — the screenprint texture, kept very faint. */
+  background-image: radial-gradient(var(--halftone) 0.5px, transparent 0.6px);
+  background-size: 5px 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 * {
   box-sizing: border-box;
-  padding: 0;
-  margin: 0;
 }
 
 a {
@@ -42,8 +76,56 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
+/* ── Type helpers ──────────────────────────────────────────────────────────── */
+.font-display {
+  font-family: var(--font-display);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
+.eyebrow {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 0.66rem;
+  color: var(--ink-soft);
+}
+
+/* ── Structure ─────────────────────────────────────────────────────────────── */
+/* A printed sheet: bright stock, hard ink keyline. */
+.sheet {
+  background: var(--paper-2);
+  border: 1.5px solid var(--ink);
+}
+/* The bold "registration" offset reserved for hero/result/CTA — the one loud move. */
+.print-shadow {
+  box-shadow: 4px 4px 0 var(--shadow-color);
+}
+/* Scorecard perforation between sections of the team sheet. */
+.perforation {
+  border-top: 1.5px dashed var(--rule);
+}
+/* Double ink rule — a program/almanac structural device. */
+.rule-double {
+  border-top: 3px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  height: 5px;
+}
+
+/* Focus visibility — quality floor. */
+:focus-visible {
+  outline: 2.5px solid var(--spot);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
 }

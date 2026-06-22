@@ -1,24 +1,39 @@
 {
-  "name": "ipl-project",
+  "name": "ipl-perfect-season",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "data:cricsheet": "tsx scripts/parse-cricsheet.ts",
+    "data:nationality": "tsx scripts/scrape-nationality.ts",
+    "data:ratings": "tsx scripts/compute-ratings.ts",
+    "data:league-finish": "tsx scripts/derive-league-finish.ts",
+    "data:keepers": "tsx scripts/derive-keepers.ts",
+    "data:assemble": "tsx scripts/assemble-dataset.ts"
   },
   "dependencies": {
+    "@tailwindcss/postcss": "^4.3.1",
+    "canvas-confetti": "^1.9.4",
+    "cheerio": "^1.2.0",
+    "motion": "^12.40.0",
     "next": "16.2.9",
+    "postcss": "^8.5.15",
     "react": "19.2.4",
-    "react-dom": "19.2.4"
+    "react-dom": "19.2.4",
+    "tailwindcss": "^4.3.1"
   },
   "devDependencies": {
+    "@types/canvas-confetti": "^1.9.0",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.2.9",
+    "playwright": "^1.61.0",
+    "tsx": "^4.22.4",
     "typescript": "^5"
   }
 }

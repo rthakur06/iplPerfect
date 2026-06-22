@@ -1,0 +1,752 @@
+{
+  "SRH-2017": {
+    "personId": "890946a0",
+    "name": "NV Ojha",
+    "stumpings": 0
+  },
+  "RCB-2017": {
+    "personId": "99d63244",
+    "name": "KM Jadhav",
+    "stumpings": 3
+  },
+  "RISING_PUNE-2017": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 3
+  },
+  "MI-2017": {
+    "personId": "b5da6c24",
+    "name": "PA Patel",
+    "stumpings": 2
+  },
+  "KKR-2017": {
+    "personId": "1c17e270",
+    "name": "RV Uthappa",
+    "stumpings": 6
+  },
+  "PBKS-2017": {
+    "personId": "fe11caa6",
+    "name": "WP Saha",
+    "stumpings": 2
+  },
+  "DC-2017": {
+    "personId": "919a3be2",
+    "name": "RR Pant",
+    "stumpings": 3
+  },
+  "MI-2018": {
+    "personId": "752f7486",
+    "name": "Ishan Kishan",
+    "stumpings": 2
+  },
+  "CSK-2018": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 3
+  },
+  "DC-2018": {
+    "personId": "919a3be2",
+    "name": "RR Pant",
+    "stumpings": 2
+  },
+  "PBKS-2018": {
+    "personId": "b17e2f24",
+    "name": "KL Rahul",
+    "stumpings": 1
+  },
+  "RCB-2018": {
+    "personId": "372455c4",
+    "name": "Q de Kock",
+    "stumpings": 3
+  },
+  "KKR-2018": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 4
+  },
+  "RR-2018": {
+    "personId": "235c2bb6",
+    "name": "H Klaasen",
+    "stumpings": 4
+  },
+  "SRH-2018": {
+    "personId": "fe11caa6",
+    "name": "WP Saha",
+    "stumpings": 1
+  },
+  "RCB-2019": {
+    "personId": "b5da6c24",
+    "name": "PA Patel",
+    "stumpings": 2
+  },
+  "CSK-2019": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 5
+  },
+  "SRH-2019": {
+    "personId": "abb83e27",
+    "name": "JM Bairstow",
+    "stumpings": 2
+  },
+  "DC-2019": {
+    "personId": "919a3be2",
+    "name": "RR Pant",
+    "stumpings": 6
+  },
+  "MI-2019": {
+    "personId": "372455c4",
+    "name": "Q de Kock",
+    "stumpings": 2
+  },
+  "PBKS-2019": {
+    "personId": "b17e2f24",
+    "name": "KL Rahul",
+    "stumpings": 0
+  },
+  "RR-2019": {
+    "personId": "a4cc73aa",
+    "name": "SV Samson",
+    "stumpings": 1
+  },
+  "MI-2020": {
+    "personId": "372455c4",
+    "name": "Q de Kock",
+    "stumpings": 4
+  },
+  "CSK-2020": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 1
+  },
+  "RCB-2020": {
+    "personId": "c4487b84",
+    "name": "AB de Villiers",
+    "stumpings": 1
+  },
+  "SRH-2020": {
+    "personId": "abb83e27",
+    "name": "JM Bairstow",
+    "stumpings": 1
+  },
+  "RR-2020": {
+    "personId": "a4cc73aa",
+    "name": "SV Samson",
+    "stumpings": 2
+  },
+  "MI-2021": {
+    "personId": "372455c4",
+    "name": "Q de Kock",
+    "stumpings": 2
+  },
+  "RCB-2021": {
+    "personId": "44a89551",
+    "name": "KS Bharat",
+    "stumpings": 1
+  },
+  "CSK-2021": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 0
+  },
+  "DC-2021": {
+    "personId": "919a3be2",
+    "name": "RR Pant",
+    "stumpings": 3
+  },
+  "KKR-2021": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 2
+  },
+  "SRH-2021": {
+    "personId": "abb83e27",
+    "name": "JM Bairstow",
+    "stumpings": 1
+  },
+  "RR-2021": {
+    "personId": "a4cc73aa",
+    "name": "SV Samson",
+    "stumpings": 4
+  },
+  "KKR-2022": {
+    "personId": "acc1aeda",
+    "name": "SP Jackson",
+    "stumpings": 2
+  },
+  "DC-2022": {
+    "personId": "919a3be2",
+    "name": "RR Pant",
+    "stumpings": 4
+  },
+  "RCB-2022": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 2
+  },
+  "PBKS-2022": {
+    "personId": "800d2d97",
+    "name": "JM Sharma",
+    "stumpings": 2
+  },
+  "LSG-2022": {
+    "personId": "372455c4",
+    "name": "Q de Kock",
+    "stumpings": 1
+  },
+  "GT-2022": {
+    "personId": "fe11caa6",
+    "name": "WP Saha",
+    "stumpings": 2
+  },
+  "RR-2022": {
+    "personId": "a4cc73aa",
+    "name": "SV Samson",
+    "stumpings": 2
+  },
+  "SRH-2022": {
+    "personId": "3241e3fd",
+    "name": "N Pooran",
+    "stumpings": 1
+  },
+  "CSK-2023": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 3
+  },
+  "GT-2023": {
+    "personId": "fe11caa6",
+    "name": "WP Saha",
+    "stumpings": 2
+  },
+  "PBKS-2023": {
+    "personId": "800d2d97",
+    "name": "JM Sharma",
+    "stumpings": 2
+  },
+  "LSG-2023": {
+    "personId": "3241e3fd",
+    "name": "N Pooran",
+    "stumpings": 3
+  },
+  "DC-2023": {
+    "personId": "3d284ca3",
+    "name": "PD Salt",
+    "stumpings": 0
+  },
+  "RR-2023": {
+    "personId": "a4cc73aa",
+    "name": "SV Samson",
+    "stumpings": 3
+  },
+  "SRH-2023": {
+    "personId": "235c2bb6",
+    "name": "H Klaasen",
+    "stumpings": 1
+  },
+  "MI-2023": {
+    "personId": "752f7486",
+    "name": "Ishan Kishan",
+    "stumpings": 3
+  },
+  "RCB-2023": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 2
+  },
+  "RCB-2024": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 1
+  },
+  "DC-2024": {
+    "personId": "919a3be2",
+    "name": "RR Pant",
+    "stumpings": 5
+  },
+  "SRH-2024": {
+    "personId": "235c2bb6",
+    "name": "H Klaasen",
+    "stumpings": 2
+  },
+  "RR-2024": {
+    "personId": "a4cc73aa",
+    "name": "SV Samson",
+    "stumpings": 1
+  },
+  "LSG-2024": {
+    "personId": "b17e2f24",
+    "name": "KL Rahul",
+    "stumpings": 2
+  },
+  "GT-2024": {
+    "personId": "fe11caa6",
+    "name": "WP Saha",
+    "stumpings": 2
+  },
+  "KKR-2025": {
+    "personId": "372455c4",
+    "name": "Q de Kock",
+    "stumpings": 0
+  },
+  "RCB-2025": {
+    "personId": "800d2d97",
+    "name": "JM Sharma",
+    "stumpings": 1
+  },
+  "SRH-2025": {
+    "personId": "235c2bb6",
+    "name": "H Klaasen",
+    "stumpings": 0
+  },
+  "RR-2025": {
+    "personId": "a4cc73aa",
+    "name": "SV Samson",
+    "stumpings": 1
+  },
+  "MI-2025": {
+    "personId": "e66732f8",
+    "name": "RD Rickelton",
+    "stumpings": 5
+  },
+  "CSK-2025": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 5
+  },
+  "LSG-2025": {
+    "personId": "919a3be2",
+    "name": "RR Pant",
+    "stumpings": 1
+  },
+  "DC-2025": {
+    "personId": "85b3fab2",
+    "name": "T Stubbs",
+    "stumpings": 1
+  },
+  "PBKS-2025": {
+    "personId": "9418198b",
+    "name": "P Simran Singh",
+    "stumpings": 1
+  },
+  "GT-2025": {
+    "personId": "99b75528",
+    "name": "JC Buttler",
+    "stumpings": 2
+  },
+  "SRH-2026": {
+    "personId": "752f7486",
+    "name": "Ishan Kishan",
+    "stumpings": 1
+  },
+  "RCB-2026": {
+    "personId": "800d2d97",
+    "name": "JM Sharma",
+    "stumpings": 2
+  },
+  "KKR-2026": {
+    "personId": "d7017798",
+    "name": "A Raghuvanshi",
+    "stumpings": 1
+  },
+  "MI-2026": {
+    "personId": "372455c4",
+    "name": "Q de Kock",
+    "stumpings": 1
+  },
+  "CSK-2026": {
+    "personId": "a4cc73aa",
+    "name": "SV Samson",
+    "stumpings": 2
+  },
+  "RR-2026": {
+    "personId": "bcf325d2",
+    "name": "Dhruv Jurel",
+    "stumpings": 1
+  },
+  "GT-2026": {
+    "personId": "99b75528",
+    "name": "JC Buttler",
+    "stumpings": 1
+  },
+  "PBKS-2026": {
+    "personId": "9418198b",
+    "name": "P Simran Singh",
+    "stumpings": 1
+  },
+  "DC-2026": {
+    "personId": "b17e2f24",
+    "name": "KL Rahul",
+    "stumpings": 1
+  },
+  "RCB-2008": {
+    "personId": "541f85c9",
+    "name": "SP Goswami",
+    "stumpings": 2
+  },
+  "KKR-2008": {
+    "personId": "fe11caa6",
+    "name": "WP Saha",
+    "stumpings": 2
+  },
+  "PBKS-2008": {
+    "personId": "6b71e6cf",
+    "name": "KC Sangakkara",
+    "stumpings": 0
+  },
+  "CSK-2008": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 0
+  },
+  "DC-2008": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 2
+  },
+  "RR-2008": {
+    "personId": "ff077124",
+    "name": "Kamran Akmal",
+    "stumpings": 4
+  },
+  "MI-2008": {
+    "personId": "4e04666c",
+    "name": "YV Takawale",
+    "stumpings": 1
+  },
+  "DECCAN-2008": {
+    "personId": "2b6e6dec",
+    "name": "AC Gilchrist",
+    "stumpings": 1
+  },
+  "CSK-2009": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 4
+  },
+  "MI-2009": {
+    "personId": "0aadc906",
+    "name": "PR Shah",
+    "stumpings": 2
+  },
+  "RCB-2009": {
+    "personId": "1c17e270",
+    "name": "RV Uthappa",
+    "stumpings": 1
+  },
+  "RR-2009": {
+    "personId": "890946a0",
+    "name": "NV Ojha",
+    "stumpings": 4
+  },
+  "DC-2009": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 5
+  },
+  "PBKS-2009": {
+    "personId": "6b71e6cf",
+    "name": "KC Sangakkara",
+    "stumpings": 2
+  },
+  "DECCAN-2009": {
+    "personId": "2b6e6dec",
+    "name": "AC Gilchrist",
+    "stumpings": 8
+  },
+  "KKR-2009": {
+    "personId": "b8a55852",
+    "name": "BB McCullum",
+    "stumpings": 0
+  },
+  "DECCAN-2010": {
+    "personId": "2b6e6dec",
+    "name": "AC Gilchrist",
+    "stumpings": 4
+  },
+  "KKR-2010": {
+    "personId": "fe11caa6",
+    "name": "WP Saha",
+    "stumpings": 3
+  },
+  "MI-2010": {
+    "personId": "855a210c",
+    "name": "AP Tare",
+    "stumpings": 2
+  },
+  "RR-2010": {
+    "personId": "890946a0",
+    "name": "NV Ojha",
+    "stumpings": 2
+  },
+  "PBKS-2010": {
+    "personId": "6b71e6cf",
+    "name": "KC Sangakkara",
+    "stumpings": 5
+  },
+  "DC-2010": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 6
+  },
+  "RCB-2010": {
+    "personId": "1c17e270",
+    "name": "RV Uthappa",
+    "stumpings": 3
+  },
+  "CSK-2010": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 6
+  },
+  "CSK-2011": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 5
+  },
+  "KKR-2011": {
+    "personId": "5afd4539",
+    "name": "MS Bisla",
+    "stumpings": 2
+  },
+  "DECCAN-2011": {
+    "personId": "6b71e6cf",
+    "name": "KC Sangakkara",
+    "stumpings": 2
+  },
+  "RR-2011": {
+    "personId": "063b3673",
+    "name": "DH Yagnik",
+    "stumpings": 4
+  },
+  "KOCHI-2011": {
+    "personId": "b5da6c24",
+    "name": "PA Patel",
+    "stumpings": 1
+  },
+  "RCB-2011": {
+    "personId": "c4487b84",
+    "name": "AB de Villiers",
+    "stumpings": 2
+  },
+  "DC-2011": {
+    "personId": "890946a0",
+    "name": "NV Ojha",
+    "stumpings": 0
+  },
+  "MI-2011": {
+    "personId": "a84468fe",
+    "name": "DJ Jacobs",
+    "stumpings": 2
+  },
+  "PUNE_WARRIORS-2011": {
+    "personId": "1c17e270",
+    "name": "RV Uthappa",
+    "stumpings": 3
+  },
+  "PBKS-2011": {
+    "personId": "2b6e6dec",
+    "name": "AC Gilchrist",
+    "stumpings": 3
+  },
+  "CSK-2012": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 2
+  },
+  "MI-2012": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 2
+  },
+  "KKR-2012": {
+    "personId": "b8a55852",
+    "name": "BB McCullum",
+    "stumpings": 6
+  },
+  "DC-2012": {
+    "personId": "890946a0",
+    "name": "NV Ojha",
+    "stumpings": 2
+  },
+  "PUNE_WARRIORS-2012": {
+    "personId": "1c17e270",
+    "name": "RV Uthappa",
+    "stumpings": 3
+  },
+  "RR-2012": {
+    "personId": "541f85c9",
+    "name": "SP Goswami",
+    "stumpings": 4
+  },
+  "PBKS-2012": {
+    "personId": "addbde6c",
+    "name": "N Saini",
+    "stumpings": 2
+  },
+  "RCB-2012": {
+    "personId": "c4487b84",
+    "name": "AB de Villiers",
+    "stumpings": 5
+  },
+  "DECCAN-2012": {
+    "personId": "b5da6c24",
+    "name": "PA Patel",
+    "stumpings": 1
+  },
+  "KKR-2013": {
+    "personId": "5afd4539",
+    "name": "MS Bisla",
+    "stumpings": 3
+  },
+  "DC-2013": {
+    "personId": "99d63244",
+    "name": "KM Jadhav",
+    "stumpings": 2
+  },
+  "RCB-2013": {
+    "personId": "7daedf2f",
+    "name": "KB Arun Karthik",
+    "stumpings": 2
+  },
+  "MI-2013": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 2
+  },
+  "SRH-2013": {
+    "personId": "b5da6c24",
+    "name": "PA Patel",
+    "stumpings": 3
+  },
+  "PUNE_WARRIORS-2013": {
+    "personId": "de8d3876",
+    "name": "M Rawat",
+    "stumpings": 1
+  },
+  "RR-2013": {
+    "personId": "063b3673",
+    "name": "DH Yagnik",
+    "stumpings": 1
+  },
+  "CSK-2013": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 2
+  },
+  "PBKS-2013": {
+    "personId": "6eb146d2",
+    "name": "Gurkeerat Singh",
+    "stumpings": 1
+  },
+  "MI-2014": {
+    "personId": "855a210c",
+    "name": "AP Tare",
+    "stumpings": 3
+  },
+  "KKR-2014": {
+    "personId": "1c17e270",
+    "name": "RV Uthappa",
+    "stumpings": 7
+  },
+  "DC-2014": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 2
+  },
+  "RCB-2014": {
+    "personId": "b5da6c24",
+    "name": "PA Patel",
+    "stumpings": 1
+  },
+  "CSK-2014": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 1
+  },
+  "PBKS-2014": {
+    "personId": "fe11caa6",
+    "name": "WP Saha",
+    "stumpings": 4
+  },
+  "SRH-2014": {
+    "personId": "890946a0",
+    "name": "NV Ojha",
+    "stumpings": 1
+  },
+  "RR-2014": {
+    "personId": "a4cc73aa",
+    "name": "SV Samson",
+    "stumpings": 2
+  },
+  "KKR-2015": {
+    "personId": "1c17e270",
+    "name": "RV Uthappa",
+    "stumpings": 5
+  },
+  "MI-2015": {
+    "personId": "b5da6c24",
+    "name": "PA Patel",
+    "stumpings": 3
+  },
+  "CSK-2015": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 3
+  },
+  "DC-2015": {
+    "personId": "99d63244",
+    "name": "KM Jadhav",
+    "stumpings": 2
+  },
+  "PBKS-2015": {
+    "personId": "fe11caa6",
+    "name": "WP Saha",
+    "stumpings": 3
+  },
+  "SRH-2015": {
+    "personId": "890946a0",
+    "name": "NV Ojha",
+    "stumpings": 1
+  },
+  "RCB-2015": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 4
+  },
+  "MI-2016": {
+    "personId": "b5da6c24",
+    "name": "PA Patel",
+    "stumpings": 1
+  },
+  "RISING_PUNE-2016": {
+    "personId": "4a8a2e3b",
+    "name": "MS Dhoni",
+    "stumpings": 4
+  },
+  "KKR-2016": {
+    "personId": "1c17e270",
+    "name": "RV Uthappa",
+    "stumpings": 4
+  },
+  "DC-2016": {
+    "personId": "372455c4",
+    "name": "Q de Kock",
+    "stumpings": 2
+  },
+  "PBKS-2016": {
+    "personId": "fe11caa6",
+    "name": "WP Saha",
+    "stumpings": 3
+  },
+  "GUJARAT_LIONS-2016": {
+    "personId": "c03f1114",
+    "name": "KD Karthik",
+    "stumpings": 3
+  },
+  "RCB-2016": {
+    "personId": "b17e2f24",
+    "name": "KL Rahul",
+    "stumpings": 4
+  }
+}
