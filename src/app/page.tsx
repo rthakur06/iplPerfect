@@ -56,8 +56,8 @@ export default function FrontPage() {
             ))}
           </h1>
           <p className="mt-5 max-w-md text-base leading-relaxed" style={{ color: "var(--ink-soft)" }}>
-            No IPL team can claim a perfect season — but you can. Spin the wheel, draft real IPL legends from any season in history, and chase an unbeaten,
-            title-winning campaign.
+            No real IPL team has gone a whole season unbeaten and won the title. Each spin draws a random
+            franchise and year — pick a player from that squad, then do it ten more times and see if your XI can.
           </p>
 
           {/* Difficulty */}
@@ -166,16 +166,17 @@ function HowToPlay({ onClose }: { onClose: () => void }) {
               The wheel lands on a real franchise and a real season — say, Chennai Super Kings, 2010.
             </Step>
             <Step n={2} title="Draft">
-              Pick a player from that squad, then choose where they bat. Repeat {XI_SIZE} times. Two
-              single-use rerolls swap just the team or just the year.
+              Pick a player from that squad and drag them into a batting position. Repeat {XI_SIZE} times.
+              Two single-use rerolls swap just the team or just the year. In easy mode each card shows
+              that season&rsquo;s rating out of 100 — OVR is a blend of their batting, bowling and fielding.
             </Step>
             <Step n={3} title="Build a balanced XI">
               Every player is tagged by where they really batted. You can only field them in those
               positions, so a finisher can&rsquo;t open and your tail has to bowl.
             </Step>
             <Step n={4} title="Play the season">
-              Watch a deterministic 14-game league against random sides from across IPL history, then
-              a playoff gauntlet that ends against the greatest XI ever assembled.
+              A 14-game league against random sides from IPL history, then three playoff knockouts —
+              the last against an XI built from the best players in the league&rsquo;s history.
             </Step>
           </Section>
 

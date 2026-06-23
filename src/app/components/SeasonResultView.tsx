@@ -185,7 +185,7 @@ export function SeasonResultView({
         {/* ── Playoff gauntlet, game by game ── */}
         {enteredPlayoffs && hasPlayoffs && (
           <div className="mb-5">
-            <span className="eyebrow">The gauntlet · beat the best sides ever built</span>
+            <span className="eyebrow">Playoffs · three knockouts against all-time XIs</span>
             <div className="mt-2 flex flex-col gap-2">
               {playoffs.slice(0, playoffShown).map((m, i) => (
                 <PlayoffGameCard key={i} match={m} revealed />

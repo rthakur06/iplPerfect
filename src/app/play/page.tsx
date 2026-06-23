@@ -80,7 +80,12 @@ function PlayScreen() {
   const [pendingPlayer, setPendingPlayer] = useState<PlayerSeason | null>(null);
   const [reorderFrom, setReorderFrom] = useState<number | null>(null);
   const [spinToken, setSpinToken] = useState(0);
+  const [spinMode, setSpinMode] = useState<"both" | "team" | "year">("both");
   const [reelSettled, setReelSettled] = useState(false);
+  // Drag-and-drop: what's being dragged (a freshly-drawn squad player, or an already-placed slot)
+  // and which slot it's hovering over.
+  const [dragInfo, setDragInfo] = useState<{ type: "squad"; player: PlayerSeason } | { type: "slot"; index: number } | null>(null);
+  const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [seasonResult, setSeasonResult] = useState<SeasonResult | null>(null);
   const [verdict, setVerdict] = useState<Verdict | null>(null);
@@ -97,6 +102,15 @@ function PlayScreen() {
   const overseasCount = filledPlayers.filter((p) => p.isOverseas).length;
   const keeperCount = filledPlayers.filter((p) => p.isWicketkeeper).length;
 
+  // The player currently being placed — whether picked by tap (pendingPlayer) or held mid-drag.
+  const draggingPlayer =
+    dragInfo?.type === "squad"
+      ? dragInfo.player
+      : dragInfo?.type === "slot" && draftState.slots[dragInfo.index].playerId
+        ? playersById.get(draftState.slots[dragInfo.index].playerId!) ?? null
+        : null;
+  const placing = pendingPlayer ?? draggingPlayer;
+
   const hideSquadRatings = isHard;
   const hideTeamRatings = isHard && !isComplete;
 
@@ -104,6 +118,7 @@ function PlayScreen() {
     setError(null);
     setPendingPlayer(null);
     setReorderFrom(null);
+    setSpinMode("both");
     setPendingSpin(spinWheel(POOL, Math.random()));
     setSpinToken((t) => t + 1);
     setReelSettled(false);
@@ -144,9 +159,9 @@ function PlayScreen() {
       return;
     }
 
-    // Reorder: pick up a filled slot, then drop on another.
-    if (slot.playerId == null) return;
+    // Move/reorder: tap a filled slot to pick it up, then tap any slot (empty or filled) to drop it.
     if (reorderFrom === null) {
+      if (slot.playerId == null) return; // nothing to pick up in an empty slot
       setReorderFrom(index);
       return;
     }
@@ -156,7 +171,7 @@ function PlayScreen() {
     }
     const moved = movePlayer(draftState, reorderFrom, index, playersById);
     if (moved === draftState) {
-      setError("Can't swap those two — it would put a player out of position.");
+      setError("Can't move there — that player can't bat in that position.");
     } else {
       setDraftState(moved);
       setError(null);
@@ -164,9 +179,42 @@ function PlayScreen() {
     setReorderFrom(null);
   }
 
+  /** Drop a dragged player (a freshly-drawn squad pick or an already-placed slot) onto a slot. */
+  function handleDropOnSlot(index: number) {
+    const info = dragInfo;
+    setDragInfo(null);
+    setDragOverIndex(null);
+    if (!info) return;
+
+    if (info.type === "squad") {
+      const { state, placed, reason } = placePlayer(draftState, info.player, playersById, index);
+      if (placed) {
+        setDraftState(state);
+        setPendingPlayer(null);
+        setPendingSpin(null);
+        setReelSettled(false);
+        setError(null);
+      } else {
+        setError(reason ?? "Can't place there.");
+      }
+      return;
+    }
+
+    if (info.index === index) return;
+    const moved = movePlayer(draftState, info.index, index, playersById);
+    if (moved === draftState) {
+      setError("Can't move there — that player can't bat in that position.");
+    } else {
+      setDraftState(moved);
+      setReorderFrom(null);
+      setError(null);
+    }
+  }
+
   function handleRerollTeam() {
     if (!pendingSpin || draftState.rerolls.teamRerollUsed) return;
     setPendingPlayer(null);
+    setSpinMode("team"); // only the team reel spins; the year stays put
     setPendingSpin(rerollTeam(pendingSpin, ALL_TEAM_SEASONS, Math.random()));
     setSpinToken((t) => t + 1);
     setReelSettled(false);
@@ -176,6 +224,7 @@ function PlayScreen() {
   function handleRerollYear() {
     if (!pendingSpin || draftState.rerolls.yearRerollUsed) return;
     setPendingPlayer(null);
+    setSpinMode("year"); // only the year reel spins; the team stays put
     setPendingSpin(rerollYear(pendingSpin, ALL_TEAM_SEASONS, Math.random()));
     setSpinToken((t) => t + 1);
     setReelSettled(false);
@@ -290,8 +339,8 @@ function PlayScreen() {
             </div>
             <p className="mt-1 text-xs" style={{ color: "var(--ink-soft)" }}>
               {pendingPlayer
-                ? `Choose a position for ${pendingPlayer.name}.`
-                : "Tap two filled positions to swap the order."}
+                ? `Drag or tap a position for ${pendingPlayer.name}.`
+                : "Drag a player to an open spot, or tap two to swap."}
             </p>
 
             <div className="mt-3 flex gap-2">
@@ -303,19 +352,48 @@ function PlayScreen() {
               {draftState.slots.map((slot) => {
                 const player = slot.playerId ? playersById.get(slot.playerId) : null;
                 const isReorder = reorderFrom === slot.index;
-                const isLegalTarget = pendingPlayer != null && player == null && canPlaceInSlot(pendingPlayer, slot.index);
-                const isBlockedTarget = pendingPlayer != null && player == null && !isLegalTarget;
+                // The player being placed via either flow (a tapped pick or a dragged item).
+                const isLegalTarget = placing != null && player == null && canPlaceInSlot(placing, slot.index);
+                const isBlockedTarget = placing != null && player == null && !isLegalTarget;
+                const isDragOver = dragOverIndex === slot.index && dragInfo != null;
                 return (
                   <li key={slot.index}>
                     <button
                       onClick={() => handleSlotClick(slot.index)}
+                      draggable={player != null}
+                      onDragStart={(e) => {
+                        if (player == null) return;
+                        e.dataTransfer.effectAllowed = "move";
+                        e.dataTransfer.setData("text/plain", `slot:${slot.index}`);
+                        setReorderFrom(null);
+                        setDragInfo({ type: "slot", index: slot.index });
+                      }}
+                      onDragOver={(e) => {
+                        if (!dragInfo) return;
+                        e.preventDefault();
+                        e.dataTransfer.dropEffect = "move";
+                        if (dragOverIndex !== slot.index) setDragOverIndex(slot.index);
+                      }}
+                      onDragLeave={() => {
+                        if (dragOverIndex === slot.index) setDragOverIndex(null);
+                      }}
+                      onDrop={(e) => {
+                        e.preventDefault();
+                        handleDropOnSlot(slot.index);
+                      }}
+                      onDragEnd={() => {
+                        setDragInfo(null);
+                        setDragOverIndex(null);
+                      }}
                       className="flex w-full items-center gap-2.5 px-2.5 py-2 text-left transition-all"
                       style={{
-                        background: player ? "var(--paper-3)" : "transparent",
+                        background: isDragOver ? "var(--paper-2)" : player ? "var(--paper-3)" : "transparent",
                         border: player
-                          ? `1.5px solid ${isReorder ? "var(--spot)" : "transparent"}`
-                          : `1.5px dashed ${isLegalTarget ? "var(--spot)" : "var(--rule)"}`,
+                          ? `1.5px solid ${isReorder || isDragOver ? "var(--spot)" : "transparent"}`
+                          : `1.5px dashed ${isLegalTarget || isDragOver ? "var(--spot)" : "var(--rule)"}`,
+                        boxShadow: isDragOver ? "2px 2px 0 var(--spot-2)" : "none",
                         opacity: isBlockedTarget ? 0.4 : 1,
+                        cursor: player ? "grab" : "default",
                       }}
                     >
                       <span className="font-mono text-xs w-5 shrink-0" style={{ color: "var(--ink-faint)" }}>
@@ -334,7 +412,7 @@ function PlayScreen() {
                         </>
                       ) : (
                         <span className="text-xs" style={{ color: isLegalTarget ? "var(--spot)" : "var(--ink-faint)" }}>
-                          {isLegalTarget ? "Place here ←" : "Empty"}
+                          {isLegalTarget ? "Drop here ←" : "Empty"}
                         </span>
                       )}
                     </button>
@@ -400,12 +478,17 @@ function PlayScreen() {
               )
             ) : (
               <div className="sheet overflow-hidden">
-                <div className="h-1.5 w-full" style={{ background: accent }} />
+                {/* Stay neutral while spinning so the bar doesn't give away the franchise early. */}
+                <div
+                  className="h-1.5 w-full"
+                  style={{ background: reelSettled ? accent : "var(--rule)", transition: "background 0.4s ease" }}
+                />
                 <div className="p-5">
                   <SpinReel
                     candidates={ALL_TEAM_SEASONS}
                     result={pendingSpin}
                     spinToken={spinToken}
+                    spinMode={spinMode}
                     onSettled={() => setReelSettled(true)}
                   />
 
@@ -461,16 +544,28 @@ function PlayScreen() {
                             const check = canAddPlayer(player, draftState.slots, playersById);
                             const isPicked = pendingPlayer?.id === player.id;
                             return (
-                              <motion.button
+                              <motion.div
                                 key={player.id}
                                 initial={{ opacity: 0, y: 6 }}
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ duration: 0.18, delay: Math.min(i * 0.018, 0.28) }}
-                                whileHover={check.allowed ? { y: -2 } : {}}
-                                whileTap={check.allowed ? { scale: 0.99 } : {}}
+                              >
+                              <button
                                 onClick={() => handlePickPlayer(player)}
                                 disabled={!check.allowed}
-                                className="card-interactive p-3 text-left disabled:cursor-not-allowed disabled:opacity-35"
+                                draggable={check.allowed}
+                                onDragStart={(e) => {
+                                  if (!check.allowed) return;
+                                  e.dataTransfer.effectAllowed = "move";
+                                  e.dataTransfer.setData("text/plain", `squad:${player.id}`);
+                                  setError(null);
+                                  setDragInfo({ type: "squad", player });
+                                }}
+                                onDragEnd={() => {
+                                  setDragInfo(null);
+                                  setDragOverIndex(null);
+                                }}
+                                className="card-interactive block w-full p-3 text-left disabled:cursor-not-allowed disabled:opacity-35"
                                 style={{
                                   background: isPicked ? "var(--ink)" : "var(--paper-2)",
                                   color: isPicked ? "var(--paper-2)" : "var(--ink)",
@@ -478,14 +573,20 @@ function PlayScreen() {
                                   borderTop: "1.5px solid var(--ink)",
                                   borderRight: "1.5px solid var(--ink)",
                                   borderBottom: "1.5px solid var(--ink)",
+                                  cursor: check.allowed ? "grab" : "not-allowed",
                                 }}
                               >
                                 <div className="flex items-center gap-2">
                                   <PlayerAvatar name={player.name} franchiseId={pendingSpin.franchiseId} size={28} />
                                   <span className="min-w-0 flex-1 truncate font-semibold">{player.name}</span>
                                   {!hideSquadRatings && (
-                                    <span className="font-mono text-sm font-bold" style={{ color: isPicked ? "var(--paper-2)" : "var(--spot)" }}>
-                                      {toDisplayRating(player.rating.ovr)}
+                                    <span className="flex shrink-0 items-baseline gap-1">
+                                      <span className="font-mono text-[9px] uppercase tracking-wide" style={{ color: isPicked ? "var(--rule)" : "var(--ink-faint)" }}>
+                                        ovr
+                                      </span>
+                                      <span className="font-mono text-base font-bold leading-none" style={{ color: isPicked ? "var(--paper-2)" : "var(--spot)" }}>
+                                        {toDisplayRating(player.rating.ovr)}
+                                      </span>
                                     </span>
                                   )}
                                 </div>
@@ -498,11 +599,22 @@ function PlayScreen() {
                                   {player.limitedSample && <RoleChip label="Small sample" inverted={isPicked} faint />}
                                 </div>
                                 {!hideSquadRatings && (
-                                  <div className="mt-1.5 font-mono text-xs" style={{ color: isPicked ? "var(--rule)" : "var(--ink-soft)" }}>
-                                    {statsLine(player)}
-                                  </div>
+                                  <>
+                                    {/* The OVR broken into what it's actually built from this season. */}
+                                    <div className="mt-1.5 flex flex-wrap gap-x-3 gap-y-0.5 font-mono text-[10px] uppercase tracking-wide" style={{ color: isPicked ? "var(--rule)" : "var(--ink-faint)" }}>
+                                      <span>Bat <span style={{ color: isPicked ? "var(--paper-2)" : "var(--ink)" }}>{toDisplayRating(player.rating.bat)}</span></span>
+                                      {player.bowlingRole !== "NONE" && (
+                                        <span>Bowl <span style={{ color: isPicked ? "var(--paper-2)" : "var(--ink)" }}>{toDisplayRating(player.rating.bowl)}</span></span>
+                                      )}
+                                      <span>Field <span style={{ color: isPicked ? "var(--paper-2)" : "var(--ink)" }}>{toDisplayRating(player.rating.field)}</span></span>
+                                    </div>
+                                    <div className="mt-1 font-mono text-xs" style={{ color: isPicked ? "var(--rule)" : "var(--ink-soft)" }}>
+                                      {statsLine(player)}
+                                    </div>
+                                  </>
                                 )}
-                              </motion.button>
+                              </button>
+                              </motion.div>
                             );
                           })}
                         </div>
@@ -653,9 +765,9 @@ function ScoutingReport({
         {valid ? (
           <>
             <p className="mb-4 max-w-md text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
-              How this XI projects across a 14-game league and the all-time playoff gauntlet. Winning
-              the title means beating the greatest sides ever assembled — only the strongest drafts get
-              there.
+              Projected results for this XI over a 14-game league and the playoffs. The title means
+              winning three knockouts against all-time great sides, so it&rsquo;s a tall order even for a
+              strong team.
             </p>
             <div className="grid grid-cols-2 gap-px overflow-hidden" style={{ background: "var(--rule)", border: "1.5px solid var(--ink)" }}>
               <OddsCell label="Projected finish" value={`#${odds.projectedFinish}`} />

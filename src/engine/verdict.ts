@@ -22,15 +22,15 @@ function computeBadges(result: SeasonResult): string[] {
 
 const VERDICT_LINES: Record<ResultTier, string[]> = {
   WOODEN_SPOON: [
-    "Played 14, lost most of them. The wooden spoon was never really in doubt.",
-    "A season to forget — and you will, the moment you spin again.",
+    "Bottom of the table. Lost more than you won and finished where the points put you.",
+    "Rough one. The draft didn't come together — worth another spin.",
   ],
-  MID_TABLE: ["Solid, unremarkable, forgettable. Mid-table is where dreams go to nap."],
-  PLAYOFF_BOUND: ["You made the cut. The real test starts now."],
-  FINALIST: ["So close to immortality — and so far. A final is still a final, though."],
-  CHAMPIONS: ["Champions. Not unbeaten, but a trophy is a trophy."],
-  UNBEATEN_LEAGUE_STAGE: ["Unbeaten through the league stage. Now don't blow it in the playoffs."],
-  PERFECT_SEASON: ["PERFECT SEASON. Unbeaten and untouchable. Played 14, won 14, won it all."],
+  MID_TABLE: ["Mid-table finish. Decent in patches, not enough to trouble the top four."],
+  PLAYOFF_BOUND: ["Top four, so you're into the playoffs. The hard part starts now."],
+  FINALIST: ["Runners-up. You made the final and came up a bit short."],
+  CHAMPIONS: ["Champions. Dropped a game or two along the way, but you lifted the trophy."],
+  UNBEATEN_LEAGUE_STAGE: ["Won all 14 in the league, then fell in the playoffs. One step from the full set."],
+  PERFECT_SEASON: ["Perfect season. Won all 14, then won the title — something no real IPL side has ever done."],
 };
 
 function pickVerdictLine(tier: ResultTier, deterministicIndex: number): string {

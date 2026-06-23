@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 import type { TeamSeason } from "@/engine/types";
 import { getFranchise } from "@/engine/data/franchises";
@@ -13,10 +13,13 @@ const FILLER_COUNT = 26;
 const TEAM_DURATION = 2.3;
 const YEAR_DURATION = 2.7; // lands a beat after the team reel, for a two-stage reveal
 
+export type SpinMode = "both" | "team" | "year";
+
 interface SpinReelProps {
   candidates: TeamSeason[];
   result: TeamSeason; // chosen first, deterministically, before any animation — the reels just reveal it
   spinToken: number; // bump to trigger a new spin animation
+  spinMode?: SpinMode; // which reel(s) actually spin (a team/year reroll only moves one)
   onSettled: () => void;
 }
 
@@ -28,6 +31,7 @@ function Reel({
   phase,
   duration,
   accent,
+  reveal,
   onAnimationComplete,
   renderItem,
 }: {
@@ -36,6 +40,7 @@ function Reel({
   phase: Phase;
   duration: number;
   accent: string;
+  reveal: boolean; // only colour the landed row once the whole spin has settled (no early spoiler)
   onAnimationComplete?: () => void;
   renderItem: (item: unknown, isFinal: boolean) => React.ReactNode;
 }) {
@@ -48,13 +53,9 @@ function Reel({
     >
       <motion.div
         className="pointer-events-none absolute left-0 right-0 z-10 border-y-2"
-        style={{
-          top: ITEM_HEIGHT,
-          height: ITEM_HEIGHT,
-          borderColor: "var(--ink)",
-        }}
+        style={{ top: ITEM_HEIGHT, height: ITEM_HEIGHT, borderColor: "var(--ink)" }}
         animate={
-          phase === "settled"
+          reveal
             ? { borderColor: ["var(--ink)", accent, "var(--ink)"], backgroundColor: [`${accent}00`, `${accent}22`, `${accent}00`] }
             : {}
         }
@@ -71,18 +72,14 @@ function Reel({
             ? { y: [0, restY * 0.55, restY], filter: ["blur(0px)", "blur(3px)", "blur(0px)"] }
             : { y: phase === "idle" ? 0 : restY, filter: "blur(0px)" }
         }
-        transition={
-          phase === "spinning"
-            ? { duration, times: [0, 0.55, 1], ease: ["easeIn", [0.13, 0.78, 0.1, 1]] }
-            : { duration: 0 }
-        }
+        transition={phase === "spinning" ? { duration, times: [0, 0.55, 1], ease: ["easeIn", [0.13, 0.78, 0.1, 1]] } : { duration: 0 }}
         onAnimationComplete={() => {
           if (phase === "spinning") onAnimationComplete?.();
         }}
       >
         {items.map((item, i) => (
           <div key={i} style={{ height: ITEM_HEIGHT }} className="flex items-center justify-center">
-            {renderItem(item, i === finalIndex && phase === "settled")}
+            {renderItem(item, i === finalIndex && reveal)}
           </div>
         ))}
       </motion.div>
@@ -90,40 +87,62 @@ function Reel({
   );
 }
 
-export function SpinReel({ candidates, result, spinToken, onSettled }: SpinReelProps) {
+export function SpinReel({ candidates, result, spinToken, spinMode = "both", onSettled }: SpinReelProps) {
   const [teamStrip, setTeamStrip] = useState<string[]>([result.franchiseId]);
   const [yearStrip, setYearStrip] = useState<number[]>([result.season]);
-  const [phase, setPhase] = useState<Phase>("idle");
+  const [teamPhase, setTeamPhase] = useState<Phase>("idle");
+  const [yearPhase, setYearPhase] = useState<Phase>("idle");
   const [lastToken, setLastToken] = useState(0);
-  const [teamDone, setTeamDone] = useState(false);
+  const [pendingSettle, setPendingSettle] = useState(false);
 
   if (spinToken !== lastToken) {
-    // Filler reel items are purely cosmetic (they blur past), so pick them deterministically from
-    // the candidate list — keeps this render-phase state sync pure (no Math.random) while still
-    // varying per spin via spinToken.
+    // Filler reel items are purely cosmetic (they blur past), picked deterministically so this
+    // render-phase state sync stays pure.
     const pick = (i: number) => candidates[(i * 7 + spinToken * 13) % candidates.length];
-    const teamFiller = Array.from({ length: FILLER_COUNT }, (_, i) => pick(i).franchiseId);
-    const yearFiller = Array.from({ length: FILLER_COUNT }, (_, i) => pick(i + 3).season);
-    setTeamStrip([...teamFiller, result.franchiseId]);
-    setYearStrip([...yearFiller, result.season]);
-    setPhase("spinning");
-    setTeamDone(false);
+    const spinTeam = spinMode === "both" || spinMode === "team";
+    const spinYear = spinMode === "both" || spinMode === "year";
+
+    if (spinTeam) {
+      setTeamStrip([...Array.from({ length: FILLER_COUNT }, (_, i) => pick(i).franchiseId), result.franchiseId]);
+      setTeamPhase("spinning");
+    } else {
+      // Unchanged reel — just hold the (same) value still, no animation.
+      setTeamStrip([result.franchiseId]);
+      setTeamPhase("settled");
+    }
+    if (spinYear) {
+      setYearStrip([...Array.from({ length: FILLER_COUNT }, (_, i) => pick(i + 3).season), result.season]);
+      setYearPhase("spinning");
+    } else {
+      setYearStrip([result.season]);
+      setYearPhase("settled");
+    }
+    setPendingSettle(true);
     setLastToken(spinToken);
   }
 
-  const teamFinalIndex = teamStrip.length - 1;
-  const yearFinalIndex = yearStrip.length - 1;
+  // Fire onSettled exactly once per spin, when both reels have come to rest.
+  useEffect(() => {
+    if (pendingSettle && teamPhase === "settled" && yearPhase === "settled") {
+      // eslint-disable-next-line react-hooks/set-state-in-effect -- one-shot guard so onSettled fires once
+      setPendingSettle(false);
+      onSettled();
+    }
+  }, [pendingSettle, teamPhase, yearPhase, onSettled]);
+
+  const bothSettled = teamPhase === "settled" && yearPhase === "settled";
   const accent = franchiseColor(result.franchiseId);
 
   return (
     <div className="flex gap-3">
       <Reel
         items={teamStrip}
-        finalIndex={teamFinalIndex}
-        phase={phase}
+        finalIndex={teamStrip.length - 1}
+        phase={teamPhase}
         duration={TEAM_DURATION}
         accent={accent}
-        onAnimationComplete={() => setTeamDone(true)}
+        reveal={bothSettled}
+        onAnimationComplete={() => setTeamPhase("settled")}
         renderItem={(item, isFinal) => {
           const franchiseId = item as string;
           const franchise = getFranchise(franchiseId);
@@ -144,20 +163,12 @@ export function SpinReel({ candidates, result, spinToken, onSettled }: SpinReelP
       />
       <Reel
         items={yearStrip}
-        finalIndex={yearFinalIndex}
-        phase={phase}
+        finalIndex={yearStrip.length - 1}
+        phase={yearPhase}
         duration={YEAR_DURATION}
         accent={accent}
-        onAnimationComplete={() => {
-          if (teamDone) {
-            setPhase("settled");
-            onSettled();
-          } else {
-            // Defensive: if the year reel somehow finishes first, still settle once both are in.
-            setPhase("settled");
-            onSettled();
-          }
-        }}
+        reveal={bothSettled}
+        onAnimationComplete={() => setYearPhase("settled")}
         renderItem={(item, isFinal) => (
           <motion.span
             className="font-mono text-2xl font-bold"
