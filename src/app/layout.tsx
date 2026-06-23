@@ -27,9 +27,8 @@ export const metadata: Metadata = {
   description: "Spin, draft a real IPL XI from any season in history, and chase a perfect season.",
 };
 
-// Set the theme before first paint so there's no flash of the wrong palette. Defaults to the
-// premium dark broadcast look unless the visitor has explicitly chosen day mode.
-const themeScript = `(function(){try{var t=localStorage.getItem('theme')||'dark';document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','dark');}})();`;
+// Set the theme before first paint so there's no flash of the wrong palette.
+const themeScript = `(function(){try{var t=localStorage.getItem('theme');if(!t){t=window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){}})();`;
 
 export default function RootLayout({
   children,

@@ -16,7 +16,6 @@ import { buildVerdict } from "@/engine/verdict";
 import { buildXiSeedKey } from "@/engine/rng";
 import type { DraftState, PlayerSeason, SeasonOdds, SeasonResult, SimRosterPlayer, TeamSeason, Verdict, XiValidationIssue } from "@/engine/types";
 import { SpinReel } from "../components/SpinReel";
-import { SpinWheel } from "../components/HeroReel";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { SeasonResultView } from "../components/SeasonResultView";
 import { FranchiseCrest, PlayerAvatar } from "../components/Crest";
@@ -382,21 +381,20 @@ function PlayScreen() {
                   onSimulate={handleSimulate}
                 />
               ) : (
-                <div className="sheet relative flex min-h-[440px] flex-col items-center justify-center gap-6 overflow-hidden p-8 text-center">
-                  <span className="eyebrow" style={{ color: "var(--spot)" }}>
+                <div className="sheet flex min-h-[420px] flex-col items-center justify-center gap-5 p-8 text-center">
+                  <span className="eyebrow" style={{ color: "var(--spot-2-deep)" }}>
                     Spin {String(filledCount + 1).padStart(2, "0")} of 11
                   </span>
-                  <SpinWheel size={150} />
                   <motion.button
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.96 }}
                     onClick={handleSpin}
-                    className="btn-primary font-display px-12 py-5 text-3xl"
+                    className="btn-primary font-display px-12 py-6 text-3xl"
                   >
                     Spin the wheel
                   </motion.button>
                   <p className="text-xs" style={{ color: "var(--ink-faint)" }}>
-                    A random franchise and a random season from IPL history.
+                    A random franchise and a random season.
                   </p>
                 </div>
               )

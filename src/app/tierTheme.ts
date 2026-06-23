@@ -6,14 +6,14 @@ export interface TierTheme {
   badgeBg: string; // soft tint behind the tier badge
 }
 
-// Tuned for the dark broadcast palette — neon-ish accents on a faint same-hue glass chip. badgeBg
-// uses a low-alpha tint so the chip reads correctly in both dark and light themes.
+// Accents that read as printed spot inks; badgeBg uses a low-alpha tint of the accent so the chip
+// works in both light and dark themes.
 export const TIER_THEME: Record<ResultTier, TierTheme> = {
-  WOODEN_SPOON: { label: "Wooden Spoon", accent: "#ff6a5d", badgeBg: "rgba(255, 106, 93, 0.16)" },
-  MID_TABLE: { label: "Mid-Table", accent: "#9aa6c2", badgeBg: "rgba(154, 166, 194, 0.16)" },
-  PLAYOFF_BOUND: { label: "Playoff Bound", accent: "#00e676", badgeBg: "rgba(0, 230, 118, 0.16)" },
-  FINALIST: { label: "Finalist", accent: "#3aa0ff", badgeBg: "rgba(58, 160, 255, 0.16)" },
-  CHAMPIONS: { label: "Champions", accent: "#e6a700", badgeBg: "rgba(230, 167, 0, 0.18)" },
-  UNBEATEN_LEAGUE_STAGE: { label: "Unbeaten League Stage", accent: "#00d9c7", badgeBg: "rgba(0, 217, 199, 0.16)" },
-  PERFECT_SEASON: { label: "Perfect Season", accent: "#ffd700", badgeBg: "rgba(255, 215, 0, 0.18)" },
+  WOODEN_SPOON: { label: "Wooden Spoon", accent: "#c0392b", badgeBg: "rgba(192, 57, 43, 0.16)" },
+  MID_TABLE: { label: "Mid-Table", accent: "#8a7d63", badgeBg: "rgba(138, 125, 99, 0.18)" },
+  PLAYOFF_BOUND: { label: "Playoff Bound", accent: "#2e6b46", badgeBg: "rgba(46, 107, 70, 0.18)" },
+  FINALIST: { label: "Finalist", accent: "#b07d1c", badgeBg: "rgba(176, 125, 28, 0.18)" },
+  CHAMPIONS: { label: "Champions", accent: "#d8402a", badgeBg: "rgba(216, 64, 42, 0.16)" },
+  UNBEATEN_LEAGUE_STAGE: { label: "Unbeaten League Stage", accent: "#2c7a4a", badgeBg: "rgba(44, 122, 74, 0.18)" },
+  PERFECT_SEASON: { label: "Perfect Season", accent: "#d8402a", badgeBg: "rgba(216, 64, 42, 0.16)" },
 };

@@ -285,16 +285,27 @@ export function SeasonResultView({
   );
 }
 
-/** A playoff game revealed inning by inning. If `revealed`, it shows fully at once (already played). */
+const PER_BATTER_MS = 420; // pace of the final's batter-by-batter reveal
+
+/** A playoff game revealed innings by innings, in the order the teams actually batted. The final
+ *  reveals your innings batter by batter. If `revealed`, it shows fully at once (history view). */
 function PlayoffGameCard({ match, onDone, revealed }: { match: PlayoffMatchResult; onDone?: () => void; revealed?: boolean }) {
+  const card = match.battingCard;
+  // The two innings in the real order they were played.
+  const innings: ("you" | "them")[] = match.youBattedFirst ? ["you", "them"] : ["them", "you"];
+  const userStep = (match.youBattedFirst ? 0 : 1) + 1; // 1-indexed step at which your innings shows
+  const isFinalReveal = !!card && !revealed;
+
   const [step, setStep] = useState(revealed ? 3 : 0);
 
   useEffect(() => {
     if (revealed) return;
     if (step >= 3) return;
-    const t = setTimeout(() => setStep((s) => s + 1), step === 0 ? 350 : INNINGS_MS);
+    const dwell =
+      step === 0 ? 350 : isFinalReveal && step === userStep ? card!.length * PER_BATTER_MS + 800 : INNINGS_MS;
+    const t = setTimeout(() => setStep((s) => s + 1), dwell);
     return () => clearTimeout(t);
-  }, [step, revealed]);
+  }, [step, revealed, isFinalReveal, userStep, card]);
 
   useEffect(() => {
     if (!revealed && step >= 3) onDone?.();
@@ -304,6 +315,76 @@ function PlayoffGameCard({ match, onDone, revealed }: { match: PlayoffMatchResul
   const outcome = match.won ? "WON" : match.tied ? "TIED" : "LOST";
   const outColor = match.won ? "var(--pitch)" : match.tied ? "var(--ink-soft)" : "var(--spot-deep)";
 
+  function renderInnings(who: "you" | "them", position: number) {
+    if (step < position) return null;
+    const ordinal = position === 1 ? "1st" : "2nd";
+    if (who === "them") {
+      return (
+        <motion.div
+          key={`them-${position}`}
+          initial={{ opacity: 0, x: -8 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="flex justify-between font-mono text-sm"
+          style={{ color: "var(--ink-soft)" }}
+        >
+          <span>{ordinal} innings · {match.opponentName}</span>
+          <span>{match.theirScore.runs}/{match.theirScore.wickets}</span>
+        </motion.div>
+      );
+    }
+    // Your innings — full batter-by-batter card on the final, a single line otherwise.
+    if (card) {
+      return (
+        <div key={`you-${position}`} className="mt-1">
+          <div className="eyebrow mb-1" style={{ letterSpacing: "0.14em" }}>
+            {ordinal} innings · your XI
+          </div>
+          <div className="flex flex-col gap-0.5">
+            {card.map((b, i) => (
+              <motion.div
+                key={b.name + i}
+                initial={revealed ? false : { opacity: 0, y: 4 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: revealed ? 0 : i * (PER_BATTER_MS / 1000), duration: 0.22 }}
+                className="flex items-baseline justify-between font-mono text-xs"
+              >
+                <span className="truncate" style={{ color: "var(--ink)" }}>
+                  {b.name}
+                  {!b.out && <span style={{ color: "var(--pitch)" }}> *</span>}
+                </span>
+                <span className="shrink-0 pl-2" style={{ color: "var(--ink-soft)" }}>
+                  <span className="font-bold" style={{ color: "var(--ink)" }}>{b.runs}</span>
+                  <span style={{ color: "var(--ink-faint)" }}> ({b.balls})</span>
+                </span>
+              </motion.div>
+            ))}
+          </div>
+          <motion.div
+            initial={revealed ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: revealed ? 0 : card.length * (PER_BATTER_MS / 1000) }}
+            className="mt-1.5 flex justify-between border-t pt-1 font-mono text-sm"
+            style={{ borderColor: "var(--rule)" }}
+          >
+            <span className="font-semibold">Total</span>
+            <span className="font-bold">{match.yourScore.runs}/{match.yourScore.wickets} ({match.yourScore.overs} ov)</span>
+          </motion.div>
+        </div>
+      );
+    }
+    return (
+      <motion.div
+        key={`you-${position}`}
+        initial={{ opacity: 0, x: -8 }}
+        animate={{ opacity: 1, x: 0 }}
+        className="flex justify-between font-mono text-sm"
+      >
+        <span>{ordinal} innings · You</span>
+        <span>{match.yourScore.runs}/{match.yourScore.wickets}</span>
+      </motion.div>
+    );
+  }
+
   return (
     <div className="p-3" style={{ background: "var(--paper-2)", border: "1.5px solid var(--ink)" }}>
       <div className="flex items-center justify-between">
@@ -312,21 +393,9 @@ function PlayoffGameCard({ match, onDone, revealed }: { match: PlayoffMatchResul
         </span>
         <span className="text-sm font-semibold">{opponentLabel(match)}</span>
       </div>
-      <div className="font-mono mt-2 space-y-1 text-sm">
-        <AnimatePresence>
-          {step >= 1 && (
-            <motion.div key="i1" initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} className="flex justify-between" style={{ color: "var(--ink-soft)" }}>
-              <span>1st innings · {match.opponentName}</span>
-              <span>{match.theirScore.runs}/{match.theirScore.wickets}</span>
-            </motion.div>
-          )}
-          {step >= 2 && (
-            <motion.div key="i2" initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} className="flex justify-between">
-              <span>2nd innings · You</span>
-              <span>{match.yourScore.runs}/{match.yourScore.wickets}</span>
-            </motion.div>
-          )}
-        </AnimatePresence>
+      <div className="mt-2 space-y-1">
+        {renderInnings(innings[0], 1)}
+        {renderInnings(innings[1], 2)}
       </div>
       {step >= 3 && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-2">

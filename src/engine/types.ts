@@ -120,6 +120,7 @@ export interface MatchResult {
   isHome: boolean;
   yourScore: { runs: number; wickets: number; overs: number };
   theirScore: { runs: number; wickets: number; overs: number };
+  youBattedFirst: boolean; // whether your XI batted the first innings (vs chasing)
   won: boolean;
   tied: boolean;
 }
@@ -127,8 +128,17 @@ export interface MatchResult {
 // Playoffs are an escalating gauntlet: a strong side, a stronger side, then the GOAT in the final.
 export type PlayoffStage = "QUALIFIER" | "SEMI_FINAL" | "FINAL";
 
+// One batter's line in a single innings (used for the final's ball-by-ball-feel scorecard).
+export interface BatterLine {
+  name: string;
+  runs: number;
+  balls: number;
+  out: boolean; // false = not out / remained at the crease
+}
+
 export interface PlayoffMatchResult extends MatchResult {
   stage: PlayoffStage;
+  battingCard?: BatterLine[]; // your XI's innings, batter by batter — only built for the FINAL
 }
 
 // A drafted player's identity + ratings, handed to the sim so it can attribute season stats.

@@ -1,4 +1,5 @@
 import type {
+  BatterLine,
   MatchResult,
   PlayoffMatchResult,
   PlayoffStage,
@@ -127,6 +128,7 @@ function simulateMatch(
     isHome,
     yourScore,
     theirScore,
+    youBattedFirst: yourTeamBatsFirst,
     won,
     tied,
   };
@@ -213,6 +215,47 @@ function attributeStats(
   });
 }
 
+/**
+ * Break a single innings (your XI's) into a batter-by-batter scorecard, in batting order. Top-order
+ * batters face more deliveries; better batters convert more of them into runs. The batters dismissed
+ * are the top of the order; the last pair are left not out. Totals reconcile to the innings score.
+ */
+function buildBattingCard(
+  roster: SimRosterPlayer[],
+  innings: { runs: number; wickets: number; overs: number },
+  rng: () => number
+): BatterLine[] {
+  const order = [...roster].sort((a, b) => a.slotIndex - b.slotIndex);
+  if (order.length === 0) return [];
+  const wickets = Math.min(innings.wickets, 10);
+  // Batters who came to the crease: those dismissed plus the not-out pair still in at the end.
+  const batted = Math.min(order.length, wickets >= 10 ? order.length : wickets + 2);
+  const lineup = order.slice(0, batted);
+
+  const noise = () => 0.7 + rng() * 0.6;
+  const ballW = lineup.map((p) => Math.max(0.1, BAT_SLOT_WEIGHT[p.slotIndex] ?? 0.08) * noise());
+  const ballTot = ballW.reduce((a, b) => a + b, 0) || 1;
+  const runW = lineup.map((p, i) => ballW[i] * (0.5 + p.bat / 100));
+  const runTot = runW.reduce((a, b) => a + b, 0) || 1;
+
+  const totalBalls = Math.max(lineup.length, Math.round(innings.overs * 6));
+
+  const lines: BatterLine[] = lineup.map((p, i) => ({
+    name: p.name,
+    balls: Math.max(1, Math.round((totalBalls * ballW[i]) / ballTot)),
+    runs: Math.max(0, Math.round((innings.runs * runW[i]) / runTot)),
+    out: i < wickets, // the top `wickets` of the order are dismissed; the rest remain not out
+  }));
+
+  // Reconcile rounding so the card sums to the real innings total.
+  const drift = innings.runs - lines.reduce((s, l) => s + l.runs, 0);
+  if (drift !== 0 && lines.length > 0) {
+    const top = lines.reduce((best, l) => (l.runs > best.runs ? l : best), lines[0]);
+    top.runs = Math.max(0, top.runs + drift);
+  }
+  return lines;
+}
+
 /** Full deterministic season: 14-game league stage + an escalating 3-match playoff gauntlet. */
 export function simulateSeason(
   seedKey: string,
@@ -265,7 +308,9 @@ export function simulateSeason(
     ];
     for (const { stage, opp } of gauntlet) {
       const m = simulateMatch(yourRating, opp, false, rng, PLAYOFF_TEAM_BOOST);
-      playoffStage.push({ ...m, stage });
+      // The final is the headline act — break your XI's innings out batter by batter.
+      const battingCard = stage === "FINAL" ? buildBattingCard(roster, m.yourScore, rng) : undefined;
+      playoffStage.push({ ...m, stage, battingCard });
       if (!m.won) break; // knocked out
       if (stage === "FINAL") wonTitle = true;
     }
