@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { MAX_OVERSEAS, MIN_BOWLING_OPTIONS, XI_SIZE } from "@/engine/rules";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { AccountNav } from "./components/AccountNav";
+import { SpinTeaser, CrestTicker } from "./components/HeroReel";
 import { Analytics } from "@vercel/analytics/next"
 
 const TIERS = [
@@ -42,16 +43,33 @@ export default function FrontPage() {
           </div>
           <div className="rule-double my-4" />
           <h1 className="font-display text-5xl leading-[0.9] sm:text-8xl">
-            IPL
-            <br />
-            Perfect
-            <br />
-            <span style={{ color: "var(--spot)" }}>Season</span>
+            {["IPL", "Perfect", "Season"].map((word, i) => (
+              <motion.span
+                key={word}
+                className="block"
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                style={i === 2 ? { color: "var(--spot)" } : undefined}
+              >
+                {word}
+              </motion.span>
+            ))}
           </h1>
           <p className="mt-5 max-w-md text-base leading-relaxed" style={{ color: "var(--ink-soft)" }}>
             No IPL team can claim a perfect season — but you can. Spin the wheel, draft real IPL legends from any season in history, and chase an unbeaten,
             title-winning campaign.
           </p>
+
+          {/* Live spin teaser */}
+          <motion.div
+            initial={{ opacity: 0, y: 12 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.45, duration: 0.4 }}
+            className="mt-6"
+          >
+            <SpinTeaser />
+          </motion.div>
 
           {/* Difficulty */}
           <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -73,28 +91,37 @@ export default function FrontPage() {
           <div className="mt-6 flex flex-wrap items-center gap-3">
             <motion.a
               href={`/play?difficulty=${difficulty}`}
+              whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
               className="font-display print-shadow inline-block px-10 py-4 text-2xl"
               style={{ background: "var(--spot)", color: "var(--spot-ink)" }}
             >
               Play →
             </motion.a>
-            <button
+            <motion.button
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.97 }}
               onClick={() => setShowHowTo(true)}
               className="font-display px-6 py-4 text-lg"
               style={{ border: "1.5px solid var(--ink)", color: "var(--ink)" }}
             >
               How to play
-            </button>
+            </motion.button>
+          </div>
+
+          {/* Crest ticker */}
+          <div className="-mx-7 mt-7 border-t-[1.5px] border-[var(--ink)] sm:-mx-12">
+            <CrestTicker />
           </div>
         </header>
 
         <p className="mt-6 text-center eyebrow" style={{ color: "var(--ink-faint)" }}>
-          Text only · no crests · no photos · real numbers
+          Fan-made · monogram crests · real numbers
         </p>
       </div>
 
       <AnimatePresence>{showHowTo && <HowToPlay onClose={() => setShowHowTo(false)} />}</AnimatePresence>
+      <Analytics />
     </div>
   );
 }

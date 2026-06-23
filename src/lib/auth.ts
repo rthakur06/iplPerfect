@@ -8,6 +8,7 @@ const SESSION_MAX_AGE = 60 * 60 * 24 * 180; // 180 days
 export interface AuthUser {
   id: number;
   email: string;
+  name: string;
 }
 
 /** scrypt with a per-user random salt, stored as "salt:hash". */
@@ -50,7 +51,7 @@ export async function currentUser(): Promise<AuthUser | null> {
   const token = (await cookies()).get(COOKIE)?.value;
   if (!token) return null;
   const row = getDb()
-    .prepare("SELECT u.id AS id, u.email AS email FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token = ?")
-    .get(token) as { id: number; email: string } | undefined;
-  return row ? { id: row.id, email: row.email } : null;
+    .prepare("SELECT u.id AS id, u.email AS email, u.name AS name FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token = ?")
+    .get(token) as { id: number; email: string; name: string } | undefined;
+  return row ? { id: row.id, email: row.email, name: row.name ?? "" } : null;
 }

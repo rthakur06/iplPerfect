@@ -10,13 +10,13 @@ export async function POST(req: Request) {
   const password = String(body.password ?? "");
 
   const row = getDb()
-    .prepare("SELECT id, password_hash FROM users WHERE email = ?")
-    .get(email) as { id: number; password_hash: string } | undefined;
+    .prepare("SELECT id, name, password_hash FROM users WHERE email = ?")
+    .get(email) as { id: number; name: string; password_hash: string } | undefined;
 
   if (!row || !verifyPassword(password, row.password_hash)) {
     return NextResponse.json({ error: "Wrong email or password." }, { status: 401 });
   }
 
   await createSession(row.id);
-  return NextResponse.json({ email });
+  return NextResponse.json({ email, name: row.name });
 }

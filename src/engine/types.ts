@@ -129,6 +129,30 @@ export interface PlayoffMatchResult extends MatchResult {
   stage: PlayoffStage;
 }
 
+// A drafted player's identity + ratings, handed to the sim so it can attribute season stats.
+export interface SimRosterPlayer {
+  id: string;
+  name: string;
+  slotIndex: number;
+  bowls: boolean;
+  bat: number;
+  bowl: number;
+  field: number;
+}
+
+// Per-player simulated season tallies (attributed from the team totals, not a guess of real data).
+export interface SimPlayerStat {
+  playerId: string;
+  name: string;
+  runs: number;
+  ballsFaced: number;
+  strikeRate: number;
+  wickets: number;
+  oversBowled: number;
+  economy: number;
+  catches: number;
+}
+
 export interface SeasonResult {
   seed: string;
   leagueStage: MatchResult[]; // 14 games, round robin vs 9 opponents home & away
@@ -141,6 +165,7 @@ export interface SeasonResult {
   points: number;
   netRunRate: number;
   finalRank: number;
+  playerStats: SimPlayerStat[]; // your XI's individual contributions across the season
 }
 
 // --- verdict ---

@@ -41,6 +41,12 @@ const FIELDING_SHRINKAGE_MATCHES = 10;
 const NON_PERFORMER_FLOOR = 12; // rating for "essentially didn't do this discipline at all"
 const FIELDING_FLOOR = 28;
 
+// Small-sample penalty: beyond shrinking the *rate* toward the league mean, we also pull the final
+// rating toward the floor when a player simply hasn't done enough — a brilliant 40-ball cameo must
+// not out-rate a full season. Confidence ramps linearly to 1 at a full workload.
+const FULL_BAT_BALLS = 130;
+const FULL_BOWL_BALLS = 110;
+
 // Below this confidence in either discipline, the player-season is flagged `limitedSample` so the
 // UI can warn the user the rating is built on very little real cricket.
 const LIMITED_SAMPLE_MATCHES = 4;
@@ -145,6 +151,12 @@ function main(): void {
     return (shrunk - dist.mean) / dist.sd;
   }
 
+  // Pull a rating toward the floor for thin workloads (linear confidence to 1 at a full season).
+  function samplePenalty(rating: number, floor: number, sample: number, full: number): number {
+    const confidence = clamp(sample / full, 0, 1);
+    return Math.round(floor + (rating - floor) * confidence);
+  }
+
   function computeBat(p: PlayerSeasonAgg): number {
     if (p.batting.balls === 0) return NON_PERFORMER_FLOOR;
     // Average shrinks by dismissals (its real sample size — kills the not-out skew); strike rate
@@ -153,7 +165,7 @@ function main(): void {
     const shrunkAvg = battingAverage(p.batting) * wAvg + avgDist.mean * (1 - wAvg);
     const zAvg = (shrunkAvg - avgDist.mean) / avgDist.sd;
     const zSr = shrunkZ(strikeRate(p.batting), srDist, p.batting.balls, BATTING_SHRINKAGE_BALLS);
-    return zToRating((zAvg + zSr) / 2);
+    return samplePenalty(zToRating((zAvg + zSr) / 2), NON_PERFORMER_FLOOR, p.batting.balls, FULL_BAT_BALLS);
   }
 
   function computeBowl(p: PlayerSeasonAgg): number {
@@ -163,7 +175,7 @@ function main(): void {
     const shrunkEcon = economy(p.bowling) * w + econDist.mean * (1 - w);
     const zEcon = (econDist.mean - shrunkEcon) / econDist.sd;
     const zWicketRate = shrunkZ(wicketRatePerOver(p.bowling), wicketRateDist, p.bowling.balls, BOWLING_SHRINKAGE_BALLS);
-    return zToRating((zEcon + zWicketRate) / 2);
+    return samplePenalty(zToRating((zEcon + zWicketRate) / 2), NON_PERFORMER_FLOOR, p.bowling.balls, FULL_BOWL_BALLS);
   }
 
   function computeField(p: PlayerSeasonAgg): number {

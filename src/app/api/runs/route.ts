@@ -25,6 +25,7 @@ interface RunRow {
   wins: number;
   won_title: number;
   xi_json: string;
+  has_detail: number;
 }
 
 export async function POST(req: Request) {
@@ -37,10 +38,12 @@ export async function POST(req: Request) {
   }
   const xi = Array.isArray(b.xi) ? b.xi : [];
 
+  const detail = b.detail ? JSON.stringify(b.detail).slice(0, 200000) : null;
+
   getDb()
     .prepare(
-      `INSERT INTO runs (user_id, created_at, difficulty, tier, final_rank, points, wins, won_title, xi_json)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`
+      `INSERT INTO runs (user_id, created_at, difficulty, tier, final_rank, points, wins, won_title, xi_json, detail_json)
+       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
     )
     .run(
       user.id,
@@ -51,7 +54,8 @@ export async function POST(req: Request) {
       Number(b.points) || 0,
       Number(b.wins) || 0,
       b.wonTitle ? 1 : 0,
-      JSON.stringify(xi)
+      JSON.stringify(xi),
+      detail
     );
 
   return NextResponse.json({ ok: true });
@@ -62,7 +66,11 @@ export async function GET() {
   if (!user) return NextResponse.json({ error: "Not signed in." }, { status: 401 });
 
   const rows = getDb()
-    .prepare("SELECT * FROM runs WHERE user_id = ? ORDER BY created_at DESC")
+    .prepare(
+      `SELECT id, created_at, difficulty, tier, final_rank, points, wins, won_title, xi_json,
+              (detail_json IS NOT NULL) AS has_detail
+       FROM runs WHERE user_id = ? ORDER BY created_at DESC`
+    )
     .all(user.id) as unknown as RunRow[];
 
   const runs = rows.map((r) => ({
@@ -75,6 +83,7 @@ export async function GET() {
     wins: r.wins,
     wonTitle: !!r.won_title,
     xi: safeParse(r.xi_json),
+    hasDetail: !!r.has_detail,
   }));
 
   // ── Aggregates for the history header ──────────────────────────────────────

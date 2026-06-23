@@ -15,6 +15,7 @@ export function getDb(): DatabaseSync {
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       email TEXT UNIQUE NOT NULL,
+      name TEXT NOT NULL DEFAULT '',
       password_hash TEXT NOT NULL,
       created_at TEXT NOT NULL
     );
@@ -33,8 +34,21 @@ export function getDb(): DatabaseSync {
       points INTEGER NOT NULL,
       wins INTEGER NOT NULL,
       won_title INTEGER NOT NULL,
-      xi_json TEXT NOT NULL
+      xi_json TEXT NOT NULL,
+      detail_json TEXT
     );
   `);
+
+  // Guarded migrations for databases created before these columns existed.
+  for (const stmt of [
+    "ALTER TABLE users ADD COLUMN name TEXT NOT NULL DEFAULT ''",
+    "ALTER TABLE runs ADD COLUMN detail_json TEXT",
+  ]) {
+    try {
+      db.exec(stmt);
+    } catch {
+      /* column already exists */
+    }
+  }
   return db;
 }

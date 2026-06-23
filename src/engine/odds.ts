@@ -1,29 +1,27 @@
 import type { SeasonOdds, TeamRatingBreakdown } from "./types";
 
-// Calibrated against the real dataset via scripts/calibrate-odds.ts, not guessed. Over 2000
-// simulated "11 random spins, draft best eligible each time" runs on the current 0-100 scale
-// (team metrics are now monotonic sums over fixed divisors, with no balance penalty):
-//   overall p10=56  p50=60  p90=63  mean=60
-// A thoughtfully balanced draft can push overall into the mid-to-high 60s, so "league average"
-// is ~60 and "title-worthy" sits a handful of points above.
-const LEAGUE_AVG_OVERALL = 60;
-const TITLE_THRESHOLD = 65; // reachable with a strong, balanced XI — not guaranteed even then
-const WOODEN_SPOON_THRESHOLD = 57; // roughly the p10 random-draft outcome — genuinely poor drafting
-const LOGISTIC_K = 0.7; // tuned to the ~5-8 point spread between league-average and title-worthy
+// Fitted to the post-rebalance simulation (15-team league of strong real sides + the playoff
+// gauntlet). Measured outcomes by team overall: ~60 finishes 1st-2nd and makes playoffs ~all the
+// time but only sweeps unbeaten ~13%; the title (beating the All-Time XI) needs ~70+ — 23% at 70,
+// 56% at 75. So "title-worthy" sits up near 74, well above a typical good draft.
+const LEAGUE_AVG_OVERALL = 60; // a 60 side projects to finish ~2nd of 15
+const TITLE_THRESHOLD = 74; // the gauntlet is the wall — title odds only get real in the 70s
+const WOODEN_SPOON_THRESHOLD = 53; // below this you genuinely risk the bottom of the table
+const LOGISTIC_K = 0.3;
 
 function logistic(x: number): number {
   return 1 / (1 + Math.exp(-x));
 }
 
-/** Maps team Overall (+ balance) to a pre-season "scouting report" — not the result. */
+/** Maps team Overall to a pre-season "scouting report" — not the result. */
 export function computeSeasonOdds(rating: TeamRatingBreakdown): SeasonOdds {
   const delta = rating.overall - LEAGUE_AVG_OVERALL;
 
-  // 14 league-stage games at 2 pts/win. Multiplier scaled for the real ~±8-point delta range on
-  // the current scale (see calibration note above).
-  const expectedPoints = clamp(14 + delta * 1.2, 0, 28);
+  // 14 league games at 2 pts/win; a 60 side averages ~24 pts, falling ~1.4 pts per point of overall.
+  const expectedPoints = clamp(Math.round(24 + delta * 1.4), 0, 28);
 
-  const projectedFinish = clamp(Math.round(6 - delta / 1.2), 1, 10);
+  // 15-team league: a 60 side projects ~2nd, climbing/sliding ~0.8 places per point of overall.
+  const projectedFinish = clamp(Math.round(2 - delta * 0.8), 1, 15);
 
   const titleOdds = logistic(LOGISTIC_K * (rating.overall - TITLE_THRESHOLD));
   const wodenSpoonOdds = logistic(LOGISTIC_K * (WOODEN_SPOON_THRESHOLD - rating.overall));

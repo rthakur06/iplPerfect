@@ -21,3 +21,16 @@ export const FRANCHISE_COLORS: Record<string, string> = {
 export function franchiseColor(franchiseId: string): string {
   return FRANCHISE_COLORS[franchiseId] ?? "#10b981";
 }
+
+// Short crest codes for franchises whose ids aren't already a tidy abbreviation.
+const CREST_CODES: Record<string, string> = {
+  DECCAN: "DEC",
+  PUNE_WARRIORS: "PWI",
+  KOCHI: "KOC",
+  RISING_PUNE: "RPS",
+  GUJARAT_LIONS: "GL",
+};
+
+export function crestCode(franchiseId: string): string {
+  return CREST_CODES[franchiseId] ?? franchiseId.slice(0, 4);
+}

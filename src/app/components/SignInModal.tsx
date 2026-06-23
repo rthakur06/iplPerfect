@@ -7,6 +7,7 @@ import { useAuth } from "./AuthProvider";
 export function SignInModal({ onClose }: { onClose: () => void }) {
   const { login, register } = useAuth();
   const [mode, setMode] = useState<"login" | "register">("login");
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
@@ -22,7 +23,7 @@ export function SignInModal({ onClose }: { onClose: () => void }) {
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const result = mode === "login" ? await login(email, password) : await register(email, password);
+    const result = mode === "login" ? await login(email, password) : await register(name, email, password);
     setBusy(false);
     if (result.error) setError(result.error);
     else onClose();
@@ -63,6 +64,21 @@ export function SignInModal({ onClose }: { onClose: () => void }) {
           <p className="mb-4 text-sm" style={{ color: "var(--ink-soft)" }}>
             {mode === "login" ? "Sign in to track your runs across devices." : "Create an account to save your run history."}
           </p>
+
+          {mode === "register" && (
+            <>
+              <label className="eyebrow mb-1 block">Name</label>
+              <input
+                type="text"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                required
+                autoComplete="name"
+                className="mb-3 w-full px-3 py-2 text-sm outline-none"
+                style={{ background: "var(--paper-3)", border: "1.5px solid var(--ink)", color: "var(--ink)" }}
+              />
+            </>
+          )}
 
           <label className="eyebrow mb-1 block">Email</label>
           <input

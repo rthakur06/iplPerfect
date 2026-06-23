@@ -12,8 +12,8 @@
   --ink-soft: #6a5d49;     /* secondary text */
   --ink-faint: #9c8e75;    /* captions, disabled */
   --rule: #c9b99c;         /* hairline rules */
-  --spot: #d8402a;         /* screenprint vermilion — the single bold accent */
-  --spot-deep: #a82c1a;
+  --spot: #1d3fb5;         /* bold screenprint navy — the single accent */
+  --spot-deep: #14297a;
   --spot-ink: #fbf2e9;     /* text on spot */
   --pitch: #356b46;        /* pitch green — used sparingly for "good" states */
 
@@ -35,8 +35,8 @@
   --ink-soft: #b0a085;
   --ink-faint: #7c6f57;
   --rule: #3b3327;
-  --spot: #ec5a40;
-  --spot-deep: #c23b26;
+  --spot: #6d92ff;
+  --spot-deep: #3f63d6;
   --spot-ink: #16120c;
   --pitch: #5aa873;
   --shadow-color: #000000;
@@ -119,6 +119,19 @@ a {
 :focus-visible {
   outline: 2.5px solid var(--spot);
   outline-offset: 2px;
+}
+
+/* Crest ticker marquee. */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+.animate-marquee {
+  animation: marquee 28s linear infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

@@ -4,6 +4,7 @@ import { createContext, useCallback, useContext, useEffect, useState } from "rea
 
 export interface AuthUser {
   email: string;
+  name: string;
 }
 
 interface AuthContextValue {
@@ -11,7 +12,7 @@ interface AuthContextValue {
   loading: boolean;
   refresh: () => Promise<void>;
   login: (email: string, password: string) => Promise<{ error?: string }>;
-  register: (email: string, password: string) => Promise<{ error?: string }>;
+  register: (name: string, email: string, password: string) => Promise<{ error?: string }>;
   logout: () => Promise<void>;
 }
 
@@ -59,8 +60,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   );
 
   const register = useCallback(
-    async (email: string, password: string) => {
-      const { ok, data } = await post("/api/auth/register", { email, password });
+    async (name: string, email: string, password: string) => {
+      const { ok, data } = await post("/api/auth/register", { name, email, password });
       if (!ok) return { error: data.error ?? "Sign up failed." };
       await refresh();
       return {};

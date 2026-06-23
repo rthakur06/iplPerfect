@@ -1,10 +1,9 @@
 "use client";
 
-import { Suspense, useEffect, useMemo, useState } from "react";
+import { Suspense, useMemo, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
-import confetti from "canvas-confetti";
 import { ALL_TEAM_SEASONS, PLAYER_SEASONS_BY_ID, playersForTeamSeason } from "@/engine/data/dataset";
 import { getFranchise } from "@/engine/data/franchises";
 import { buildWeightedPool, rerollTeam, rerollYear, spinWheel } from "@/engine/wheel";
@@ -15,13 +14,16 @@ import { computeSeasonOdds } from "@/engine/odds";
 import { simulateSeason } from "@/engine/sim";
 import { buildVerdict } from "@/engine/verdict";
 import { buildXiSeedKey } from "@/engine/rng";
-import type { DraftState, MatchResult, PlayerSeason, PlayoffStage, SeasonResult, TeamSeason, Verdict } from "@/engine/types";
+import type { DraftState, PlayerSeason, SeasonResult, SimRosterPlayer, TeamSeason, Verdict } from "@/engine/types";
 import { SpinReel } from "../components/SpinReel";
 import { ThemeToggle } from "../components/ThemeToggle";
-import { useAuth } from "../components/AuthProvider";
-import { SignInModal } from "../components/SignInModal";
+import { SeasonResultView } from "../components/SeasonResultView";
+import { FranchiseCrest, PlayerAvatar } from "../components/Crest";
 import { franchiseColor } from "../franchiseTheme";
-import { TIER_THEME } from "../tierTheme";
+
+function franchiseOf(teamSeasonId: string): string {
+  return teamSeasonId.split("-")[0];
+}
 import { toDisplayRating } from "../displayRating";
 
 const POOL = buildWeightedPool(ALL_TEAM_SEASONS);
@@ -182,7 +184,21 @@ function PlayScreen() {
 
   function handleSimulate() {
     const seedKey = buildXiSeedKey(draftState.slots.map((s) => s.playerId));
-    const result = simulateSeason(seedKey, teamRating);
+    const roster: SimRosterPlayer[] = draftState.slots
+      .filter((s) => s.playerId != null)
+      .map((s) => {
+        const p = playersById.get(s.playerId!)!;
+        return {
+          id: p.id,
+          name: p.name,
+          slotIndex: s.index,
+          bowls: p.bowlingRole !== "NONE",
+          bat: p.rating.bat,
+          bowl: p.rating.bowl,
+          field: p.rating.field,
+        };
+      });
+    const result = simulateSeason(seedKey, teamRating, roster);
     const v = buildVerdict(result);
     setSeasonResult(result);
     setVerdict(v);
@@ -207,6 +223,7 @@ function PlayScreen() {
           wins: result.leagueStage.filter((m) => m.won).length,
           wonTitle: result.wonTitle,
           xi,
+          detail: { result, verdict: v },
         }),
       });
       if (res.status === 401) setSaveState("needsAuth");
@@ -229,8 +246,12 @@ function PlayScreen() {
     setSaveState("idle");
   }
 
+  // Hard mode sorts alphabetically so the ordering can't betray who the best player is; easy mode
+  // sorts by rating for convenience.
   const squad = pendingSpin
-    ? [...playersForTeamSeason(pendingSpin.id)].sort((a, b) => b.rating.ovr - a.rating.ovr)
+    ? [...playersForTeamSeason(pendingSpin.id)].sort((a, b) =>
+        isHard ? a.name.localeCompare(b.name) : b.rating.ovr - a.rating.ovr
+      )
     : [];
   const accent = pendingSpin ? franchiseColor(pendingSpin.franchiseId) : "var(--spot)";
 
@@ -298,6 +319,7 @@ function PlayScreen() {
                       </span>
                       {player ? (
                         <>
+                          <FranchiseCrest franchiseId={franchiseOf(player.teamSeasonId)} size={16} />
                           {player.isWicketkeeper && <span className="text-xs">✦</span>}
                           <span className="flex-1 truncate text-sm">{player.name}</span>
                           {!hideSquadRatings && (
@@ -404,7 +426,10 @@ function PlayScreen() {
                         <div className="mt-5 flex items-end justify-between gap-3">
                           <div>
                             <span className="eyebrow">You drew</span>
-                            <h2 className="font-display text-2xl leading-none sm:text-3xl">{franchiseName(pendingSpin)}</h2>
+                            <div className="mt-1 flex items-center gap-2">
+                              <FranchiseCrest franchiseId={pendingSpin.franchiseId} size={30} />
+                              <h2 className="font-display text-2xl leading-none sm:text-3xl">{franchiseName(pendingSpin)}</h2>
+                            </div>
                             <p className="mt-1 font-mono text-sm" style={{ color: "var(--ink-soft)" }}>
                               {pendingSpin.season} · {finishLabel(pendingSpin)}
                             </p>
@@ -466,8 +491,9 @@ function PlayScreen() {
                                   borderBottom: "1.5px solid var(--ink)",
                                 }}
                               >
-                                <div className="flex items-center justify-between gap-2">
-                                  <span className="truncate font-semibold">{player.name}</span>
+                                <div className="flex items-center gap-2">
+                                  <PlayerAvatar name={player.name} franchiseId={pendingSpin.franchiseId} size={28} />
+                                  <span className="min-w-0 flex-1 truncate font-semibold">{player.name}</span>
                                   {!hideSquadRatings && (
                                     <span className="font-mono text-sm font-bold" style={{ color: isPicked ? "var(--paper-2)" : "var(--spot)" }}>
                                       {player.rating.ovr}
@@ -585,46 +611,6 @@ function Stat({
   );
 }
 
-const PLAYOFF_STAGE_LABEL: Record<PlayoffStage, string> = {
-  QUALIFIER: "Qualifier",
-  SEMI_FINAL: "Semi-final",
-  FINAL: "Final",
-};
-
-function opponentLabel(m: MatchResult): string {
-  // Constructed all-time sides carry season 0 — show them by name, with no year.
-  return m.opponentSeason > 0 ? `${m.opponentName} '${String(m.opponentSeason).slice(2)}` : m.opponentName;
-}
-
-function MatchRow({ match, stage }: { match: MatchResult; stage?: string }) {
-  const outcome = match.tied ? "T" : match.won ? "W" : "L";
-  const outColor = match.won ? "var(--pitch)" : match.tied ? "var(--ink-soft)" : "var(--spot-deep)";
-  return (
-    <div className="flex items-center gap-2 px-3 py-2" style={{ background: "var(--paper-2)" }}>
-      <span
-        className="font-display flex h-5 w-5 shrink-0 items-center justify-center text-xs"
-        style={{ background: outColor, color: "var(--paper-2)" }}
-      >
-        {outcome}
-      </span>
-      <div className="min-w-0 flex-1">
-        {stage && (
-          <span className="eyebrow mr-1.5" style={{ letterSpacing: "0.1em", color: "var(--spot)" }}>
-            {stage}
-          </span>
-        )}
-        <span className="truncate text-sm">{opponentLabel(match)}</span>
-        <span className="ml-1 text-xs" style={{ color: "var(--ink-faint)" }}>
-          {match.isHome ? "(H)" : "(A)"}
-        </span>
-      </div>
-      <span className="font-mono shrink-0 text-xs" style={{ color: "var(--ink-soft)" }}>
-        {match.yourScore.runs}/{match.yourScore.wickets} – {match.theirScore.runs}/{match.theirScore.wickets}
-      </span>
-    </div>
-  );
-}
-
 function describeIssue(issue: ReturnType<typeof validateXi>["issues"][number]): string {
   switch (issue.code) {
     case "INCOMPLETE":
@@ -638,155 +624,4 @@ function describeIssue(issue: ReturnType<typeof validateXi>["issues"][number]): 
     case "INSUFFICIENT_BOWLING":
       return `Only ${issue.bowlingOptions} bowling options (need ${issue.required})`;
   }
-}
-
-function SeasonResultView({
-  result,
-  verdict,
-  onDraftAgain,
-  saveState,
-  onSave,
-}: {
-  result: SeasonResult;
-  verdict: Verdict;
-  onDraftAgain: () => void;
-  saveState: "idle" | "saving" | "saved" | "needsAuth" | "error";
-  onSave: () => void;
-}) {
-  const theme = TIER_THEME[verdict.tier];
-  const { user } = useAuth();
-  const [showSignIn, setShowSignIn] = useState(false);
-
-  // Once the user signs in from the nudge, retry the save automatically.
-  useEffect(() => {
-    if (user && saveState === "needsAuth") onSave();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
-
-  useEffect(() => {
-    if (verdict.easterEgg !== "GOAT") return;
-    let frame = 0;
-    const colors = [theme.accent, "#1b1712", "#d8402a"];
-    const interval = setInterval(() => {
-      confetti({ particleCount: 60, spread: 100, startVelocity: 45, origin: { y: 0.3 }, colors });
-      frame++;
-      if (frame >= 3) clearInterval(interval);
-    }, 350);
-    return () => clearInterval(interval);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [verdict.easterEgg]);
-
-  return (
-    <motion.div
-      initial={{ opacity: 0, scale: 0.98 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ duration: 0.35 }}
-      className="sheet print-shadow overflow-hidden"
-    >
-      <div className="h-2 w-full" style={{ background: theme.accent }} />
-      <div className="p-6 sm:p-8">
-        <span
-          className="eyebrow inline-block px-2 py-1"
-          style={{ background: theme.badgeBg, color: theme.accent, letterSpacing: "0.16em" }}
-        >
-          Final verdict
-        </span>
-        <h2 className="font-display mt-3 text-4xl leading-none sm:text-5xl" style={{ color: theme.accent }}>
-          {verdict.tier === "PERFECT_SEASON" ? "Perfect Season ★" : theme.label}
-        </h2>
-        <p className="mt-3 max-w-lg leading-relaxed" style={{ color: "var(--ink-soft)" }}>
-          {verdict.verdictLine}
-        </p>
-
-        <div className="rule-double my-5" />
-
-        <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-          <Stat label="Final rank" value={result.finalRank} />
-          <Stat label="League points" value={result.points} />
-          <Stat label="Wins" value={result.leagueStage.filter((m) => m.won).length} suffix="/14" />
-          <Stat label="Won title" value={result.wonTitle ? 1 : 0} suffix={result.wonTitle ? " · yes" : " · no"} />
-        </div>
-
-        {/* League stage, game by game */}
-        <div className="mt-6">
-          <div className="mb-2 flex items-baseline justify-between">
-            <span className="eyebrow">League stage · 14 games</span>
-            <span className="font-mono text-xs" style={{ color: "var(--ink-soft)" }}>
-              random sides from across IPL history
-            </span>
-          </div>
-          <div className="grid grid-cols-1 gap-px sm:grid-cols-2" style={{ background: "var(--rule)" }}>
-            {result.leagueStage.map((m, i) => (
-              <MatchRow key={i} match={m} />
-            ))}
-          </div>
-        </div>
-
-        {/* Playoff gauntlet */}
-        {result.playoffStage.length > 0 && (
-          <div className="mt-5">
-            <div className="mb-2 flex items-baseline justify-between">
-              <span className="eyebrow">Playoffs · the gauntlet</span>
-              <span className="font-mono text-xs" style={{ color: "var(--ink-soft)" }}>
-                beat the best sides ever built
-              </span>
-            </div>
-            <div className="flex flex-col gap-px" style={{ background: "var(--rule)" }}>
-              {result.playoffStage.map((m, i) => (
-                <MatchRow key={i} match={m} stage={PLAYOFF_STAGE_LABEL[m.stage]} />
-              ))}
-            </div>
-          </div>
-        )}
-
-        {verdict.badges.length > 0 && (
-          <div className="mt-5 flex flex-wrap gap-2">
-            {verdict.badges.map((b) => (
-              <span key={b} className="font-mono px-2.5 py-1 text-xs" style={{ background: "var(--paper-3)", color: "var(--ink-soft)" }}>
-                {b}
-              </span>
-            ))}
-          </div>
-        )}
-
-        <div className="mt-6 flex flex-wrap items-center gap-3">
-          <motion.button
-            whileTap={{ scale: 0.97 }}
-            onClick={onDraftAgain}
-            className="font-display px-6 py-3 text-lg"
-            style={{ border: "1.5px solid var(--ink)" }}
-          >
-            Draft again
-          </motion.button>
-
-          {saveState === "saving" && (
-            <span className="font-mono text-xs" style={{ color: "var(--ink-faint)" }}>
-              Saving run…
-            </span>
-          )}
-          {saveState === "saved" && (
-            <span className="font-mono text-xs" style={{ color: "var(--pitch)" }}>
-              ✓ Saved to your runs
-            </span>
-          )}
-          {saveState === "error" && (
-            <span className="font-mono text-xs" style={{ color: "var(--spot-deep)" }}>
-              Couldn&rsquo;t save this run.
-            </span>
-          )}
-          {saveState === "needsAuth" && !user && (
-            <button
-              onClick={() => setShowSignIn(true)}
-              className="font-mono text-xs underline underline-offset-2"
-              style={{ color: "var(--spot)" }}
-            >
-              Sign in to save this run →
-            </button>
-          )}
-        </div>
-      </div>
-
-      <AnimatePresence>{showSignIn && <SignInModal onClose={() => setShowSignIn(false)} />}</AnimatePresence>
-    </motion.div>
-  );
 }

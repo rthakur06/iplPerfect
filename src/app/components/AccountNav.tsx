@@ -6,6 +6,9 @@ import { AnimatePresence } from "motion/react";
 import { useAuth } from "./AuthProvider";
 import { SignInModal } from "./SignInModal";
 
+const chip = "font-mono px-2.5 py-1 text-xs transition-colors";
+const chipStyle = { border: "1.5px solid var(--ink)", color: "var(--ink)" } as const;
+
 export function AccountNav() {
   const { user, loading, logout } = useAuth();
   const [open, setOpen] = useState(false);
@@ -16,14 +19,14 @@ export function AccountNav() {
 
   if (user) {
     return (
-      <div className="flex items-center gap-3">
-        <Link href="/history" className="font-mono text-xs underline-offset-2 hover:underline" style={{ color: "var(--ink-soft)" }}>
+      <div className="flex items-center gap-2">
+        <Link href="/history" className={chip} style={chipStyle}>
           My runs
         </Link>
-        <span className="font-mono hidden text-xs sm:inline" style={{ color: "var(--ink-faint)" }} title={user.email}>
-          {user.email}
+        <span className={chip} style={{ ...chipStyle, color: "var(--ink-soft)" }} title={user.email}>
+          {user.name || user.email}
         </span>
-        <button onClick={logout} className="font-mono text-xs underline-offset-2 hover:underline" style={{ color: "var(--ink-soft)" }}>
+        <button onClick={logout} className={chip} style={chipStyle}>
           Sign out
         </button>
       </div>
@@ -32,11 +35,7 @@ export function AccountNav() {
 
   return (
     <>
-      <button
-        onClick={() => setOpen(true)}
-        className="font-mono px-2 py-1 text-xs"
-        style={{ border: "1.5px solid var(--ink)", color: "var(--ink)" }}
-      >
+      <button onClick={() => setOpen(true)} className={chip} style={chipStyle}>
         Sign in
       </button>
       <AnimatePresence>{open && <SignInModal onClose={() => setOpen(false)} />}</AnimatePresence>
