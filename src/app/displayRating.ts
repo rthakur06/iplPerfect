@@ -10,17 +10,15 @@ export function toDisplayRating(raw: number): number {
   return Math.max(1, Math.min(99, Math.round(raw * 1.18 - 2)));
 }
 
-// Team ratings use their OWN, more generous scale than individual players. A team is a whole side
-// measured against the all-time field, so the bands are: best XI you can realistically build ~96-99,
-// elite ~92-95, very good ~88-91, good ~83-88, mediocre ~75, and down from there. Anchored on the
-// real team-strength distribution: a 50-internal side (a thoroughly mediocre XI) -> 75, and the
-// strongest possible XI (~64 internal, the all-time greats) -> 99.
+// Team ratings use their OWN scale, anchored to the actual playoff/title ODDS so the number predicts
+// results. A 90+ is an uncommon feat (needs a draft stronger than any single real team-season): a 90
+// (internal 60) wins a few playoff games and takes the title ~1 season in 3; a 94 (internal 62) is a
+// coin-flip for the championship; 99 (internal 64, the all-time greats) wins it ~two-thirds. The
+// best real team-season (~56 internal) lands around 81, a mediocre XI (~50) around 68.
 //
-// One linear map is applied to overall AND batting/bowling/fielding, so Overall stays exactly the
-// weighted average of the three parts shown beside it (no "overall higher than its components"
-// weirdness). Like the player scale, this is display-only — the sim and odds use the raw internals,
-// so these bands line up with the actual playoff/title/record odds.
+// One linear map is applied to overall AND batting/bowling/fielding, so Overall stays the weighted
+// average of the three parts shown beside it. Display-only — the sim and odds use the raw internals.
 export function toDisplayTeamRating(raw: number): number {
   if (raw <= 0) return 0;
-  return Math.max(1, Math.min(99, Math.round(raw * 1.7 - 10)));
+  return Math.max(1, Math.min(99, Math.round(raw * 2.25 - 45)));
 }

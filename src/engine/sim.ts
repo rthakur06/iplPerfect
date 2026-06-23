@@ -50,7 +50,7 @@ const HOME_BOOST = 2;
 // to the constructed team's batting and bowling that makes the title a real, winnable prize rather
 // than a near-impossible wall. Only applied in the gauntlet, so the league stage (and the playoff /
 // unbeaten projections) stay an honest test.
-const PLAYOFF_TEAM_BOOST = 9;
+const PLAYOFF_TEAM_BOOST = 12;
 
 /** Simulate one innings over-by-over. If `target` is set, stops once chased (2nd innings). */
 function simulateInnings(
