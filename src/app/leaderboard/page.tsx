@@ -7,11 +7,10 @@ import type { ResultTier } from "@/engine/types";
 import { TIER_THEME } from "../tierTheme";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { AccountNav } from "../components/AccountNav";
-import { ColorSpectrum } from "../components/HeroReel";
 
 interface Entry {
   username: string;
-  score: number;
+  overall: number;
   tier: ResultTier;
   points: number;
   wins: number;
@@ -59,8 +58,8 @@ export default function LeaderboardPage() {
           </span>
           <h1 className="font-display mt-1 text-4xl leading-none sm:text-6xl">Leaderboard</h1>
           <p className="mt-3 max-w-lg text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
-            Every player&rsquo;s best season, ranked. A title beats a mid-table finish, then it&rsquo;s down
-            to points, wins, and where you finished the table.
+            Every player&rsquo;s strongest XI, ranked by team overall. Draft a higher-rated side to
+            climb — ties broken by your best season result.
           </p>
         </header>
 
@@ -85,13 +84,12 @@ function Board({ title, accent, entries }: { title: string; accent: string; entr
 
   return (
     <section className="sheet print-shadow overflow-hidden">
-      <ColorSpectrum height={5} />
       <div className="p-5 sm:p-7">
         <div className="mb-5 flex items-center gap-3">
           <span className="font-display px-3 py-1 text-lg leading-none" style={{ background: accent, color: "var(--spot-ink)" }}>
             {title}
           </span>
-          <span className="eyebrow">mode · best run per player</span>
+          <span className="eyebrow">mode · best XI per player</span>
         </div>
 
         {entries.length === 0 ? (
@@ -162,8 +160,11 @@ function Podium({ podium }: { podium: Entry[] }) {
               >
                 {theme.label}
               </span>
-              <span className="font-mono mt-auto text-2xl font-bold" style={{ color: medal }}>
-                {e.score}
+              <span className="font-display mt-auto text-4xl leading-none" style={{ color: medal }}>
+                {e.overall}
+              </span>
+              <span className="eyebrow" style={{ letterSpacing: "0.14em", color: "var(--ink-faint)" }}>
+                Overall
               </span>
               <span className="font-mono text-[10px]" style={{ color: "var(--ink-soft)" }}>
                 {e.wins}/14 · {e.points} pts{e.wonTitle ? " · ★" : ""}
@@ -188,8 +189,8 @@ function RankRow({ rank, entry }: { rank: number; entry: Entry }) {
       <span className="font-mono hidden text-xs sm:inline" style={{ color: "var(--ink-soft)" }}>
         {entry.wins}/14 · {entry.points} pts
       </span>
-      <span className="font-display w-14 shrink-0 text-right text-lg leading-none" style={{ color: "var(--spot)" }}>
-        {entry.score}
+      <span className="font-display w-12 shrink-0 text-right text-xl leading-none" style={{ color: "var(--spot)" }}>
+        {entry.overall}
       </span>
     </li>
   );

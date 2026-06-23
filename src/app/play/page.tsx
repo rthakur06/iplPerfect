@@ -16,7 +16,7 @@ import { buildVerdict } from "@/engine/verdict";
 import { buildXiSeedKey } from "@/engine/rng";
 import type { DraftState, PlayerSeason, SeasonOdds, SeasonResult, SimRosterPlayer, TeamSeason, Verdict, XiValidationIssue } from "@/engine/types";
 import { SpinReel } from "../components/SpinReel";
-import { ColorSpectrum, SpinWheel } from "../components/HeroReel";
+import { SpinWheel } from "../components/HeroReel";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { SeasonResultView } from "../components/SeasonResultView";
 import { FranchiseCrest, PlayerAvatar } from "../components/Crest";
@@ -223,6 +223,7 @@ function PlayScreen() {
           points: result.points,
           wins: result.leagueStage.filter((m) => m.won).length,
           wonTitle: result.wonTitle,
+          overall: toDisplayRating(teamRating.overall),
           xi,
           detail: { result, verdict: v },
         }),
@@ -381,18 +382,16 @@ function PlayScreen() {
                   onSimulate={handleSimulate}
                 />
               ) : (
-                <div className="sheet relative flex min-h-[420px] flex-col items-center justify-center gap-5 overflow-hidden p-8 text-center">
-                  <ColorSpectrum className="absolute left-0 top-0" height={6} />
-                  <span className="eyebrow" style={{ color: "var(--spot-2-deep)" }}>
+                <div className="sheet relative flex min-h-[440px] flex-col items-center justify-center gap-6 overflow-hidden p-8 text-center">
+                  <span className="eyebrow" style={{ color: "var(--spot)" }}>
                     Spin {String(filledCount + 1).padStart(2, "0")} of 11
                   </span>
-                  <SpinWheel size={132} />
+                  <SpinWheel size={150} />
                   <motion.button
                     whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.96 }}
                     onClick={handleSpin}
-                    className="font-display print-shadow px-12 py-5 text-3xl"
-                    style={{ background: "var(--spot-2)", color: "var(--spot-2-ink)" }}
+                    className="btn-primary font-display px-12 py-5 text-3xl"
                   >
                     Spin the wheel
                   </motion.button>
@@ -473,7 +472,7 @@ function PlayScreen() {
                                 whileTap={check.allowed ? { scale: 0.99 } : {}}
                                 onClick={() => handlePickPlayer(player)}
                                 disabled={!check.allowed}
-                                className="p-3 text-left transition-all disabled:cursor-not-allowed disabled:opacity-35"
+                                className="card-interactive p-3 text-left disabled:cursor-not-allowed disabled:opacity-35"
                                 style={{
                                   background: isPicked ? "var(--ink)" : "var(--paper-2)",
                                   color: isPicked ? "var(--paper-2)" : "var(--ink)",
@@ -668,10 +667,10 @@ function ScoutingReport({
               <OddsCell label="Title chance" value={formatOdds(odds.titleOdds)} color="var(--spot-2)" wide />
             </div>
             <motion.button
+              whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={onSimulate}
-              className="font-display print-shadow mt-5 w-full py-4 text-2xl"
-              style={{ background: "var(--spot)", color: "var(--spot-ink)" }}
+              className="btn-primary font-display mt-5 w-full py-4 text-2xl"
             >
               Simulate the season →
             </motion.button>

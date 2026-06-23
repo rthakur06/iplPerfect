@@ -24,11 +24,12 @@ interface Row {
   wins: number;
   finalRank: number;
   wonTitle: number;
+  overall: number;
 }
 
 export interface LeaderEntry {
   username: string;
-  score: number;
+  overall: number;
   tier: string;
   points: number;
   wins: number;
@@ -36,10 +37,9 @@ export interface LeaderEntry {
   wonTitle: boolean;
 }
 
-/** A single sortable season score: tier dominates, then points, then wins, then a better (lower)
- *  table finish. Keeps the ranking intuitive — a title-winning season always outranks a mid-table
- *  one regardless of points. */
-function seasonScore(r: Row): number {
+/** Tiebreak when two players share the same team overall: better season result wins, then points,
+ *  wins, and table finish. */
+function tiebreak(r: Row): number {
   const tierIdx = Math.max(0, TIER_ORDER.indexOf(r.tier));
   return tierIdx * 1000 + r.points * 20 + r.wins * 5 + Math.max(0, 15 - r.finalRank);
 }
@@ -48,31 +48,44 @@ export async function GET() {
   const db = await getDb();
   const result = await db.execute(
     `SELECT u.username AS username, r.difficulty AS difficulty, r.tier AS tier,
-            r.points AS points, r.wins AS wins, r.final_rank AS finalRank, r.won_title AS wonTitle
+            r.points AS points, r.wins AS wins, r.final_rank AS finalRank,
+            r.won_title AS wonTitle, r.overall AS overall
      FROM runs r JOIN users u ON u.id = r.user_id`
   );
   const rows = result.rows as unknown as Row[];
 
+  // Rank by the team OVERALL each player achieved — their single strongest XI per difficulty.
   const build = (difficulty: "easy" | "hard"): LeaderEntry[] => {
-    const bestByUser = new Map<string, LeaderEntry>();
+    const bestByUser = new Map<string, { entry: LeaderEntry; tb: number }>();
     for (const r of rows) {
       if (r.difficulty !== difficulty) continue;
-      const score = seasonScore(r);
+      const tb = tiebreak(r);
       const prev = bestByUser.get(r.username);
-      if (!prev || score > prev.score) {
+      if (!prev || r.overall > prev.entry.overall || (r.overall === prev.entry.overall && tb > prev.tb)) {
         bestByUser.set(r.username, {
-          username: r.username,
-          score,
-          tier: r.tier,
-          points: r.points,
-          wins: r.wins,
-          finalRank: r.finalRank,
-          wonTitle: !!r.wonTitle,
+          tb,
+          entry: {
+            username: r.username,
+            overall: r.overall,
+            tier: r.tier,
+            points: r.points,
+            wins: r.wins,
+            finalRank: r.finalRank,
+            wonTitle: !!r.wonTitle,
+          },
         });
       }
     }
-    return [...bestByUser.values()].sort((a, b) => b.score - a.score).slice(0, TOP_N);
+    return [...bestByUser.values()]
+      .map((x) => x.entry)
+      .sort((a, b) => b.overall - a.overall || tiebreakEntry(b) - tiebreakEntry(a))
+      .slice(0, TOP_N);
   };
 
   return NextResponse.json({ easy: build("easy"), hard: build("hard") });
+}
+
+function tiebreakEntry(e: LeaderEntry): number {
+  const tierIdx = Math.max(0, TIER_ORDER.indexOf(e.tier));
+  return tierIdx * 1000 + e.points * 20 + e.wins * 5 + Math.max(0, 15 - e.finalRank);
 }

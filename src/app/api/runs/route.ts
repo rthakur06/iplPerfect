@@ -42,8 +42,8 @@ export async function POST(req: Request) {
 
   const db = await getDb();
   await db.execute({
-    sql: `INSERT INTO runs (user_id, created_at, difficulty, tier, final_rank, points, wins, won_title, xi_json, detail_json)
-          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    sql: `INSERT INTO runs (user_id, created_at, difficulty, tier, final_rank, points, wins, won_title, overall, xi_json, detail_json)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
     args: [
       user.id,
       new Date().toISOString(),
@@ -53,6 +53,7 @@ export async function POST(req: Request) {
       Number(b.points) || 0,
       Number(b.wins) || 0,
       b.wonTitle ? 1 : 0,
+      Number(b.overall) || 0,
       JSON.stringify(xi),
       detail,
     ],

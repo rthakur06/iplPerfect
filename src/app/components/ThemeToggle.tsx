@@ -5,10 +5,10 @@ import { useEffect, useState } from "react";
 type Theme = "light" | "dark";
 
 export function ThemeToggle() {
-  const [theme, setTheme] = useState<Theme>("light");
+  const [theme, setTheme] = useState<Theme>("dark");
 
   useEffect(() => {
-    const current = (document.documentElement.getAttribute("data-theme") as Theme) || "light";
+    const current = (document.documentElement.getAttribute("data-theme") as Theme) || "dark";
     // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time hydration from the DOM attribute set by the no-flash script
     setTheme(current);
   }, []);

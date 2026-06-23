@@ -26,9 +26,6 @@ export function AccountNav() {
         <Link href="/history" className={chip} style={chipStyle}>
           My runs
         </Link>
-        <span className={chip} style={{ ...chipStyle, color: "var(--spot)" }}>
-          @{user.username}
-        </span>
         <button onClick={logout} className={chip} style={chipStyle}>
           Sign out
         </button>

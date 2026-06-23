@@ -238,12 +238,13 @@ export function simulateSeason(
   // Other nine teams take table places ranked by real playing strength (deterministic, no need to
   // sim their full seasons) — stronger sides bank more points.
   const table: TableRow[] = [yourRow];
-  // Other 14 teams take table places by real strength (stronger sides bank more points). Spread is
-  // tuned so a top-4 finish takes roughly 9-10 wins against this strong field.
+  // Other 14 teams take table places by real strength (stronger sides bank more points). The top of
+  // the table is deliberately dense and high so finishing 1st — and even making the top 4 — takes a
+  // genuinely strong, winning campaign rather than a merely good one.
   [...opponents]
     .sort((a, b) => b.overall - a.overall)
     .forEach((o, i) => {
-      table.push({ franchiseId: o.teamSeasonId, points: Math.max(2, Math.round(22 - i * 1.4)), netRunRate: 5 - i * 0.6 });
+      table.push({ franchiseId: o.teamSeasonId, points: Math.max(2, Math.round(24 - i * 1.1)), netRunRate: 5 - i * 0.6 });
     });
 
   table.sort((a, b) => b.points - a.points || b.netRunRate - a.netRunRate);

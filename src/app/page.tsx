@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { MAX_OVERSEAS, MIN_BOWLING_OPTIONS, XI_SIZE } from "@/engine/rules";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { AccountNav } from "./components/AccountNav";
-import { CrestTicker, ColorSpectrum } from "./components/HeroReel";
+import { CrestTicker } from "./components/HeroReel";
 import { Analytics } from "@vercel/analytics/next"
 
 const TIERS = [
@@ -36,8 +36,7 @@ export default function FrontPage() {
 
         {/* ── Programme cover ─────────────────────────────────────── */}
         <header className="sheet print-shadow relative overflow-hidden p-7 sm:p-12">
-          <ColorSpectrum className="absolute left-0 top-0" height={6} />
-          <div className="mt-2 flex items-center justify-between">
+          <div className="flex items-center justify-between">
             <span className="eyebrow">IPL Perfect Season</span>
             <span className="eyebrow">Est. 2026</span>
           </div>
@@ -83,8 +82,7 @@ export default function FrontPage() {
               href={`/play?difficulty=${difficulty}`}
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.97 }}
-              className="font-display print-shadow inline-block px-10 py-4 text-2xl"
-              style={{ background: "var(--spot)", color: "var(--spot-ink)" }}
+              className="btn-primary font-display inline-block px-10 py-4 text-2xl"
             >
               Play →
             </motion.a>

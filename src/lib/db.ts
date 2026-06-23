@@ -43,6 +43,7 @@ async function init(c: Client): Promise<Client> {
       points INTEGER NOT NULL,
       wins INTEGER NOT NULL,
       won_title INTEGER NOT NULL,
+      overall INTEGER NOT NULL DEFAULT 0,
       xi_json TEXT NOT NULL,
       detail_json TEXT
     )`);
@@ -73,11 +74,16 @@ async function init(c: Client): Promise<Client> {
     await c.execute("PRAGMA foreign_keys = ON");
   }
 
-  // Guarded migration for older runs tables.
-  try {
-    await c.execute("ALTER TABLE runs ADD COLUMN detail_json TEXT");
-  } catch {
-    /* column already exists */
+  // Guarded migrations for older runs tables.
+  for (const stmt of [
+    "ALTER TABLE runs ADD COLUMN detail_json TEXT",
+    "ALTER TABLE runs ADD COLUMN overall INTEGER NOT NULL DEFAULT 0",
+  ]) {
+    try {
+      await c.execute(stmt);
+    } catch {
+      /* column already exists */
+    }
   }
 
   await c.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_users_username ON users(username COLLATE NOCASE)");
