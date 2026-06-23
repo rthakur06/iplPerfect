@@ -16,6 +16,7 @@ import { buildVerdict } from "@/engine/verdict";
 import { buildXiSeedKey } from "@/engine/rng";
 import type { DraftState, PlayerSeason, SeasonOdds, SeasonResult, SimRosterPlayer, TeamSeason, Verdict, XiValidationIssue } from "@/engine/types";
 import { SpinReel } from "../components/SpinReel";
+import { ColorSpectrum, SpinWheel } from "../components/HeroReel";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { SeasonResultView } from "../components/SeasonResultView";
 import { FranchiseCrest, PlayerAvatar } from "../components/Crest";
@@ -266,6 +267,9 @@ function PlayScreen() {
             </Link>
             <div className="flex items-center gap-3">
               <span className="eyebrow border border-[var(--ink)] px-2 py-1">{isHard ? "Hard" : "Easy"} mode</span>
+              <Link href="/leaderboard" className="font-mono text-xs" style={{ color: "var(--spot-2-deep)" }}>
+                Leaderboard
+              </Link>
               <ThemeToggle />
               <button onClick={handleReset} className="font-mono text-xs underline-offset-2 hover:underline" style={{ color: "var(--ink-soft)" }}>
                 Reset
@@ -377,18 +381,23 @@ function PlayScreen() {
                   onSimulate={handleSimulate}
                 />
               ) : (
-                <div className="sheet flex min-h-[420px] flex-col items-center justify-center gap-5 p-8 text-center">
-                  <span className="eyebrow">Spin {String(filledCount + 1).padStart(2, "0")} of 11</span>
+                <div className="sheet relative flex min-h-[420px] flex-col items-center justify-center gap-5 overflow-hidden p-8 text-center">
+                  <ColorSpectrum className="absolute left-0 top-0" height={6} />
+                  <span className="eyebrow" style={{ color: "var(--spot-2-deep)" }}>
+                    Spin {String(filledCount + 1).padStart(2, "0")} of 11
+                  </span>
+                  <SpinWheel size={132} />
                   <motion.button
+                    whileHover={{ y: -2 }}
                     whileTap={{ scale: 0.96 }}
                     onClick={handleSpin}
-                    className="font-display print-shadow px-12 py-6 text-3xl"
-                    style={{ background: "var(--ink)", color: "var(--paper-2)" }}
+                    className="font-display print-shadow px-12 py-5 text-3xl"
+                    style={{ background: "var(--spot-2)", color: "var(--spot-2-ink)" }}
                   >
                     Spin the wheel
                   </motion.button>
                   <p className="text-xs" style={{ color: "var(--ink-faint)" }}>
-                    A random franchise and a random season.
+                    A random franchise and a random season from IPL history.
                   </p>
                 </div>
               )
@@ -654,9 +663,9 @@ function ScoutingReport({
             <div className="grid grid-cols-2 gap-px overflow-hidden" style={{ background: "var(--rule)", border: "1.5px solid var(--ink)" }}>
               <OddsCell label="Projected finish" value={`#${odds.projectedFinish}`} />
               <OddsCell label="Expected points" value={`${odds.expectedPoints}`} />
-              <OddsCell label="Playoff chance" value={formatOdds(odds.playoffOdds)} highlight />
-              <OddsCell label="Unbeaten chance" value={formatOdds(odds.unbeatenOdds)} />
-              <OddsCell label="Title chance" value={formatOdds(odds.titleOdds)} highlight wide />
+              <OddsCell label="Playoff chance" value={formatOdds(odds.playoffOdds)} color="var(--spot)" />
+              <OddsCell label="Unbeaten chance" value={formatOdds(odds.unbeatenOdds)} color="var(--pitch)" />
+              <OddsCell label="Title chance" value={formatOdds(odds.titleOdds)} color="var(--spot-2)" wide />
             </div>
             <motion.button
               whileTap={{ scale: 0.98 }}
@@ -695,13 +704,13 @@ function ScoutingReport({
   );
 }
 
-function OddsCell({ label, value, highlight, wide }: { label: string; value: string; highlight?: boolean; wide?: boolean }) {
+function OddsCell({ label, value, color, wide }: { label: string; value: string; color?: string; wide?: boolean }) {
   return (
     <div className={`p-4 ${wide ? "col-span-2" : ""}`} style={{ background: "var(--paper-2)" }}>
       <div className="eyebrow" style={{ letterSpacing: "0.1em" }}>
         {label}
       </div>
-      <div className="font-display mt-1 text-3xl leading-none" style={{ color: highlight ? "var(--spot)" : "var(--ink)" }}>
+      <div className="font-display mt-1 text-3xl leading-none" style={{ color: color ?? "var(--ink)" }}>
         {value}
       </div>
     </div>

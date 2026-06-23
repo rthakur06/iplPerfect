@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { MAX_OVERSEAS, MIN_BOWLING_OPTIONS, XI_SIZE } from "@/engine/rules";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { AccountNav } from "./components/AccountNav";
-import { CrestTicker } from "./components/HeroReel";
+import { CrestTicker, ColorSpectrum } from "./components/HeroReel";
 import { Analytics } from "@vercel/analytics/next"
 
 const TIERS = [
@@ -36,8 +36,8 @@ export default function FrontPage() {
 
         {/* ── Programme cover ─────────────────────────────────────── */}
         <header className="sheet print-shadow relative overflow-hidden p-7 sm:p-12">
-          <div className="absolute right-0 top-0 h-full w-2" style={{ background: "var(--spot)" }} />
-          <div className="flex items-center justify-between">
+          <ColorSpectrum className="absolute left-0 top-0" height={6} />
+          <div className="mt-2 flex items-center justify-between">
             <span className="eyebrow">IPL Perfect Season</span>
             <span className="eyebrow">Est. 2026</span>
           </div>
@@ -50,7 +50,7 @@ export default function FrontPage() {
                 initial={{ opacity: 0, y: 24 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                style={i === 2 ? { color: "var(--spot)" } : undefined}
+                style={i === 1 ? { color: "var(--spot-2)" } : i === 2 ? { color: "var(--spot)" } : undefined}
               >
                 {word}
               </motion.span>

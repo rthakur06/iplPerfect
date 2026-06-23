@@ -6,17 +6,21 @@ export const runtime = "nodejs";
 
 export async function POST(req: Request) {
   const body = await req.json().catch(() => ({}));
-  const email = String(body.email ?? "").trim().toLowerCase();
+  const username = String(body.username ?? "").trim();
   const password = String(body.password ?? "");
 
-  const row = getDb()
-    .prepare("SELECT id, name, password_hash FROM users WHERE email = ?")
-    .get(email) as { id: number; name: string; password_hash: string } | undefined;
+  const db = await getDb();
+  const { rows } = await db.execute({
+    sql: "SELECT id, username, password_hash FROM users WHERE username = ? COLLATE NOCASE",
+    args: [username],
+  });
+  const row = rows[0] as unknown as { id: number; username: string; password_hash: string } | undefined;
 
-  if (!row || !verifyPassword(password, row.password_hash)) {
-    return NextResponse.json({ error: "Wrong email or password." }, { status: 401 });
+  if (!row || !verifyPassword(password, String(row.password_hash))) {
+    return NextResponse.json({ error: "Wrong username or password." }, { status: 401 });
   }
 
-  await createSession(row.id);
-  return NextResponse.json({ email, name: row.name });
+  const id = Number(row.id);
+  await createSession(id);
+  return NextResponse.json({ user: { id, username: String(row.username) } });
 }

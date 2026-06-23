@@ -13,10 +13,17 @@
   --ink-soft: #555a55;     /* secondary text */
   --ink-faint: #868b81;    /* captions, disabled */
   --rule: #a6a99c;         /* hairline rules */
-  --spot: #182e86;         /* deep screenprint navy — the single accent */
+  --spot: #182e86;         /* deep screenprint navy — primary accent */
   --spot-deep: #101f5e;
   --spot-ink: #eef1ff;     /* text on spot */
-  --pitch: #2e6b43;        /* pitch green — used sparingly for "good" states */
+  --spot-2: #d96a16;       /* saffron — secondary "energy" accent */
+  --spot-2-deep: #b0530c;
+  --spot-2-ink: #fff6ec;   /* text on saffron */
+  --pitch: #2e6b43;        /* pitch green — "good" states */
+  --pitch-ink: #f0f7f0;
+  --gold: #c79320;         /* podium */
+  --silver: #79828d;
+  --bronze: #a96631;
 
   --shadow-color: #15181a;
   --halftone: rgba(21, 24, 26, 0.05);
@@ -39,7 +46,14 @@
   --spot: #5f86f5;
   --spot-deep: #3a5cd0;
   --spot-ink: #0c0f0a;
+  --spot-2: #f59e42;
+  --spot-2-deep: #d97f23;
+  --spot-2-ink: #14120a;
   --pitch: #5aa873;
+  --pitch-ink: #0c0f0a;
+  --gold: #f0c245;
+  --silver: #aab4c0;
+  --bronze: #cf8a52;
   --shadow-color: #000000;
   --halftone: rgba(238, 240, 231, 0.045);
 }
@@ -133,6 +147,22 @@ a {
 }
 .animate-marquee {
   animation: marquee 28s linear infinite;
+}
+
+/* The draft "wheel" — a slow colour-spun disc on the spin screen. */
+@keyframes spin-disc {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+.spin-disc {
+  animation: spin-disc 9s linear infinite;
+}
+.spin-disc-fast {
+  animation: spin-disc 0.9s cubic-bezier(0.3, 0.7, 0.3, 1) infinite;
 }
 
 @media (prefers-reduced-motion: reduce) {

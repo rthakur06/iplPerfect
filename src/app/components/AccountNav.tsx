@@ -20,11 +20,14 @@ export function AccountNav() {
   if (user) {
     return (
       <div className="flex items-center gap-2">
+        <Link href="/leaderboard" className={chip} style={{ ...chipStyle, color: "var(--spot-2-deep)" }}>
+          Leaderboard
+        </Link>
         <Link href="/history" className={chip} style={chipStyle}>
           My runs
         </Link>
-        <span className={chip} style={{ ...chipStyle, color: "var(--ink-soft)" }} title={user.email}>
-          {user.name || user.email}
+        <span className={chip} style={{ ...chipStyle, color: "var(--spot)" }}>
+          @{user.username}
         </span>
         <button onClick={logout} className={chip} style={chipStyle}>
           Sign out
@@ -35,6 +38,9 @@ export function AccountNav() {
 
   return (
     <>
+      <Link href="/leaderboard" className={chip} style={{ ...chipStyle, color: "var(--spot-2-deep)" }}>
+        Leaderboard
+      </Link>
       <button onClick={() => setOpen(true)} className={chip} style={chipStyle}>
         Sign in
       </button>

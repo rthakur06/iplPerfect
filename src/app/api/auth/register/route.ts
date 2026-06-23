@@ -4,31 +4,38 @@ import { createSession, hashPassword } from "@/lib/auth";
 
 export const runtime = "nodejs";
 
+const USERNAME_RE = /^[a-zA-Z0-9_]{3,20}$/;
+
 export async function POST(req: Request) {
   const body = await req.json().catch(() => ({}));
-  const email = String(body.email ?? "").trim().toLowerCase();
-  const name = String(body.name ?? "").trim().slice(0, 40);
+  const username = String(body.username ?? "").trim();
   const password = String(body.password ?? "");
 
-  if (!name) {
-    return NextResponse.json({ error: "Enter your name." }, { status: 400 });
-  }
-  if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
-    return NextResponse.json({ error: "Enter a valid email address." }, { status: 400 });
+  if (!USERNAME_RE.test(username)) {
+    return NextResponse.json(
+      { error: "Username must be 3–20 letters, numbers, or underscores." },
+      { status: 400 }
+    );
   }
   if (password.length < 6) {
     return NextResponse.json({ error: "Password must be at least 6 characters." }, { status: 400 });
   }
 
-  const db = getDb();
-  if (db.prepare("SELECT id FROM users WHERE email = ?").get(email)) {
-    return NextResponse.json({ error: "That email is already registered — try signing in." }, { status: 409 });
+  const db = await getDb();
+  const existing = await db.execute({
+    sql: "SELECT id FROM users WHERE username = ? COLLATE NOCASE",
+    args: [username],
+  });
+  if (existing.rows.length > 0) {
+    return NextResponse.json({ error: "That username is taken — try another." }, { status: 409 });
   }
 
-  const info = db
-    .prepare("INSERT INTO users (email, name, password_hash, created_at) VALUES (?, ?, ?, ?)")
-    .run(email, name, hashPassword(password), new Date().toISOString());
-  await createSession(Number(info.lastInsertRowid));
+  const info = await db.execute({
+    sql: "INSERT INTO users (username, password_hash, created_at) VALUES (?, ?, ?)",
+    args: [username, hashPassword(password), new Date().toISOString()],
+  });
+  const id = Number(info.lastInsertRowid);
+  await createSession(id);
 
-  return NextResponse.json({ email, name });
+  return NextResponse.json({ user: { id, username } });
 }

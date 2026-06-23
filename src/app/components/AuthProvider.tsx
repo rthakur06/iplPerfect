@@ -3,16 +3,16 @@
 import { createContext, useCallback, useContext, useEffect, useState } from "react";
 
 export interface AuthUser {
-  email: string;
-  name: string;
+  id: number;
+  username: string;
 }
 
 interface AuthContextValue {
   user: AuthUser | null;
   loading: boolean;
   refresh: () => Promise<void>;
-  login: (email: string, password: string) => Promise<{ error?: string }>;
-  register: (name: string, email: string, password: string) => Promise<{ error?: string }>;
+  login: (username: string, password: string) => Promise<{ error?: string }>;
+  register: (username: string, password: string) => Promise<{ error?: string }>;
   logout: () => Promise<void>;
 }
 
@@ -50,8 +50,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [refresh]);
 
   const login = useCallback(
-    async (email: string, password: string) => {
-      const { ok, data } = await post("/api/auth/login", { email, password });
+    async (username: string, password: string) => {
+      const { ok, data } = await post("/api/auth/login", { username, password });
       if (!ok) return { error: data.error ?? "Sign in failed." };
       await refresh();
       return {};
@@ -60,8 +60,8 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   );
 
   const register = useCallback(
-    async (name: string, email: string, password: string) => {
-      const { ok, data } = await post("/api/auth/register", { name, email, password });
+    async (username: string, password: string) => {
+      const { ok, data } = await post("/api/auth/register", { username, password });
       if (!ok) return { error: data.error ?? "Sign up failed." };
       await refresh();
       return {};

@@ -27,6 +27,7 @@ function Reel({
   finalIndex,
   phase,
   duration,
+  accent,
   onAnimationComplete,
   renderItem,
 }: {
@@ -34,6 +35,7 @@ function Reel({
   finalIndex: number;
   phase: Phase;
   duration: number;
+  accent: string;
   onAnimationComplete?: () => void;
   renderItem: (item: unknown, isFinal: boolean) => React.ReactNode;
 }) {
@@ -51,8 +53,12 @@ function Reel({
           height: ITEM_HEIGHT,
           borderColor: "var(--ink)",
         }}
-        animate={phase === "settled" ? { borderColor: ["var(--ink)", "var(--spot)", "var(--ink)"] } : {}}
-        transition={{ duration: 0.6, ease: "easeOut" }}
+        animate={
+          phase === "settled"
+            ? { borderColor: ["var(--ink)", accent, "var(--ink)"], backgroundColor: [`${accent}00`, `${accent}22`, `${accent}00`] }
+            : {}
+        }
+        transition={{ duration: 0.7, ease: "easeOut", repeat: 1 }}
       />
       <div
         className="pointer-events-none absolute inset-0 z-10"
@@ -107,6 +113,7 @@ export function SpinReel({ candidates, result, spinToken, onSettled }: SpinReelP
 
   const teamFinalIndex = teamStrip.length - 1;
   const yearFinalIndex = yearStrip.length - 1;
+  const accent = franchiseColor(result.franchiseId);
 
   return (
     <div className="flex gap-3">
@@ -115,16 +122,23 @@ export function SpinReel({ candidates, result, spinToken, onSettled }: SpinReelP
         finalIndex={teamFinalIndex}
         phase={phase}
         duration={TEAM_DURATION}
+        accent={accent}
         onAnimationComplete={() => setTeamDone(true)}
         renderItem={(item, isFinal) => {
           const franchiseId = item as string;
           const franchise = getFranchise(franchiseId);
           const color = franchiseColor(franchiseId);
           return (
-            <div className={`flex items-center gap-3 px-4 transition-opacity ${isFinal ? "opacity-100" : "opacity-25"}`}>
-              <span className="w-2 h-9 shrink-0" style={{ backgroundColor: color }} />
-              <span className="font-display text-lg leading-none">{franchise?.name ?? franchiseId}</span>
-            </div>
+            <motion.div
+              className="flex items-center gap-3 px-4"
+              animate={isFinal ? { scale: [1, 1.12, 1], opacity: 1 } : { opacity: 0.5 }}
+              transition={isFinal ? { duration: 0.45, ease: "easeOut" } : { duration: 0.2 }}
+            >
+              <span className="h-9 w-2 shrink-0" style={{ backgroundColor: color }} />
+              <span className="font-display text-lg leading-none" style={isFinal ? { color } : undefined}>
+                {franchise?.name ?? franchiseId}
+              </span>
+            </motion.div>
           );
         }}
       />
@@ -133,6 +147,7 @@ export function SpinReel({ candidates, result, spinToken, onSettled }: SpinReelP
         finalIndex={yearFinalIndex}
         phase={phase}
         duration={YEAR_DURATION}
+        accent={accent}
         onAnimationComplete={() => {
           if (teamDone) {
             setPhase("settled");
@@ -144,12 +159,14 @@ export function SpinReel({ candidates, result, spinToken, onSettled }: SpinReelP
           }
         }}
         renderItem={(item, isFinal) => (
-          <span
-            className="font-mono font-bold text-2xl transition-opacity"
-            style={{ opacity: isFinal ? 1 : 0.25, color: isFinal ? "var(--spot)" : "var(--ink)" }}
+          <motion.span
+            className="font-mono text-2xl font-bold"
+            animate={isFinal ? { scale: [1, 1.18, 1], opacity: 1 } : { opacity: 0.4 }}
+            transition={isFinal ? { duration: 0.45, ease: "easeOut" } : { duration: 0.2 }}
+            style={{ color: isFinal ? accent : "var(--ink)" }}
           >
             {item as number}
-          </span>
+          </motion.span>
         )}
       />
     </div>

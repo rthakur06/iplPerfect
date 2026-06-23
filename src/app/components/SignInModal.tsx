@@ -7,8 +7,7 @@ import { useAuth } from "./AuthProvider";
 export function SignInModal({ onClose }: { onClose: () => void }) {
   const { login, register } = useAuth();
   const [mode, setMode] = useState<"login" | "register">("login");
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
+  const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [busy, setBusy] = useState(false);
@@ -23,7 +22,7 @@ export function SignInModal({ onClose }: { onClose: () => void }) {
     e.preventDefault();
     setBusy(true);
     setError(null);
-    const result = mode === "login" ? await login(email, password) : await register(name, email, password);
+    const result = mode === "login" ? await login(username, password) : await register(username, password);
     setBusy(false);
     if (result.error) setError(result.error);
     else onClose();
@@ -32,7 +31,7 @@ export function SignInModal({ onClose }: { onClose: () => void }) {
   return (
     <motion.div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
-      style={{ background: "rgba(10, 8, 5, 0.55)" }}
+      style={{ background: "rgba(12, 14, 16, 0.6)" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
@@ -62,31 +61,20 @@ export function SignInModal({ onClose }: { onClose: () => void }) {
 
         <form onSubmit={submit} className="p-5">
           <p className="mb-4 text-sm" style={{ color: "var(--ink-soft)" }}>
-            {mode === "login" ? "Sign in to track your runs across devices." : "Create an account to save your run history."}
+            {mode === "login"
+              ? "Sign in to track your runs and climb the leaderboard."
+              : "Pick a username to save your runs and rank on the leaderboard."}
           </p>
 
-          {mode === "register" && (
-            <>
-              <label className="eyebrow mb-1 block">Name</label>
-              <input
-                type="text"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                autoComplete="name"
-                className="mb-3 w-full px-3 py-2 text-sm outline-none"
-                style={{ background: "var(--paper-3)", border: "1.5px solid var(--ink)", color: "var(--ink)" }}
-              />
-            </>
-          )}
-
-          <label className="eyebrow mb-1 block">Email</label>
+          <label className="eyebrow mb-1 block">Username</label>
           <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            type="text"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
             required
-            autoComplete="email"
+            autoComplete="username"
+            autoFocus
+            placeholder="e.g. cover_drive_07"
             className="mb-3 w-full px-3 py-2 text-sm outline-none"
             style={{ background: "var(--paper-3)", border: "1.5px solid var(--ink)", color: "var(--ink)" }}
           />

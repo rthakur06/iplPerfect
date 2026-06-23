@@ -40,12 +40,11 @@ export async function POST(req: Request) {
 
   const detail = b.detail ? JSON.stringify(b.detail).slice(0, 200000) : null;
 
-  getDb()
-    .prepare(
-      `INSERT INTO runs (user_id, created_at, difficulty, tier, final_rank, points, wins, won_title, xi_json, detail_json)
-       VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`
-    )
-    .run(
+  const db = await getDb();
+  await db.execute({
+    sql: `INSERT INTO runs (user_id, created_at, difficulty, tier, final_rank, points, wins, won_title, xi_json, detail_json)
+          VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+    args: [
       user.id,
       new Date().toISOString(),
       b.difficulty === "hard" ? "hard" : "easy",
@@ -55,8 +54,9 @@ export async function POST(req: Request) {
       Number(b.wins) || 0,
       b.wonTitle ? 1 : 0,
       JSON.stringify(xi),
-      detail
-    );
+      detail,
+    ],
+  });
 
   return NextResponse.json({ ok: true });
 }
@@ -65,13 +65,14 @@ export async function GET() {
   const user = await currentUser();
   if (!user) return NextResponse.json({ error: "Not signed in." }, { status: 401 });
 
-  const rows = getDb()
-    .prepare(
-      `SELECT id, created_at, difficulty, tier, final_rank, points, wins, won_title, xi_json,
-              (detail_json IS NOT NULL) AS has_detail
-       FROM runs WHERE user_id = ? ORDER BY created_at DESC`
-    )
-    .all(user.id) as unknown as RunRow[];
+  const db = await getDb();
+  const result = await db.execute({
+    sql: `SELECT id, created_at, difficulty, tier, final_rank, points, wins, won_title, xi_json,
+                 (detail_json IS NOT NULL) AS has_detail
+          FROM runs WHERE user_id = ? ORDER BY created_at DESC`,
+    args: [user.id],
+  });
+  const rows = result.rows as unknown as RunRow[];
 
   const runs = rows.map((r) => ({
     id: r.id,

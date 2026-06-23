@@ -1,56 +1,57 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { AnimatePresence, motion } from "motion/react";
 import { FRANCHISES } from "@/engine/data/franchises";
 import { FranchiseCrest } from "./Crest";
+import { franchiseColor } from "../franchiseTheme";
 
-/** A live "now spinning" teaser: cycles a random franchise + season every couple of seconds, the
- *  way the wheel would land — a moving hint of the core mechanic right on the cover. */
-export function SpinTeaser() {
-  // Start with a deterministic pair so SSR and the first client render match (no hydration
-  // mismatch); only switch to random pairs after mount.
-  const [pair, setPair] = useState(() => {
-    const f = FRANCHISES[0];
-    return { id: "seed", franchiseId: f.id, name: f.name, season: f.activeSeasons[0] };
-  });
-
-  useEffect(() => {
-    // eslint-disable-next-line react-hooks/set-state-in-effect -- randomise only after hydration
-    setPair(randomPair());
-    const t = setInterval(() => setPair(randomPair()), 1900);
-    return () => clearInterval(t);
-  }, []);
-
+/** A solid band of every franchise's colour — the signature splash of colour on the cover, and a
+ *  literal read of "every team, every season is in the pool." */
+export function ColorSpectrum({ className = "", height = 8 }: { className?: string; height?: number }) {
   return (
-    <div className="flex items-center gap-3 overflow-hidden p-3" style={{ background: "var(--paper-3)", border: "1.5px solid var(--ink)" }}>
-      <span className="eyebrow shrink-0" style={{ letterSpacing: "0.18em" }}>
-        Now
-        <br />
-        spinning
-      </span>
-      <span className="h-9 w-px shrink-0" style={{ background: "var(--rule)" }} />
-      <AnimatePresence mode="wait">
-        <motion.div
-          key={pair.id}
-          initial={{ y: 14, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: -14, opacity: 0 }}
-          transition={{ duration: 0.28 }}
-          className="flex min-w-0 items-center gap-2.5"
-        >
-          <FranchiseCrest franchiseId={pair.franchiseId} size={26} />
-          <span className="font-display truncate text-lg leading-none">{pair.name}</span>
-          <span className="font-mono text-lg font-bold" style={{ color: "var(--spot)" }}>
-            {pair.season}
-          </span>
-        </motion.div>
-      </AnimatePresence>
+    <div className={`flex w-full overflow-hidden ${className}`} style={{ height }} aria-hidden>
+      {FRANCHISES.map((f) => (
+        <span key={f.id} className="flex-1" style={{ background: franchiseColor(f.id) }} />
+      ))}
     </div>
   );
 }
 
-/** Continuous scrolling strip of franchise crest badges. */
+/** A colour-segmented draft wheel — one wedge per franchise — slowly spinning, with a pointer.
+ *  Purely decorative flourish for the spin screen. Set `fast` while a spin is in flight. */
+export function SpinWheel({ size = 132, fast = false }: { size?: number; fast?: boolean }) {
+  const colors = FRANCHISES.map((f) => franchiseColor(f.id));
+  const step = 360 / colors.length;
+  const stops = colors.map((c, i) => `${c} ${i * step}deg ${(i + 1) * step}deg`).join(", ");
+  return (
+    <div className="relative" style={{ width: size, height: size }} aria-hidden>
+      {/* pointer */}
+      <div
+        className="absolute left-1/2 top-0 z-10 -translate-x-1/2"
+        style={{
+          width: 0,
+          height: 0,
+          borderLeft: "8px solid transparent",
+          borderRight: "8px solid transparent",
+          borderTop: "14px solid var(--ink)",
+        }}
+      />
+      <div
+        className={fast ? "spin-disc-fast absolute inset-0 rounded-full" : "spin-disc absolute inset-0 rounded-full"}
+        style={{ background: `conic-gradient(${stops})`, border: "3px solid var(--ink)", boxShadow: "3px 3px 0 var(--shadow-color)" }}
+      />
+      <div
+        className="absolute flex items-center justify-center rounded-full"
+        style={{ inset: size * 0.28, background: "var(--paper-2)", border: "2px solid var(--ink)" }}
+      >
+        <span className="font-display text-xl leading-none" style={{ color: "var(--spot)" }}>
+          IPL
+        </span>
+      </div>
+    </div>
+  );
+}
+
+/** Continuous scrolling strip of franchise crest badges, tinted in each franchise's colour. */
 export function CrestTicker() {
   const row = [...FRANCHISES, ...FRANCHISES];
   return (
@@ -59,7 +60,7 @@ export function CrestTicker() {
         {row.map((f, i) => (
           <span key={i} className="flex shrink-0 items-center gap-1.5">
             <FranchiseCrest franchiseId={f.id} size={18} />
-            <span className="font-mono text-xs" style={{ color: "var(--ink-faint)" }}>
+            <span className="font-mono text-xs" style={{ color: franchiseColor(f.id) }}>
               {f.name}
             </span>
           </span>
@@ -67,10 +68,4 @@ export function CrestTicker() {
       </div>
     </div>
   );
-}
-
-function randomPair() {
-  const f = FRANCHISES[Math.floor(Math.random() * FRANCHISES.length)];
-  const season = f.activeSeasons[Math.floor(Math.random() * f.activeSeasons.length)];
-  return { id: `${f.id}-${season}-${Math.random()}`, franchiseId: f.id, name: f.name, season };
 }

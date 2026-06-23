@@ -85,6 +85,9 @@ export default function HistoryPage() {
             IPL Perfect Season
           </Link>
           <div className="flex items-center gap-2">
+            <Link href="/leaderboard" className="font-mono px-2.5 py-1 text-xs" style={{ border: "1.5px solid var(--ink)", color: "var(--spot-2-deep)" }}>
+              Leaderboard
+            </Link>
             <Link href="/play" className="font-mono px-2.5 py-1 text-xs" style={{ border: "1.5px solid var(--ink)" }}>
               Play
             </Link>
@@ -94,7 +97,7 @@ export default function HistoryPage() {
         <div className="rule-double mb-6" />
 
         <h1 className="font-display mb-5 text-4xl sm:text-5xl">
-          {user?.name ? `${user.name}'s runs` : "My runs"}
+          {user?.username ? `@${user.username}'s runs` : "My runs"}
         </h1>
 
         {loading ? (

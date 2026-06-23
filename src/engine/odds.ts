@@ -6,18 +6,19 @@ import type { SeasonOdds, TeamRatingBreakdown } from "./types";
 // ~43-56 and the all-time bosses sit ~63-66 — so the achievable range for a good draft is roughly
 // the low 50s to low 60s.
 //
-// Measured outcomes by team overall (3k seeds/point):
+// Measured outcomes by team overall (2.5k seeds/point), with the playoff gauntlet boost from
+// src/engine/sim.ts (PLAYOFF_TEAM_BOOST) in effect:
 //   overall  playoff%  title%  unbeaten%   avg finish
-//      50       13       0         0           7.5
-//      54       66       0         0.2         3.8
-//      58       98       0.1       5           1.6
-//      62      100       1         30          1.0
-//      66      100       7        66           1.0
-// The title is meant to be a genuine wall — beating the greatest XI ever assembled three rounds in
-// a row is rare even for an elite side. The curves below reproduce those measured rates.
+//      54       66       1.2       0.2          3.8
+//      58       97      10.5       5.3          1.6
+//      60      100      19.3      14.0          1.2
+//      62      100      30.4      29.7          1.0
+//      64      100      43.5      49.0          1.0
+// The title is now a real prize: a strong draft (~60) wins it about one season in five, an elite
+// one closer to a coin-flip. The curves below reproduce those measured rates.
 const LOGISTIC = {
   playoff: { k: 0.64, mid: 53 },
-  title: { k: 0.42, mid: 72 },
+  title: { k: 0.29, mid: 65 },
   unbeaten: { k: 0.44, mid: 64 },
   woodenSpoon: { k: 0.5, mid: 47 }, // risk of finishing at the bottom of the table
 };

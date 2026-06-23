@@ -1,29 +1,38 @@
-import { DatabaseSync } from "node:sqlite";
+import { createClient, type Client } from "@libsql/client";
 import { mkdirSync } from "node:fs";
 import { resolve } from "node:path";
 
-// Single shared SQLite connection (node:sqlite is built into Node, no native build step). The DB
-// file lives in .data/ at the project root and is gitignored. Tables are created on first open.
-let db: DatabaseSync | null = null;
+// libSQL/Turso client. Locally (and in any persistent-disk host) it falls back to an embedded
+// SQLite file at .data/app.db; on Vercel/serverless set TURSO_DATABASE_URL + TURSO_AUTH_TOKEN to a
+// hosted Turso database so accounts actually persist across requests. The client is async, so every
+// caller awaits getDb().
+let ready: Promise<Client> | null = null;
 
-export function getDb(): DatabaseSync {
-  if (db) return db;
-  const dir = resolve(process.cwd(), ".data");
-  mkdirSync(dir, { recursive: true });
-  db = new DatabaseSync(resolve(dir, "app.db"));
-  db.exec(`
+function createConn(): Client {
+  const url = process.env.TURSO_DATABASE_URL;
+  const authToken = process.env.TURSO_AUTH_TOKEN;
+  if (url) return createClient({ url, authToken });
+  // Local fallback: embedded file. Ensure the directory exists first.
+  mkdirSync(resolve(process.cwd(), ".data"), { recursive: true });
+  return createClient({ url: `file:${resolve(process.cwd(), ".data", "app.db")}` });
+}
+
+async function init(c: Client): Promise<Client> {
+  await c.execute(`
     CREATE TABLE IF NOT EXISTS users (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
-      email TEXT UNIQUE NOT NULL,
-      name TEXT NOT NULL DEFAULT '',
+      username TEXT NOT NULL,
+      email TEXT,
       password_hash TEXT NOT NULL,
       created_at TEXT NOT NULL
-    );
+    )`);
+  await c.execute(`
     CREATE TABLE IF NOT EXISTS sessions (
       token TEXT PRIMARY KEY,
       user_id INTEGER NOT NULL REFERENCES users(id),
       created_at TEXT NOT NULL
-    );
+    )`);
+  await c.execute(`
     CREATE TABLE IF NOT EXISTS runs (
       id INTEGER PRIMARY KEY AUTOINCREMENT,
       user_id INTEGER NOT NULL REFERENCES users(id),
@@ -36,19 +45,52 @@ export function getDb(): DatabaseSync {
       won_title INTEGER NOT NULL,
       xi_json TEXT NOT NULL,
       detail_json TEXT
-    );
-  `);
+    )`);
 
-  // Guarded migrations for databases created before these columns existed.
-  for (const stmt of [
-    "ALTER TABLE users ADD COLUMN name TEXT NOT NULL DEFAULT ''",
-    "ALTER TABLE runs ADD COLUMN detail_json TEXT",
-  ]) {
-    try {
-      db.exec(stmt);
-    } catch {
-      /* column already exists */
-    }
+  // Migrate an older users table (email-required, separate "name" column) to the username-based
+  // schema so accounts now sign in by username and email is optional. Only runs on a pre-existing
+  // legacy DB; a fresh database is already created in the new shape above.
+  const info = await c.execute("PRAGMA table_info(users)");
+  const cols = info.rows.map((r) => String(r.name));
+  if (cols.length > 0 && !cols.includes("username")) {
+    // sessions.user_id references users(id); ids are preserved through the rebuild, so existing
+    // sessions stay valid. PRAGMA can't run inside a transaction, so these are sequential.
+    await c.execute("PRAGMA foreign_keys = OFF");
+    await c.execute(`
+      CREATE TABLE users_new (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        username TEXT NOT NULL,
+        email TEXT,
+        password_hash TEXT NOT NULL,
+        created_at TEXT NOT NULL
+      )`);
+    await c.execute(
+      `INSERT INTO users_new (id, username, email, password_hash, created_at)
+       SELECT id, COALESCE(NULLIF(name, ''), 'player' || id), email, password_hash, created_at FROM users`
+    );
+    await c.execute("DROP TABLE users");
+    await c.execute("ALTER TABLE users_new RENAME TO users");
+    await c.execute("PRAGMA foreign_keys = ON");
   }
-  return db;
+
+  // Guarded migration for older runs tables.
+  try {
+    await c.execute("ALTER TABLE runs ADD COLUMN detail_json TEXT");
+  } catch {
+    /* column already exists */
+  }
+
+  await c.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_users_username ON users(username COLLATE NOCASE)");
+  return c;
+}
+
+export function getDb(): Promise<Client> {
+  if (!ready) {
+    const conn = createConn();
+    ready = init(conn).catch((err) => {
+      ready = null; // don't cache a half-initialised connection
+      throw err;
+    });
+  }
+  return ready;
 }

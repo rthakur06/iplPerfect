@@ -45,6 +45,11 @@ interface InningsResult {
 }
 
 const HOME_BOOST = 2;
+// In the playoff gauntlet your drafted XI raises its game against the all-time sides — a flat lift
+// to the constructed team's batting and bowling that makes the title a real, winnable prize rather
+// than a near-impossible wall. Only applied in the gauntlet, so the league stage (and the playoff /
+// unbeaten projections) stay an honest test.
+const PLAYOFF_TEAM_BOOST = 9;
 
 /** Simulate one innings over-by-over. If `target` is set, stops once chased (2nd innings). */
 function simulateInnings(
@@ -91,10 +96,11 @@ function simulateMatch(
   yourRating: TeamRatingBreakdown,
   opponent: TeamStrength,
   isHome: boolean,
-  rng: () => number
+  rng: () => number,
+  teamBoost = 0
 ): MatchResult {
-  const yourBat = yourRating.batting + (isHome ? HOME_BOOST : 0);
-  const yourBowl = yourRating.bowling + (isHome ? HOME_BOOST : 0);
+  const yourBat = yourRating.batting + (isHome ? HOME_BOOST : 0) + teamBoost;
+  const yourBowl = yourRating.bowling + (isHome ? HOME_BOOST : 0) + teamBoost;
   const theirBat = opponent.batting + (isHome ? 0 : HOME_BOOST);
   const theirBowl = opponent.bowling + (isHome ? 0 : HOME_BOOST);
 
@@ -257,7 +263,7 @@ export function simulateSeason(
       { stage: "FINAL", opp: BOSS_FINAL },
     ];
     for (const { stage, opp } of gauntlet) {
-      const m = simulateMatch(yourRating, opp, false, rng);
+      const m = simulateMatch(yourRating, opp, false, rng, PLAYOFF_TEAM_BOOST);
       playoffStage.push({ ...m, stage });
       if (!m.won) break; // knocked out
       if (stage === "FINAL") wonTitle = true;
