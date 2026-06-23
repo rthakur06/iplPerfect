@@ -103,10 +103,12 @@ export interface TeamRatingBreakdown {
 }
 
 export interface SeasonOdds {
-  projectedFinish: number; // 1-10
+  projectedFinish: number; // 1-15
   expectedPoints: number;
-  titleOdds: number; // 0-1
-  wodenSpoonOdds: number; // 0-1 (last place)
+  playoffOdds: number; // 0-1 (top-4 finish)
+  titleOdds: number; // 0-1 (beat the all-time gauntlet)
+  unbeatenOdds: number; // 0-1 (win all 14 league games)
+  wodenSpoonOdds: number; // 0-1 (bottom of the table)
 }
 
 // --- simulation ---
@@ -147,6 +149,7 @@ export interface SimPlayerStat {
   runs: number;
   ballsFaced: number;
   strikeRate: number;
+  sixes: number;
   wickets: number;
   oversBowled: number;
   economy: number;

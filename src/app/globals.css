@@ -2,23 +2,24 @@
 
 :root {
   /* ── Matchday program / screenprint ──────────────────────────────────────────
-     Warm printed paper, near-black ink, and ONE bold spot colour (vermilion).
-     Each franchise's own colour is layered on per spin via inline styles; this
-     base stays neutral so the spot work reads as deliberate, not decorative. */
-  --paper: #ece3d0;        /* page — warm newsprint stock */
-  --paper-2: #f6efe0;      /* cards / team-sheet — brighter printed stock */
-  --paper-3: #e2d7bf;      /* sunken panels, fills, empty slots */
-  --ink: #1b1712;          /* primary ink */
-  --ink-soft: #6a5d49;     /* secondary text */
-  --ink-faint: #9c8e75;    /* captions, disabled */
-  --rule: #c9b99c;         /* hairline rules */
-  --spot: #1d3fb5;         /* bold screenprint navy — the single accent */
-  --spot-deep: #14297a;
-  --spot-ink: #fbf2e9;     /* text on spot */
-  --pitch: #356b46;        /* pitch green — used sparingly for "good" states */
+     Cool pressed "scoreboard stock" — a deeper pitch-grey page (not pastel cream),
+     near-black ink, and ONE bold deep-navy spot ink. Each franchise's own colour is
+     layered on per spin via inline styles; this base stays neutral so the spot work
+     reads as deliberate, not decorative. */
+  --paper: #c7cabf;        /* page — cool pitch-side stone */
+  --paper-2: #e9ebe3;      /* cards / team-sheet — brighter printed stock */
+  --paper-3: #b9bcb0;      /* sunken panels, fills, empty slots */
+  --ink: #15181a;          /* primary ink */
+  --ink-soft: #555a55;     /* secondary text */
+  --ink-faint: #868b81;    /* captions, disabled */
+  --rule: #a6a99c;         /* hairline rules */
+  --spot: #182e86;         /* deep screenprint navy — the single accent */
+  --spot-deep: #101f5e;
+  --spot-ink: #eef1ff;     /* text on spot */
+  --pitch: #2e6b43;        /* pitch green — used sparingly for "good" states */
 
-  --shadow-color: #1b1712;
-  --halftone: rgba(27, 23, 18, 0.05);
+  --shadow-color: #15181a;
+  --halftone: rgba(21, 24, 26, 0.05);
 
   --font-display: var(--font-anton), "Arial Narrow", ui-sans-serif, sans-serif;
   --font-body: var(--font-archivo), ui-sans-serif, system-ui, sans-serif;
@@ -26,21 +27,21 @@
 }
 
 /* ── Floodlit night: the dark print run ──────────────────────────────────────
-   White-ink-on-charcoal screenprint. Same vermilion spot, warmed for low light. */
+   White-ink-on-charcoal screenprint. Same navy spot, lifted just enough for low light. */
 [data-theme="dark"] {
-  --paper: #14120d;
-  --paper-2: #1f1b14;
-  --paper-3: #2b261c;
-  --ink: #f1e9d6;
-  --ink-soft: #b0a085;
-  --ink-faint: #7c6f57;
-  --rule: #3b3327;
-  --spot: #6d92ff;
-  --spot-deep: #3f63d6;
-  --spot-ink: #16120c;
+  --paper: #121511;
+  --paper-2: #1c1f1a;
+  --paper-3: #282c24;
+  --ink: #eef0e7;
+  --ink-soft: #a7ab9e;
+  --ink-faint: #73776b;
+  --rule: #383c33;
+  --spot: #5f86f5;
+  --spot-deep: #3a5cd0;
+  --spot-ink: #0c0f0a;
   --pitch: #5aa873;
   --shadow-color: #000000;
-  --halftone: rgba(241, 233, 214, 0.045);
+  --halftone: rgba(238, 240, 231, 0.045);
 }
 
 html {

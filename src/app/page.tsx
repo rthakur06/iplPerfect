@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "motion/react";
 import { MAX_OVERSEAS, MIN_BOWLING_OPTIONS, XI_SIZE } from "@/engine/rules";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { AccountNav } from "./components/AccountNav";
-import { SpinTeaser, CrestTicker } from "./components/HeroReel";
+import { CrestTicker } from "./components/HeroReel";
 import { Analytics } from "@vercel/analytics/next"
 
 const TIERS = [
@@ -60,16 +60,6 @@ export default function FrontPage() {
             No IPL team can claim a perfect season — but you can. Spin the wheel, draft real IPL legends from any season in history, and chase an unbeaten,
             title-winning campaign.
           </p>
-
-          {/* Live spin teaser */}
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.45, duration: 0.4 }}
-            className="mt-6"
-          >
-            <SpinTeaser />
-          </motion.div>
 
           {/* Difficulty */}
           <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
@@ -142,7 +132,7 @@ function HowToPlay({ onClose }: { onClose: () => void }) {
   return (
     <motion.div
       className="fixed inset-0 z-50 flex items-start justify-center overflow-y-auto p-4 sm:p-8"
-      style={{ background: "rgba(10, 8, 5, 0.55)" }}
+      style={{ background: "rgba(12, 14, 16, 0.6)" }}
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}

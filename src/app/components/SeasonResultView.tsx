@@ -16,7 +16,7 @@ const PLAYOFF_STAGE_LABEL: Record<PlayoffStage, string> = {
   FINAL: "Final",
 };
 
-const LEAGUE_REVEAL_MS = 700; // league games tick by fairly briskly
+const LEAGUE_REVEAL_MS = 1200; // league games tick by at a readable pace
 const INNINGS_MS = 1500; // playoffs go slower — inning by inning
 
 function opponentLabel(m: MatchResult): string {
@@ -355,10 +355,12 @@ function computeLeaders(stats: SimPlayerStat[]): Leader[] {
   };
   const runs = top(() => true, (p) => p.runs, 1);
   if (runs) out.push({ label: "Most runs", name: runs.name, value: `${runs.runs}` });
-  const wkts = top((p) => p.wickets > 0, (p) => p.wickets, 1);
-  if (wkts) out.push({ label: "Most wickets", name: wkts.name, value: `${wkts.wickets}` });
+  const sixes = top((p) => p.sixes > 0, (p) => p.sixes, 1);
+  if (sixes) out.push({ label: "Most sixes", name: sixes.name, value: `${sixes.sixes}` });
   const sr = top((p) => p.ballsFaced >= 60, (p) => p.strikeRate, 1);
   if (sr) out.push({ label: "Best strike rate", name: sr.name, value: `${sr.strikeRate}` });
+  const wkts = top((p) => p.wickets > 0, (p) => p.wickets, 1);
+  if (wkts) out.push({ label: "Most wickets", name: wkts.name, value: `${wkts.wickets}` });
   const econ = top((p) => p.oversBowled >= 10, (p) => p.economy, -1);
   if (econ) out.push({ label: "Lowest economy", name: econ.name, value: `${econ.economy}` });
   const catches = top((p) => p.catches > 0, (p) => p.catches, 1);

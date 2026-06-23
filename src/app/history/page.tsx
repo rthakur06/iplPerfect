@@ -172,7 +172,7 @@ export default function HistoryPage() {
         {(detail || detailLoading) && (
           <motion.div
             className="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-8"
-            style={{ background: "rgba(10, 8, 5, 0.6)" }}
+            style={{ background: "rgba(12, 14, 16, 0.6)" }}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}

@@ -189,12 +189,16 @@ function attributeStats(
     // Better bowlers concede a little less per over than the team average.
     const concededShare = p.bowls ? (bowlW[i] / bowlTot) * (1.05 - p.bowl / 200) : 0;
     const conceded = Math.round(runsConceded * concededShare);
+    // Sixes scale with both run volume and hitting power — a destructive bat clears the rope on a
+    // bigger share of their runs than an accumulator does.
+    const sixes = Math.round((runs / 18) * (0.7 + p.bat / 130));
     return {
       playerId: p.id,
       name: p.name,
       runs,
       ballsFaced,
       strikeRate: ballsFaced > 0 ? Math.round((runs / ballsFaced) * 1000) / 10 : 0,
+      sixes,
       wickets,
       oversBowled: overs,
       economy: overs > 0 ? Math.round((conceded / overs) * 100) / 100 : 0,

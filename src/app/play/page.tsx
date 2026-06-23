@@ -14,7 +14,7 @@ import { computeSeasonOdds } from "@/engine/odds";
 import { simulateSeason } from "@/engine/sim";
 import { buildVerdict } from "@/engine/verdict";
 import { buildXiSeedKey } from "@/engine/rng";
-import type { DraftState, PlayerSeason, SeasonResult, SimRosterPlayer, TeamSeason, Verdict } from "@/engine/types";
+import type { DraftState, PlayerSeason, SeasonOdds, SeasonResult, SimRosterPlayer, TeamSeason, Verdict, XiValidationIssue } from "@/engine/types";
 import { SpinReel } from "../components/SpinReel";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { SeasonResultView } from "../components/SeasonResultView";
@@ -324,7 +324,7 @@ function PlayScreen() {
                           <span className="flex-1 truncate text-sm">{player.name}</span>
                           {!hideSquadRatings && (
                             <span className="font-mono text-xs font-bold" style={{ color: "var(--spot)" }}>
-                              {player.rating.ovr}
+                              {toDisplayRating(player.rating.ovr)}
                             </span>
                           )}
                         </>
@@ -355,22 +355,6 @@ function PlayScreen() {
                 ))}
               </ul>
             )}
-
-            {isComplete && validation.valid && !seasonResult && (
-              <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} className="perforation mt-4 space-y-2 pt-4">
-                <Stat label="Projected finish" value={odds.projectedFinish} inline />
-                <Stat label="Title odds" value={Math.round(odds.titleOdds * 100)} suffix="%" inline />
-                <Stat label="Wooden spoon odds" value={Math.round(odds.wodenSpoonOdds * 100)} suffix="%" inline />
-                <motion.button
-                  whileTap={{ scale: 0.97 }}
-                  onClick={handleSimulate}
-                  className="font-display print-shadow mt-3 w-full py-3 text-lg"
-                  style={{ background: "var(--spot)", color: "var(--spot-ink)" }}
-                >
-                  Play the season →
-                </motion.button>
-              </motion.div>
-            )}
           </aside>
 
           {/* ── Draft floor ─────────────────────────────────────── */}
@@ -384,31 +368,30 @@ function PlayScreen() {
                 onSave={() => saveRun(seasonResult, verdict)}
               />
             ) : !pendingSpin ? (
-              <div className="sheet flex min-h-[420px] flex-col items-center justify-center gap-5 p-8 text-center">
-                {isComplete ? (
-                  <>
-                    <span className="eyebrow">XI complete</span>
-                    <p className="max-w-xs" style={{ color: "var(--ink-soft)" }}>
-                      Your team sheet is full. Play the season from the panel on the left.
-                    </p>
-                  </>
-                ) : (
-                  <>
-                    <span className="eyebrow">Spin {String(filledCount + 1).padStart(2, "0")} of 11</span>
-                    <motion.button
-                      whileTap={{ scale: 0.96 }}
-                      onClick={handleSpin}
-                      className="font-display print-shadow px-12 py-6 text-3xl"
-                      style={{ background: "var(--ink)", color: "var(--paper-2)" }}
-                    >
-                      Spin the wheel
-                    </motion.button>
-                    <p className="text-xs" style={{ color: "var(--ink-faint)" }}>
-                      A random franchise and a random season.
-                    </p>
-                  </>
-                )}
-              </div>
+              isComplete ? (
+                <ScoutingReport
+                  valid={validation.valid}
+                  issues={validation.issues}
+                  odds={odds}
+                  overall={toDisplayRating(teamRating.overall)}
+                  onSimulate={handleSimulate}
+                />
+              ) : (
+                <div className="sheet flex min-h-[420px] flex-col items-center justify-center gap-5 p-8 text-center">
+                  <span className="eyebrow">Spin {String(filledCount + 1).padStart(2, "0")} of 11</span>
+                  <motion.button
+                    whileTap={{ scale: 0.96 }}
+                    onClick={handleSpin}
+                    className="font-display print-shadow px-12 py-6 text-3xl"
+                    style={{ background: "var(--ink)", color: "var(--paper-2)" }}
+                  >
+                    Spin the wheel
+                  </motion.button>
+                  <p className="text-xs" style={{ color: "var(--ink-faint)" }}>
+                    A random franchise and a random season.
+                  </p>
+                </div>
+              )
             ) : (
               <div className="sheet overflow-hidden">
                 <div className="h-1.5 w-full" style={{ background: accent }} />
@@ -496,7 +479,7 @@ function PlayScreen() {
                                   <span className="min-w-0 flex-1 truncate font-semibold">{player.name}</span>
                                   {!hideSquadRatings && (
                                     <span className="font-mono text-sm font-bold" style={{ color: isPicked ? "var(--paper-2)" : "var(--spot)" }}>
-                                      {player.rating.ovr}
+                                      {toDisplayRating(player.rating.ovr)}
                                     </span>
                                   )}
                                 </div>
@@ -606,6 +589,120 @@ function Stat({
       <div className="font-display text-2xl leading-none" style={{ color: highlight ? "var(--spot)" : "var(--ink)" }}>
         {value}
         {suffix ?? ""}
+      </div>
+    </div>
+  );
+}
+
+function formatOdds(p: number): string {
+  const pct = p * 100;
+  if (pct >= 99.5) return ">99%";
+  if (pct > 0 && pct < 1) return "<1%";
+  return `${Math.round(pct)}%`;
+}
+
+/** The pre-season "scouting report": projections for a complete XI, with the simulate button under
+ *  them. A full-but-illegal XI (e.g. no wicketkeeper) shows what's left to fix instead. */
+function ScoutingReport({
+  valid,
+  issues,
+  odds,
+  overall,
+  onSimulate,
+}: {
+  valid: boolean;
+  issues: XiValidationIssue[];
+  odds: SeasonOdds;
+  overall: number;
+  onSimulate: () => void;
+}) {
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 8 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.3 }}
+      className="sheet print-shadow overflow-hidden"
+    >
+      <div className="h-1.5 w-full" style={{ background: valid ? "var(--spot)" : "var(--rule)" }} />
+      <div className="p-6 sm:p-8">
+        <div className="flex items-end justify-between gap-3">
+          <div>
+            <span className="eyebrow">Scouting report</span>
+            <h2 className="font-display mt-1 text-3xl leading-none sm:text-4xl">
+              {valid ? "Pre-season projection" : "Almost a legal XI"}
+            </h2>
+          </div>
+          <div className="shrink-0 text-right">
+            <div className="eyebrow" style={{ letterSpacing: "0.12em" }}>
+              Overall
+            </div>
+            <div className="font-display text-4xl leading-none" style={{ color: "var(--spot)" }}>
+              {overall}
+            </div>
+          </div>
+        </div>
+
+        <div className="rule-double my-5" />
+
+        {valid ? (
+          <>
+            <p className="mb-4 max-w-md text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
+              How this XI projects across a 14-game league and the all-time playoff gauntlet. Winning
+              the title means beating the greatest sides ever assembled — only the strongest drafts get
+              there.
+            </p>
+            <div className="grid grid-cols-2 gap-px overflow-hidden" style={{ background: "var(--rule)", border: "1.5px solid var(--ink)" }}>
+              <OddsCell label="Projected finish" value={`#${odds.projectedFinish}`} />
+              <OddsCell label="Expected points" value={`${odds.expectedPoints}`} />
+              <OddsCell label="Playoff chance" value={formatOdds(odds.playoffOdds)} highlight />
+              <OddsCell label="Unbeaten chance" value={formatOdds(odds.unbeatenOdds)} />
+              <OddsCell label="Title chance" value={formatOdds(odds.titleOdds)} highlight wide />
+            </div>
+            <motion.button
+              whileTap={{ scale: 0.98 }}
+              onClick={onSimulate}
+              className="font-display print-shadow mt-5 w-full py-4 text-2xl"
+              style={{ background: "var(--spot)", color: "var(--spot-ink)" }}
+            >
+              Simulate the season →
+            </motion.button>
+          </>
+        ) : (
+          <>
+            <p className="mb-3 max-w-md text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
+              Your team sheet is full, but it isn&rsquo;t a legal XI yet. Sort these out before you can
+              play the season:
+            </p>
+            <ul className="space-y-2">
+              {issues.map((issue, i) => (
+                <li
+                  key={i}
+                  className="flex gap-2 px-3 py-2 text-sm"
+                  style={{ background: "var(--paper-3)", color: "var(--spot-deep)" }}
+                >
+                  <span style={{ color: "var(--spot)" }}>■</span>
+                  <span>{describeIssue(issue)}</span>
+                </li>
+              ))}
+            </ul>
+            <p className="font-mono mt-4 text-xs" style={{ color: "var(--ink-faint)" }}>
+              Tap a drafted player in the team sheet to swap them, then spin for a replacement.
+            </p>
+          </>
+        )}
+      </div>
+    </motion.div>
+  );
+}
+
+function OddsCell({ label, value, highlight, wide }: { label: string; value: string; highlight?: boolean; wide?: boolean }) {
+  return (
+    <div className={`p-4 ${wide ? "col-span-2" : ""}`} style={{ background: "var(--paper-2)" }}>
+      <div className="eyebrow" style={{ letterSpacing: "0.1em" }}>
+        {label}
+      </div>
+      <div className="font-display mt-1 text-3xl leading-none" style={{ color: highlight ? "var(--spot)" : "var(--ink)" }}>
+        {value}
       </div>
     </div>
   );
