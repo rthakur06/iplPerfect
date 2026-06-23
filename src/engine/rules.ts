@@ -115,5 +115,21 @@ export function canAddPlayer(
     return { allowed: false, reason: `${candidate.name} is already in your XI from a different season.` };
   }
 
+  // Completability gate — the user must always end up with a LEGAL XI, so a pick is blocked if it
+  // would leave too few slots to still reach a wicketkeeper and enough bowling. e.g. with one slot
+  // left and no keeper yet, only keepers are draftable; if you still need bowlers to fill the last
+  // few slots, only bowlers are draftable.
+  const slotsAfter = XI_SIZE - filled.length - 1;
+  const keepers = filled.filter((s) => playersById.get(s.playerId!)?.isWicketkeeper).length;
+  const bowlers = filled.filter((s) => playersById.get(s.playerId!)?.bowlingRole !== "NONE").length;
+  const keepersStillNeeded = Math.max(0, 1 - (keepers + (candidate.isWicketkeeper ? 1 : 0)));
+  const bowlersStillNeeded = Math.max(0, MIN_BOWLING_OPTIONS - (bowlers + (candidate.bowlingRole !== "NONE" ? 1 : 0)));
+  if (slotsAfter < keepersStillNeeded + bowlersStillNeeded) {
+    const needs: string[] = [];
+    if (keepersStillNeeded > 0) needs.push("a wicketkeeper");
+    if (bowlersStillNeeded > 0) needs.push(`${bowlersStillNeeded} more bowling option${bowlersStillNeeded > 1 ? "s" : ""}`);
+    return { allowed: false, reason: `Not enough spots left — you still need ${needs.join(" and ")}.` };
+  }
+
   return { allowed: true };
 }

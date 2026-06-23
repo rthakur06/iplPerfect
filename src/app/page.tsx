@@ -1,12 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { MAX_OVERSEAS, MIN_BOWLING_OPTIONS, XI_SIZE } from "@/engine/rules";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { AccountNav } from "./components/AccountNav";
 import { CrestTicker } from "./components/HeroReel";
 import { Analytics } from "@vercel/analytics/next"
+
+// Cover-page accent pair — deliberately off the navy/saffron used in-game (teal + rose).
+const COVER_A = "#0d9488"; // teal
+const COVER_B = "#e11d48"; // rose
 
 const TIERS = [
   "Wooden Spoon",
@@ -21,6 +25,17 @@ const TIERS = [
 export default function FrontPage() {
   const [difficulty, setDifficulty] = useState<"easy" | "hard">("easy");
   const [showHowTo, setShowHowTo] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
+
+  // Move a soft spotlight to follow the cursor across the cover (set CSS vars directly — no React
+  // state, so it stays smooth). Defaults keep it centred until the pointer enters.
+  function onHeroMove(e: React.MouseEvent<HTMLElement>) {
+    const el = heroRef.current;
+    if (!el) return;
+    const r = el.getBoundingClientRect();
+    el.style.setProperty("--mx", `${e.clientX - r.left}px`);
+    el.style.setProperty("--my", `${e.clientY - r.top}px`);
+  }
 
   return (
     <div className="relative min-h-screen px-4 py-6 sm:py-10">
@@ -35,71 +50,87 @@ export default function FrontPage() {
         </nav>
 
         {/* ── Programme cover ─────────────────────────────────────── */}
-        <header className="sheet print-shadow relative overflow-hidden p-7 sm:p-12">
-          <div className="flex items-center justify-between">
-            <span className="eyebrow">IPL Perfect Season</span>
-            <span className="eyebrow">Est. 2026</span>
-          </div>
-          <div className="rule-double my-4" />
-          <h1 className="font-display text-5xl leading-[0.9] sm:text-8xl">
-            {["IPL", "Perfect", "Season"].map((word, i) => (
-              <motion.span
-                key={word}
-                className="block"
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.1, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
-                style={i === 1 ? { color: "var(--spot-2)" } : i === 2 ? { color: "var(--spot)" } : undefined}
+        <header ref={heroRef} onMouseMove={onHeroMove} className="sheet print-shadow relative overflow-hidden p-7 sm:p-12">
+          {/* Cursor-tracking spotlight (teal→rose), painted behind the content. */}
+          <div
+            aria-hidden
+            className="pointer-events-none absolute inset-0 z-0"
+            style={{
+              background:
+                "radial-gradient(240px circle at var(--mx, 70%) var(--my, 30%), color-mix(in srgb, " +
+                COVER_A +
+                " 22%, transparent), transparent 60%), radial-gradient(360px circle at var(--mx, 70%) var(--my, 30%), color-mix(in srgb, " +
+                COVER_B +
+                " 9%, transparent), transparent 70%)",
+            }}
+          />
+          <div className="relative z-10">
+            <div className="flex items-center justify-between">
+              <span className="eyebrow">IPL Perfect Season</span>
+              <span className="eyebrow">Est. 2026</span>
+            </div>
+            <div className="rule-double my-4" />
+            <h1 className="font-display text-5xl leading-[0.9] sm:text-8xl">
+              {["IPL", "Perfect", "Season"].map((word, i) => (
+                <motion.span
+                  key={word}
+                  className="block"
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: i * 0.1, duration: 0.45, ease: [0.16, 1, 0.3, 1] }}
+                  style={i === 1 ? { color: COVER_B } : i === 2 ? { color: COVER_A } : undefined}
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </h1>
+            <p className="mt-5 max-w-md text-base leading-relaxed" style={{ color: "var(--ink-soft)" }}>
+              No real IPL team has gone a whole season unbeaten and won the title. Each spin draws a random
+              franchise and year — pick a player from that squad, then do it ten more times and see if your XI can.
+            </p>
+
+            {/* Difficulty */}
+            <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
+              <DifficultyCard
+                label="Easy"
+                description="Ratings and stats visible while you draft."
+                selected={difficulty === "easy"}
+                onSelect={() => setDifficulty("easy")}
+              />
+              <DifficultyCard
+                label="Hard"
+                description="Ratings hidden during the draft — pure cricket knowledge."
+                selected={difficulty === "hard"}
+                onSelect={() => setDifficulty("hard")}
+              />
+            </div>
+
+            {/* Actions */}
+            <div className="mt-6 flex flex-wrap items-center gap-3">
+              <motion.a
+                href={`/play?difficulty=${difficulty}`}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                className="print-shadow font-display inline-block px-10 py-4 text-2xl"
+                style={{ background: COVER_A, color: "#ffffff" }}
               >
-                {word}
-              </motion.span>
-            ))}
-          </h1>
-          <p className="mt-5 max-w-md text-base leading-relaxed" style={{ color: "var(--ink-soft)" }}>
-            No real IPL team has gone a whole season unbeaten and won the title. Each spin draws a random
-            franchise and year — pick a player from that squad, then do it ten more times and see if your XI can.
-          </p>
+                Play →
+              </motion.a>
+              <motion.button
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.97 }}
+                onClick={() => setShowHowTo(true)}
+                className="font-display px-6 py-4 text-lg"
+                style={{ border: "1.5px solid var(--ink)", color: "var(--ink)" }}
+              >
+                How to play
+              </motion.button>
+            </div>
 
-          {/* Difficulty */}
-          <div className="mt-7 grid grid-cols-1 gap-3 sm:grid-cols-2">
-            <DifficultyCard
-              label="Easy"
-              description="Ratings and stats visible while you draft."
-              selected={difficulty === "easy"}
-              onSelect={() => setDifficulty("easy")}
-            />
-            <DifficultyCard
-              label="Hard"
-              description="Ratings hidden during the draft — pure cricket knowledge."
-              selected={difficulty === "hard"}
-              onSelect={() => setDifficulty("hard")}
-            />
-          </div>
-
-          {/* Actions */}
-          <div className="mt-6 flex flex-wrap items-center gap-3">
-            <motion.a
-              href={`/play?difficulty=${difficulty}`}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              className="btn-primary font-display inline-block px-10 py-4 text-2xl"
-            >
-              Play →
-            </motion.a>
-            <motion.button
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={() => setShowHowTo(true)}
-              className="font-display px-6 py-4 text-lg"
-              style={{ border: "1.5px solid var(--ink)", color: "var(--ink)" }}
-            >
-              How to play
-            </motion.button>
-          </div>
-
-          {/* Crest ticker */}
-          <div className="-mx-7 mt-7 border-t-[1.5px] border-[var(--ink)] sm:-mx-12">
-            <CrestTicker />
+            {/* Crest ticker */}
+            <div className="-mx-7 mt-7 border-t-[1.5px] border-[var(--ink)] sm:-mx-12">
+              <CrestTicker />
+            </div>
           </div>
         </header>
 

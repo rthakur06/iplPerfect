@@ -24,7 +24,7 @@ import { franchiseColor } from "../franchiseTheme";
 function franchiseOf(teamSeasonId: string): string {
   return teamSeasonId.split("-")[0];
 }
-import { toDisplayRating } from "../displayRating";
+import { toDisplayRating, toDisplayTeamRating } from "../displayRating";
 
 const POOL = buildWeightedPool(ALL_TEAM_SEASONS);
 
@@ -271,7 +271,7 @@ function PlayScreen() {
           points: result.points,
           wins: result.leagueStage.filter((m) => m.won).length,
           wonTitle: result.wonTitle,
-          overall: toDisplayRating(teamRating.overall),
+          overall: toDisplayTeamRating(teamRating.overall),
           xi,
           detail: { result, verdict: v },
         }),
@@ -423,10 +423,10 @@ function PlayScreen() {
 
             {!hideTeamRatings && (
               <div className="perforation mt-4 grid grid-cols-2 gap-x-4 gap-y-3 pt-4">
-                <Stat label="Batting" value={toDisplayRating(teamRating.batting)} />
-                <Stat label="Bowling" value={toDisplayRating(teamRating.bowling)} />
-                <Stat label="Fielding" value={toDisplayRating(teamRating.fielding)} />
-                <Stat label="Overall" value={toDisplayRating(teamRating.overall)} highlight />
+                <Stat label="Batting" value={toDisplayTeamRating(teamRating.batting)} />
+                <Stat label="Bowling" value={toDisplayTeamRating(teamRating.bowling)} />
+                <Stat label="Fielding" value={toDisplayTeamRating(teamRating.fielding)} />
+                <Stat label="Overall" value={toDisplayTeamRating(teamRating.overall)} highlight />
               </div>
             )}
 
@@ -455,7 +455,7 @@ function PlayScreen() {
                   valid={validation.valid}
                   issues={validation.issues}
                   odds={odds}
-                  overall={toDisplayRating(teamRating.overall)}
+                  overall={toDisplayTeamRating(teamRating.overall)}
                   onSimulate={handleSimulate}
                 />
               ) : (

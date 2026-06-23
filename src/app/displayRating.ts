@@ -9,3 +9,18 @@ export function toDisplayRating(raw: number): number {
   if (raw <= 0) return 0; // an empty/undrafted slot has no rating to show
   return Math.max(1, Math.min(99, Math.round(raw * 1.18 - 2)));
 }
+
+// Team ratings use their OWN, more generous scale than individual players. A team is a whole side
+// measured against the all-time field, so the bands are: best XI you can realistically build ~96-99,
+// elite ~92-95, very good ~88-91, good ~83-88, mediocre ~75, and down from there. Anchored on the
+// real team-strength distribution: a 50-internal side (a thoroughly mediocre XI) -> 75, and the
+// strongest possible XI (~64 internal, the all-time greats) -> 99.
+//
+// One linear map is applied to overall AND batting/bowling/fielding, so Overall stays exactly the
+// weighted average of the three parts shown beside it (no "overall higher than its components"
+// weirdness). Like the player scale, this is display-only — the sim and odds use the raw internals,
+// so these bands line up with the actual playoff/title/record odds.
+export function toDisplayTeamRating(raw: number): number {
+  if (raw <= 0) return 0;
+  return Math.max(1, Math.min(99, Math.round(raw * 1.7 - 10)));
+}
