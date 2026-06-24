@@ -6,6 +6,8 @@ import { MAX_OVERSEAS, MIN_BOWLING_OPTIONS, XI_SIZE } from "@/engine/rules";
 import { ThemeToggle } from "./components/ThemeToggle";
 import { AccountNav } from "./components/AccountNav";
 import { CrestTicker } from "./components/HeroReel";
+import { SignInModal } from "./components/SignInModal";
+import { useAuth } from "./components/AuthProvider";
 import { Analytics } from "@vercel/analytics/next"
 
 const TIERS = [
@@ -21,6 +23,22 @@ const TIERS = [
 export default function FrontPage() {
   const [difficulty, setDifficulty] = useState<"easy" | "hard">("easy");
   const [showHowTo, setShowHowTo] = useState(false);
+  const [showSignIn, setShowSignIn] = useState(false);
+  const { user, loading } = useAuth();
+
+  // Prompt signed-out visitors to sign in when they land on the cover — once per session, and
+  // dismissible so they can still play as a guest.
+  useEffect(() => {
+    if (loading || user) return;
+    try {
+      if (sessionStorage.getItem("ips_signin_prompted")) return;
+      sessionStorage.setItem("ips_signin_prompted", "1");
+    } catch {
+      /* private mode — just show it */
+    }
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-shot prompt once auth resolves
+    setShowSignIn(true);
+  }, [loading, user]);
 
   return (
     <div className="relative min-h-screen px-4 py-6 sm:py-10">
@@ -109,6 +127,7 @@ export default function FrontPage() {
       </div>
 
       <AnimatePresence>{showHowTo && <HowToPlay onClose={() => setShowHowTo(false)} />}</AnimatePresence>
+      <AnimatePresence>{showSignIn && <SignInModal onClose={() => setShowSignIn(false)} />}</AnimatePresence>
       <Analytics />
     </div>
   );

@@ -29,7 +29,7 @@ const VERDICT_LINES: Record<ResultTier, string[]> = {
     "Rough one. The draft didn't come together — worth another spin.",
   ],
   MID_TABLE: ["Mid-table. A winning-ish record, but not enough to crack the top four."],
-  PLAYOFF_BOUND: ["Top four, so you're into the playoffs. The hard part starts now."],
+  PLAYOFF_BOUND: ["Made the playoffs, but knocked out before the final. Close, not quite."],
   FINALIST: ["Runners-up. You made the final and came up a bit short."],
   CHAMPIONS: ["Champions. Dropped a game or two along the way, but you lifted the trophy."],
   UNBEATEN_LEAGUE_STAGE: ["Won all 14 in the league, then fell in the playoffs. One step from the full set."],

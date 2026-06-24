@@ -19,5 +19,7 @@ export function toDisplayRating(raw: number): number {
 // average of the three parts shown beside it. Display-only — the sim and odds use the raw internals.
 export function toDisplayTeamRating(raw: number): number {
   if (raw <= 0) return 0;
-  return Math.max(1, Math.min(99, Math.round(raw * 1.5)));
+  // 90 now takes internal ~61 (a touch harder than before); the all-time-best XI still lands ~94-95
+  // and a 99 is effectively unreachable.
+  return Math.max(1, Math.min(99, Math.round(raw * 1.5 - 1.5)));
 }

@@ -192,12 +192,22 @@ export function SeasonResultView({
             </button>
           </div>
         ) : (
+          // League's done and you've made the top four — announce it BEFORE the gauntlet is played.
+          // (This branch only renders when you qualified; missing out jumps straight to the verdict.)
           <div>
-            <span className="eyebrow">League stage complete</span>
-            <h2 className="font-display mt-1 text-3xl leading-none">
+            <span
+              className="eyebrow inline-block px-2 py-1"
+              style={{ background: TIER_THEME.PLAYOFF_BOUND.badgeBg, color: TIER_THEME.PLAYOFF_BOUND.accent, letterSpacing: "0.16em" }}
+            >
+              Playoff bound
+            </span>
+            <h2 className="font-display mt-3 text-3xl leading-none sm:text-4xl">
               {wins}–{losses}
-              {draws > 0 ? `–${draws}` : ""} · {result.points} pts
+              {draws > 0 ? `–${draws}` : ""} · into the playoffs
             </h2>
+            <p className="mt-3 max-w-lg leading-relaxed" style={{ color: "var(--ink-soft)" }}>
+              Top four — you&rsquo;re through. Now win three knockouts against the all-time XIs to be champions.
+            </p>
           </div>
         )}
 
