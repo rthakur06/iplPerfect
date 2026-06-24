@@ -43,7 +43,7 @@ export default function LeaderboardPage() {
             IPL Perfect Season
           </Link>
           <div className="flex items-center gap-2">
-            <Link href="/play" className="font-mono px-2.5 py-1 text-xs" style={{ border: "1.5px solid var(--ink)" }}>
+            <Link href="/" className="font-mono px-2.5 py-1 text-xs" style={{ border: "1.5px solid var(--ink)" }}>
               Play
             </Link>
             <AccountNav />
@@ -98,7 +98,7 @@ function Board({ title, accent, entries }: { title: string; accent: string; entr
               No {title.toLowerCase()}-mode runs on the board yet. Be the first.
             </p>
             <Link
-              href="/play"
+              href="/"
               className="font-display print-shadow inline-block px-8 py-3 text-lg"
               style={{ background: accent, color: "var(--spot-ink)" }}
             >

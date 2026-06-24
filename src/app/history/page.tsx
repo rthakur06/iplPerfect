@@ -88,7 +88,7 @@ export default function HistoryPage() {
             <Link href="/leaderboard" className="font-mono px-2.5 py-1 text-xs" style={{ border: "1.5px solid var(--ink)", color: "var(--spot-2-deep)" }}>
               Leaderboard
             </Link>
-            <Link href="/play" className="font-mono px-2.5 py-1 text-xs" style={{ border: "1.5px solid var(--ink)" }}>
+            <Link href="/" className="font-mono px-2.5 py-1 text-xs" style={{ border: "1.5px solid var(--ink)" }}>
               Play
             </Link>
             <ThemeToggle />
@@ -144,7 +144,7 @@ export default function HistoryPage() {
                   {fetching ? "Loading your runs…" : `No ${filter === "all" ? "" : filter + " "}runs yet.`}
                 </p>
                 <Link
-                  href="/play"
+                  href="/"
                   className="font-display print-shadow inline-block px-8 py-3 text-lg"
                   style={{ background: "var(--spot)", color: "var(--spot-ink)" }}
                 >
