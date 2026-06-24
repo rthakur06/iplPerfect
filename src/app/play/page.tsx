@@ -71,9 +71,8 @@ export default function PlayPage() {
 
 function PlayScreen() {
   const searchParams = useSearchParams();
-  // Initialise from the URL, but let the player switch mode on this screen (the top-nav Play link
-  // would otherwise lock them into easy).
-  const [isHard, setIsHard] = useState(searchParams.get("difficulty") === "hard");
+  // Difficulty is chosen on the cover and fixed for the run — it can't change mid-draft.
+  const isHard = searchParams.get("difficulty") === "hard";
 
   const playersById = useMemo(() => new Map(Object.entries(PLAYER_SEASONS_BY_ID)), []);
 
@@ -101,6 +100,7 @@ function PlayScreen() {
   const [seasonResult, setSeasonResult] = useState<SeasonResult | null>(null);
   const [verdict, setVerdict] = useState<Verdict | null>(null);
   const [saveState, setSaveState] = useState<"idle" | "saving" | "saved" | "needsAuth" | "error">("idle");
+  const [showResetConfirm, setShowResetConfirm] = useState(false);
 
   const filledSlots = draftState.slots.filter((s) => s.playerId != null);
   const filledCount = filledSlots.length;
@@ -317,28 +317,12 @@ function PlayScreen() {
               IPL Perfect Season
             </Link>
             <div className="flex items-center gap-3">
-              {/* Mode is a toggle so players can pick easy/hard here, not just from the cover. */}
-              <div className="flex overflow-hidden border border-[var(--ink)]" title="Easy shows ratings; Hard hides them">
-                {([["easy", false], ["hard", true]] as const).map(([label, hard]) => (
-                  <button
-                    key={label}
-                    onClick={() => setIsHard(hard)}
-                    aria-pressed={isHard === hard}
-                    className="font-mono px-2.5 py-1 text-xs uppercase tracking-wide transition-colors"
-                    style={{
-                      background: isHard === hard ? "var(--ink)" : "transparent",
-                      color: isHard === hard ? "var(--paper-2)" : "var(--ink-soft)",
-                    }}
-                  >
-                    {label}
-                  </button>
-                ))}
-              </div>
+              <span className="eyebrow border border-[var(--ink)] px-2 py-1">{isHard ? "Hard" : "Easy"} mode</span>
               <Link href="/leaderboard" className="font-mono text-xs" style={{ color: "var(--spot-2-deep)" }}>
                 Leaderboard
               </Link>
               <ThemeToggle />
-              <button onClick={handleReset} className="font-mono text-xs underline-offset-2 hover:underline" style={{ color: "var(--ink-soft)" }}>
+              <button onClick={() => setShowResetConfirm(true)} className="font-mono text-xs underline-offset-2 hover:underline" style={{ color: "var(--ink-soft)" }}>
                 Reset
               </button>
             </div>
@@ -645,6 +629,54 @@ function PlayScreen() {
           </main>
         </div>
       </div>
+
+      <AnimatePresence>
+        {showResetConfirm && (
+          <motion.div
+            className="fixed inset-0 z-50 flex items-center justify-center p-4"
+            style={{ background: "rgba(12, 14, 16, 0.6)" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowResetConfirm(false)}
+            role="dialog"
+            aria-modal="true"
+            aria-label="Reset draft"
+          >
+            <motion.div
+              className="sheet print-shadow w-full max-w-sm p-6"
+              initial={{ opacity: 0, y: 16, scale: 0.98 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 16 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h2 className="font-display text-2xl">Reset draft?</h2>
+              <p className="mt-2 text-sm" style={{ color: "var(--ink-soft)" }}>
+                This clears your current XI and starts over. You can&rsquo;t undo it.
+              </p>
+              <div className="mt-5 flex gap-3">
+                <button
+                  onClick={() => setShowResetConfirm(false)}
+                  className="font-display flex-1 py-2.5 text-base"
+                  style={{ border: "1.5px solid var(--ink)" }}
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={() => {
+                    handleReset();
+                    setShowResetConfirm(false);
+                  }}
+                  className="font-display flex-1 py-2.5 text-base"
+                  style={{ background: "var(--spot-deep)", color: "var(--spot-ink)" }}
+                >
+                  Reset
+                </button>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
