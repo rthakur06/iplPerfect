@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import { createSession, verifyPassword } from "@/lib/auth";
+import { clientIp, rateLimit } from "@/lib/rateLimit";
 
 export const runtime = "nodejs";
 
@@ -9,6 +10,11 @@ export const runtime = "nodejs";
 const DUMMY_HASH = "0".repeat(32) + ":" + "0".repeat(128);
 
 export async function POST(req: Request) {
+  // Throttle login attempts per IP to blunt brute-forcing.
+  if (!(await rateLimit(`login:${clientIp(req)}`, 10, 5 * 60_000))) {
+    return NextResponse.json({ error: "Too many attempts — try again in a few minutes." }, { status: 429 });
+  }
+
   const body = await req.json().catch(() => ({}));
   const username = String(body.username ?? "").trim();
   const password = String(body.password ?? "");

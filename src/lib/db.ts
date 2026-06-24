@@ -87,6 +87,15 @@ async function init(c: Client): Promise<Client> {
   }
 
   await c.execute("CREATE UNIQUE INDEX IF NOT EXISTS idx_users_username ON users(username COLLATE NOCASE)");
+
+  // Fixed-window rate-limit counters (one row per key+window). Works on serverless because the
+  // state lives in the shared DB, not process memory.
+  await c.execute(`
+    CREATE TABLE IF NOT EXISTS rate_limits (
+      bucket TEXT PRIMARY KEY,
+      count INTEGER NOT NULL,
+      expires_at INTEGER NOT NULL
+    )`);
   return c;
 }
 

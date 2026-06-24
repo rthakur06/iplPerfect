@@ -112,11 +112,15 @@ export interface SeasonOdds {
 
 // --- simulation ---
 
+// A pitch favours pace, favours spin, or is neutral — a team that can't exploit it pays a small toll.
+export type PitchType = "PACE" | "SPIN" | "NEUTRAL";
+
 export interface MatchResult {
   opponentFranchiseId: string;
   opponentName: string; // real franchise name, e.g. "Mumbai Indians"
   opponentSeason: number; // real season the opponent is drawn from, e.g. 2019
   isHome: boolean;
+  pitch: PitchType;
   yourScore: { runs: number; wickets: number; overs: number };
   theirScore: { runs: number; wickets: number; overs: number };
   youBattedFirst: boolean; // whether your XI batted the first innings (vs chasing)
@@ -157,6 +161,7 @@ export interface SimRosterPlayer {
   name: string;
   slotIndex: number;
   bowls: boolean;
+  bowlType: BowlingRole; // PACE / SPIN / NONE — drives the pitch matchup
   bat: number;
   bowl: number;
   field: number;

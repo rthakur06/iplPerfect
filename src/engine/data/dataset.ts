@@ -17,6 +17,23 @@ for (const p of Object.values(rawPlayerSeasons)) {
   if (everKept.has(p.personId)) p.isWicketkeeper = true;
 }
 
+// The data pipeline can't tell pace from spin (it needs bowling-style data that isn't in the free
+// sources), so it defaults every bowler to PACE. Re-label the well-known spinners here so the
+// pace/spin matchup matters when drafting. (Curated set; matched on the dataset's name format.)
+const SPINNERS = new Set([
+  "A Kumble", "A Mishra", "A Zampa", "AR Patel", "AU Rashid", "BAW Mendis", "CV Varun", "DL Vettori",
+  "GB Hogg", "Harbhajan Singh", "Imran Tahir", "Iqbal Abdulla", "IS Sodhi", "J Yadav", "Jalaj S Saxena",
+  "K Kartikeya", "KA Maharaj", "KH Pandya", "Kuldeep Yadav", "KV Sharma", "M Ashwin", "M Kartik",
+  "M Markande", "M Muralitharan", "M Theekshana", "MJ Santner", "MM Ali", "Mohammad Hafeez",
+  "Mohammad Nabi", "Mujeeb Ur Rahman", "Noor Ahmad", "P Negi", "PP Chawla", "PP Ojha", "PV Tambe",
+  "R Ashwin", "R Sai Kishore", "R Tewatia", "RA Jadeja", "Rashid Khan", "Ravi Bishnoi", "RR Powar",
+  "S Badree", "S Nadeem", "Shahbaz Ahmed", "Shakib Al Hasan", "SP Narine", "T Shamsi", "Washington Sundar",
+  "YS Chahal",
+]);
+for (const p of Object.values(rawPlayerSeasons)) {
+  if (p.bowlingRole === "PACE" && SPINNERS.has(p.name)) p.bowlingRole = "SPIN";
+}
+
 export const PLAYER_SEASONS_BY_ID = rawPlayerSeasons;
 export const TEAM_SEASONS_BY_ID = teamSeasonsJson as unknown as Record<string, TeamSeason>;
 

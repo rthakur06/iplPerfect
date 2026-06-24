@@ -7,6 +7,7 @@ import { validateXi, XI_SIZE } from "@/engine/rules";
 import { simulateSeason } from "@/engine/sim";
 import { buildVerdict } from "@/engine/verdict";
 import { buildXiSeedKey } from "@/engine/rng";
+import { rateLimit } from "@/lib/rateLimit";
 import { toDisplayTeamRating } from "@/app/displayRating";
 import type { DraftSlot, PlayerSeason, SimRosterPlayer } from "@/engine/types";
 
@@ -41,6 +42,11 @@ interface RunRow {
 export async function POST(req: Request) {
   const user = await currentUser();
   if (!user) return NextResponse.json({ error: "Sign in to save runs." }, { status: 401 });
+
+  // Throttle run submissions per user.
+  if (!(await rateLimit(`runs:${user.id}`, 20, 5 * 60_000))) {
+    return NextResponse.json({ error: "Too many runs too fast — slow down a moment." }, { status: 429 });
+  }
 
   const b = await req.json().catch(() => ({}));
 
@@ -78,6 +84,7 @@ export async function POST(req: Request) {
     name: p.name,
     slotIndex: i,
     bowls: p.bowlingRole !== "NONE",
+    bowlType: p.bowlingRole,
     bat: p.rating.bat,
     bowl: p.rating.bowl,
     field: p.rating.field,

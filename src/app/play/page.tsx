@@ -16,6 +16,7 @@ import { buildVerdict } from "@/engine/verdict";
 import { buildXiSeedKey } from "@/engine/rng";
 import type { DraftState, PlayerSeason, SeasonOdds, SeasonResult, SimRosterPlayer, TeamSeason, Verdict, XiValidationIssue } from "@/engine/types";
 import { SpinReel } from "../components/SpinReel";
+import { GauntletModal } from "../components/GauntletModal";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { SeasonResultView } from "../components/SeasonResultView";
 import { FranchiseCrest, PlayerAvatar } from "../components/Crest";
@@ -113,6 +114,8 @@ function PlayScreen() {
   const filledPlayers = filledSlots.map((s) => playersById.get(s.playerId!)!);
   const overseasCount = filledPlayers.filter((p) => p.isOverseas).length;
   const keeperCount = filledPlayers.filter((p) => p.isWicketkeeper).length;
+  const hasPace = filledPlayers.some((p) => p.bowlingRole === "PACE");
+  const hasSpin = filledPlayers.some((p) => p.bowlingRole === "SPIN");
 
   // The player currently being placed — whether picked by tap (pendingPlayer) or held mid-drag.
   const draggingPlayer =
@@ -254,6 +257,7 @@ function PlayScreen() {
           name: p.name,
           slotIndex: s.index,
           bowls: p.bowlingRole !== "NONE",
+          bowlType: p.bowlingRole,
           bat: p.rating.bat,
           bowl: p.rating.bowl,
           field: p.rating.field,
@@ -459,6 +463,8 @@ function PlayScreen() {
                   issues={validation.issues}
                   odds={odds}
                   overall={toDisplayTeamRating(teamRating.overall)}
+                  hasPace={hasPace}
+                  hasSpin={hasSpin}
                   onSimulate={handleSimulate}
                 />
               ) : (
@@ -597,6 +603,9 @@ function PlayScreen() {
                                   {player.roles.map((r) => (
                                     <RoleChip key={r} label={roleLabel(r)} inverted={isPicked} />
                                   ))}
+                                  {player.bowlingRole !== "NONE" && (
+                                    <RoleChip label={player.bowlingRole === "SPIN" ? "Spin" : "Pace"} inverted={isPicked} />
+                                  )}
                                   {player.isWicketkeeper && <RoleChip label="Keeper ✦" inverted={isPicked} spot />}
                                   {player.isOverseas && <RoleChip label="Overseas" inverted={isPicked} />}
                                   {player.limitedSample && <RoleChip label="Small sample" inverted={isPicked} faint />}
@@ -779,14 +788,24 @@ function ScoutingReport({
   issues,
   odds,
   overall,
+  hasPace,
+  hasSpin,
   onSimulate,
 }: {
   valid: boolean;
   issues: XiValidationIssue[];
   odds: SeasonOdds;
   overall: number;
+  hasPace: boolean;
+  hasSpin: boolean;
   onSimulate: () => void;
 }) {
+  const [showGauntlet, setShowGauntlet] = useState(false);
+  const attackWarning = !hasSpin
+    ? "No frontline spinner — you'll be exposed on turning pitches."
+    : !hasPace
+      ? "No seamer — green tops will catch your attack out."
+      : null;
   return (
     <motion.div
       initial={{ opacity: 0, y: 8 }}
@@ -829,14 +848,29 @@ function ScoutingReport({
               <OddsCell label="Unbeaten chance" value={formatOdds(odds.unbeatenOdds)} color="var(--pitch)" />
               <OddsCell label="Title chance" value={formatOdds(odds.titleOdds)} color="var(--spot-2)" wide />
             </div>
+            {attackWarning && (
+              <p className="mt-4 px-3 py-2 text-xs" style={{ background: "var(--paper-3)", color: "var(--spot-2-deep)" }}>
+                ⚠ {attackWarning}
+              </p>
+            )}
+            <button
+              onClick={() => setShowGauntlet(true)}
+              className="font-mono mt-3 w-full py-2.5 text-xs uppercase tracking-wide"
+              style={{ border: "1.5px solid var(--ink)", color: "var(--spot)" }}
+            >
+              See who you&rsquo;ll face in the playoffs →
+            </button>
             <motion.button
               whileHover={{ y: -2 }}
               whileTap={{ scale: 0.98 }}
               onClick={onSimulate}
-              className="btn-primary font-display mt-5 w-full py-4 text-2xl"
+              className="btn-primary font-display mt-3 w-full py-4 text-2xl"
             >
               Simulate the season →
             </motion.button>
+            <AnimatePresence>
+              {showGauntlet && <GauntletModal yourOverall={overall} onClose={() => setShowGauntlet(false)} />}
+            </AnimatePresence>
           </>
         ) : (
           <>

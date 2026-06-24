@@ -1,12 +1,18 @@
 import { NextResponse } from "next/server";
 import { getDb } from "@/lib/db";
 import { createSession, hashPassword } from "@/lib/auth";
+import { clientIp, rateLimit } from "@/lib/rateLimit";
 
 export const runtime = "nodejs";
 
 const USERNAME_RE = /^[a-zA-Z0-9_]{3,20}$/;
 
 export async function POST(req: Request) {
+  // Limit account creation per IP.
+  if (!(await rateLimit(`register:${clientIp(req)}`, 5, 60 * 60_000))) {
+    return NextResponse.json({ error: "Too many sign-ups from here — try again later." }, { status: 429 });
+  }
+
   const body = await req.json().catch(() => ({}));
   const username = String(body.username ?? "").trim();
   const password = String(body.password ?? "");

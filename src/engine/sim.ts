@@ -1,6 +1,7 @@
 import type {
   BatterLine,
   MatchResult,
+  PitchType,
   PlayoffMatchResult,
   PlayoffStage,
   SeasonResult,
@@ -94,15 +95,22 @@ function simulateInnings(
   return { runs, wickets: Math.min(wickets, 10), overs: oversBowled };
 }
 
+// A spin/pace-friendly pitch costs your attack this many bowling points if your XI can't exploit it
+// (i.e. you have no spinner on a turner, or no seamer on a green top). Light — rewards a balanced
+// attack without overturning the rest of the calibration.
+const PITCH_PENALTY = 7;
+
 function simulateMatch(
   yourRating: TeamRatingBreakdown,
   opponent: TeamStrength,
   isHome: boolean,
   rng: () => number,
-  teamBoost = 0
+  teamBoost = 0,
+  pitch: PitchType = "NEUTRAL",
+  bowlPenalty = 0
 ): MatchResult {
   const yourBat = yourRating.batting + (isHome ? HOME_BOOST : 0) + teamBoost;
-  const yourBowl = yourRating.bowling + (isHome ? HOME_BOOST : 0) + teamBoost;
+  const yourBowl = yourRating.bowling + (isHome ? HOME_BOOST : 0) + teamBoost - bowlPenalty;
   const theirBat = opponent.batting + (isHome ? 0 : HOME_BOOST);
   const theirBowl = opponent.bowling + (isHome ? 0 : HOME_BOOST);
 
@@ -127,12 +135,23 @@ function simulateMatch(
     opponentName: opponent.name,
     opponentSeason: opponent.season,
     isHome,
+    pitch,
     yourScore,
     theirScore,
     youBattedFirst: yourTeamBatsFirst,
     won,
     tied,
   };
+}
+
+/** Roll a pitch and the bowling penalty for your XI given which bowling types it actually has. */
+function rollPitch(rng: () => number, hasPace: boolean, hasSpin: boolean): { pitch: PitchType; bowlPenalty: number } {
+  const r = rng();
+  const pitch: PitchType = r < 0.35 ? "PACE" : r < 0.7 ? "SPIN" : "NEUTRAL";
+  let bowlPenalty = 0;
+  if (pitch === "SPIN" && !hasSpin) bowlPenalty = PITCH_PENALTY;
+  else if (pitch === "PACE" && !hasPace) bowlPenalty = PITCH_PENALTY;
+  return { pitch, bowlPenalty };
 }
 
 /** One side's super-over innings: six balls, all out at two wickets. */
@@ -306,12 +325,20 @@ export function simulateSeason(
   const seed = hashSeed(seedKey);
   const rng = createRng(seed);
 
+  // Your XI's bowling make-up drives the pitch matchup. If no bowling type is set (e.g. a bare
+  // roster), treat the attack as balanced so there's no penalty.
+  const bowlers = roster.filter((p) => p.bowls);
+  const typed = bowlers.some((p) => p.bowlType === "PACE" || p.bowlType === "SPIN");
+  const hasPace = !typed || bowlers.some((p) => p.bowlType === "PACE");
+  const hasSpin = !typed || bowlers.some((p) => p.bowlType === "SPIN");
+
   const opponents = generateLeagueOpponents(rng);
   const schedule = buildSchedule(opponents, rng);
 
-  const leagueStage = schedule.map((fixture) =>
-    simulateMatch(yourRating, fixture.opponent, fixture.isHome, rng)
-  );
+  const leagueStage = schedule.map((fixture) => {
+    const { pitch, bowlPenalty } = rollPitch(rng, hasPace, hasSpin);
+    return simulateMatch(yourRating, fixture.opponent, fixture.isHome, rng, 0, pitch, bowlPenalty);
+  });
 
   const yourRow: TableRow = { franchiseId: "YOU", points: 0, netRunRate: 0 };
   leagueStage.forEach((m) => {
@@ -348,7 +375,8 @@ export function simulateSeason(
       { stage: "FINAL", opp: BOSS_FINAL },
     ];
     for (const { stage, opp } of gauntlet) {
-      const base = simulateMatch(yourRating, opp, false, rng, PLAYOFF_TEAM_BOOST);
+      const { pitch, bowlPenalty } = rollPitch(rng, hasPace, hasSpin);
+      const base = simulateMatch(yourRating, opp, false, rng, PLAYOFF_TEAM_BOOST, pitch, bowlPenalty);
       // Playoffs can't end level — a tie goes to a super over.
       let m = base;
       let superOver: SuperOverResult | undefined;

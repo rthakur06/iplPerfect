@@ -598,6 +598,11 @@ function PlayoffGameCard({ match, onDone, revealed }: { match: PlayoffMatchResul
         </span>
         <span className="text-sm font-semibold">{opponentLabel(match)}</span>
       </div>
+      {match.pitch && match.pitch !== "NEUTRAL" && (
+        <div className="font-mono mt-1 text-[10px] uppercase tracking-wide" style={{ color: "var(--ink-faint)" }}>
+          {match.pitch === "SPIN" ? "Turning pitch" : "Seaming pitch"}
+        </div>
+      )}
       <div className="mt-2 space-y-1">
         {renderInnings(innings[0], 1)}
         {bossGate && bossReady && step === 1 && (
