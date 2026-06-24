@@ -38,7 +38,12 @@ export function AccountNav() {
       <Link href="/leaderboard" className={chip} style={{ ...chipStyle, color: "var(--spot-2-deep)" }}>
         Leaderboard
       </Link>
-      <button onClick={() => setOpen(true)} className={chip} style={chipStyle}>
+      <button
+        onClick={() => setOpen(true)}
+        title="Save your runs and rank on the leaderboard"
+        className="font-mono px-3 py-1 text-xs font-bold transition-colors"
+        style={{ background: "var(--spot)", color: "var(--spot-ink)", border: "1.5px solid var(--spot)" }}
+      >
         Sign in
       </button>
       <AnimatePresence>{open && <SignInModal onClose={() => setOpen(false)} />}</AnimatePresence>

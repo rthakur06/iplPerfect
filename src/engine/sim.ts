@@ -51,7 +51,7 @@ const HOME_BOOST = 2;
 // to the constructed team's batting and bowling that makes the title a real, winnable prize rather
 // than a near-impossible wall. Only applied in the gauntlet, so the league stage (and the playoff /
 // unbeaten projections) stay an honest test.
-const PLAYOFF_TEAM_BOOST = 9;
+const PLAYOFF_TEAM_BOOST = 7;
 
 /** Simulate one innings over-by-over. If `target` is set, stops once chased (2nd innings). */
 function simulateInnings(
@@ -72,10 +72,10 @@ function simulateInnings(
     // strong XI dominates the league (a 90-rated side averages ~13 wins and goes unbeaten ~30% of
     // the time), while a weaker one gets ground down — but there's still real T20 variance per game.
     const diff = battingStrength - bowlingStrength;
-    const lambda = Math.max(2, 7.5 + diff * 0.09); // expected runs this over
+    const lambda = Math.max(2, 7.5 + diff * 0.06); // expected runs this over
     let runsThisOver = samplePoisson(rng, lambda);
 
-    const wicketProb = clamp(0.2 - diff * 0.0025, 0.04, 0.55);
+    const wicketProb = clamp(0.2 - diff * 0.0017, 0.04, 0.55);
     if (rng() < wicketProb) {
       wickets++;
       runsThisOver = Math.max(0, runsThisOver - 2);

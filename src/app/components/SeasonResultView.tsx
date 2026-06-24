@@ -113,20 +113,46 @@ export function SeasonResultView({
   const leaders = useMemo(() => computeLeaders(result.playerStats), [result.playerStats]);
 
   async function handleShare() {
-    const rec = `${wins}-${losses}${draws > 0 ? `-${draws}` : ""}`;
+    const rec = `${wins}–${losses}${draws > 0 ? `–${draws}` : ""}`;
     const titleBit = result.wonTitle ? ", and won the title" : "";
-    const text = `IPL Perfect Season — ${theme.label}! I went ${rec} and finished #${result.finalRank}${titleBit}. Think you can do better?`;
+    const text = `IPL Perfect Season — ${theme.label}! I went ${rec} and finished #${result.finalRank}${titleBit}.`;
     const url = typeof window !== "undefined" ? window.location.origin : "";
+    const topScorer = leaders.find((l) => l.label === "Most runs");
     try {
-      if (typeof navigator !== "undefined" && navigator.share) {
-        await navigator.share({ title: "IPL Perfect Season", text, url });
-      } else {
+      const blob = await buildResultImage({
+        tier: theme.label,
+        accent: theme.accent,
+        record: rec,
+        points: result.points,
+        finishRank: result.finalRank,
+        wonTitle: result.wonTitle,
+        verdictLine: verdict.verdictLine,
+        topScorer: topScorer ? `${topScorer.name} — ${topScorer.value} runs` : null,
+      });
+      const file = new File([blob], "ipl-perfect-season.png", { type: "image/png" });
+      const nav = typeof navigator !== "undefined" ? navigator : undefined;
+      if (nav?.canShare?.({ files: [file] }) && nav.share) {
+        await nav.share({ files: [file], title: "IPL Perfect Season", text });
+        return;
+      }
+      // No file-share support (most desktops) — download the image so it can be shared anywhere.
+      const objectUrl = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = objectUrl;
+      a.download = "ipl-perfect-season.png";
+      a.click();
+      URL.revokeObjectURL(objectUrl);
+      setShared(true);
+      setTimeout(() => setShared(false), 2500);
+    } catch {
+      // Image generation/share failed or was dismissed — fall back to copying a text summary.
+      try {
         await navigator.clipboard.writeText(`${text} ${url}`.trim());
         setShared(true);
         setTimeout(() => setShared(false), 2500);
+      } catch {
+        /* nothing more to do */
       }
-    } catch {
-      /* user dismissed the share sheet — nothing to do */
     }
   }
 
@@ -289,6 +315,29 @@ export function SeasonResultView({
               </div>
             )}
 
+            {!user && onSave && (
+              <div
+                className="mt-5 flex flex-col gap-3 p-4 sm:flex-row sm:items-center sm:justify-between"
+                style={{ border: "1.5px solid var(--spot)", background: "var(--paper-3)" }}
+              >
+                <div>
+                  <div className="font-display text-lg leading-none" style={{ color: "var(--spot)" }}>
+                    Don&rsquo;t lose this run
+                  </div>
+                  <p className="mt-1 text-sm" style={{ color: "var(--ink-soft)" }}>
+                    Sign in to save your results, track your history, and rank on the leaderboard.
+                  </p>
+                </div>
+                <button
+                  onClick={() => setShowSignIn(true)}
+                  className="font-display print-shadow shrink-0 px-6 py-2.5 text-lg"
+                  style={{ background: "var(--spot)", color: "var(--spot-ink)" }}
+                >
+                  Sign in
+                </button>
+              </div>
+            )}
+
             <div className="mt-6 flex flex-wrap items-center gap-3">
               {onClose && (
                 <button onClick={onClose} className="font-display px-6 py-3 text-lg" style={{ border: "1.5px solid var(--ink)" }}>
@@ -311,11 +360,6 @@ export function SeasonResultView({
               {saveState === "saving" && <span className="font-mono text-xs" style={{ color: "var(--ink-faint)" }}>Saving run…</span>}
               {saveState === "saved" && <span className="font-mono text-xs" style={{ color: "var(--pitch)" }}>✓ Saved to your runs</span>}
               {saveState === "error" && <span className="font-mono text-xs" style={{ color: "var(--spot-deep)" }}>Couldn&rsquo;t save this run.</span>}
-              {saveState === "needsAuth" && !user && (
-                <button onClick={() => setShowSignIn(true)} className="font-mono text-xs underline underline-offset-2" style={{ color: "var(--spot)" }}>
-                  Sign in to save this run →
-                </button>
-              )}
             </div>
           </motion.div>
         )}
@@ -330,6 +374,24 @@ export function SeasonResultView({
 }
 
 const PER_BATTER_MS = 750; // pace of the final's batter-by-batter reveal (slow enough to follow)
+const BOSS_COUNTUP_MS = 3400; // the All-Time XI's final innings ticks up over this long, for suspense
+
+/** A number that animates up from 0 to `to` with an ease-out — used for the final chase. */
+function CountUp({ to, duration = BOSS_COUNTUP_MS }: { to: number; duration?: number }) {
+  const [n, setN] = useState(0);
+  useEffect(() => {
+    let raf = 0;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const t = Math.min(1, (now - start) / duration);
+      setN(Math.round(to * (1 - Math.pow(1 - t, 2))));
+      if (t < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [to, duration]);
+  return <>{n}</>;
+}
 
 /** Full-screen pay-off for the game's rarest result — a Perfect Season. */
 function PerfectSeasonCelebration({ onClose }: { onClose: () => void }) {
@@ -414,6 +476,8 @@ function PlayoffGameCard({ match, onDone, revealed }: { match: PlayoffMatchResul
   // In the final, once you've posted a total, hold the All-Time XI's chase behind a button for
   // suspense (only when you batted first — otherwise your own chase is the suspense).
   const bossGate = isFinalReveal && match.youBattedFirst;
+  // The step at which the All-Time XI bats in the final — their innings ticks up slowly for drama.
+  const bossStep = match.youBattedFirst ? 2 : 1;
 
   const [step, setStep] = useState(revealed ? 3 : 0);
   const [bossReady, setBossReady] = useState(false);
@@ -426,11 +490,13 @@ function PlayoffGameCard({ match, onDone, revealed }: { match: PlayoffMatchResul
       const t = setTimeout(() => setBossReady(true), card!.length * PER_BATTER_MS + 600);
       return () => clearTimeout(t);
     }
-    const dwell =
-      step === 0 ? 350 : isFinalReveal && step === userStep ? card!.length * PER_BATTER_MS + 800 : INNINGS_MS;
+    let dwell = INNINGS_MS;
+    if (step === 0) dwell = 350;
+    else if (isFinalReveal && step === userStep) dwell = card!.length * PER_BATTER_MS + 800;
+    else if (isFinalReveal && step === bossStep) dwell = BOSS_COUNTUP_MS + 700; // let the chase tick out
     const t = setTimeout(() => setStep((s) => s + 1), dwell);
     return () => clearTimeout(t);
-  }, [step, revealed, bossGate, isFinalReveal, userStep, card]);
+  }, [step, revealed, bossGate, isFinalReveal, userStep, bossStep, card]);
 
   useEffect(() => {
     if (!revealed && step >= 3) onDone?.();
@@ -444,16 +510,20 @@ function PlayoffGameCard({ match, onDone, revealed }: { match: PlayoffMatchResul
     if (step < position) return null;
     const ordinal = position === 1 ? "1st" : "2nd";
     if (who === "them") {
+      // In the final, the All-Time XI's innings ticks up slowly (suspenseful chase / total).
+      const tickUp = !!card && !revealed;
       return (
         <motion.div
           key={`them-${position}`}
           initial={{ opacity: 0, x: -8 }}
           animate={{ opacity: 1, x: 0 }}
           className="flex justify-between font-mono text-sm"
-          style={{ color: "var(--ink-soft)" }}
+          style={{ color: tickUp ? "var(--ink)" : "var(--ink-soft)" }}
         >
           <span>{ordinal} innings · {match.opponentName}</span>
-          <span>{match.theirScore.runs}/{match.theirScore.wickets}</span>
+          <span className={tickUp ? "font-bold" : undefined}>
+            {tickUp ? <CountUp to={match.theirScore.runs} /> : match.theirScore.runs}/{match.theirScore.wickets}
+          </span>
         </motion.div>
       );
     }
@@ -565,6 +635,107 @@ function PlayoffGameCard({ match, onDone, revealed }: { match: PlayoffMatchResul
         </motion.div>
       )}
     </div>
+  );
+}
+
+interface ShareCard {
+  tier: string;
+  accent: string;
+  record: string;
+  points: number;
+  finishRank: number;
+  wonTitle: boolean;
+  verdictLine: string;
+  topScorer: string | null;
+}
+
+/** Draw a self-contained result card (PNG) the player can share — shows exactly what they got. */
+async function buildResultImage(c: ShareCard): Promise<Blob> {
+  const S = 1080;
+  const canvas = document.createElement("canvas");
+  canvas.width = S;
+  canvas.height = S;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("no canvas context");
+  // Fixed stone palette so the shared image looks the same regardless of the user's theme.
+  const paper = "#e9ebe3", ink = "#15181a", inkSoft = "#555a55", spot = "#182e86";
+  ctx.fillStyle = paper;
+  ctx.fillRect(0, 0, S, S);
+  ctx.lineWidth = 14;
+  ctx.strokeStyle = ink;
+  ctx.strokeRect(7, 7, S - 14, S - 14);
+  ctx.fillStyle = c.accent;
+  ctx.fillRect(48, 48, S - 96, 12);
+
+  ctx.textAlign = "center";
+  const cx = S / 2;
+  const maxW = S - 150;
+
+  ctx.fillStyle = inkSoft;
+  ctx.font = "bold 30px ui-monospace, monospace";
+  ctx.fillText("IPL  PERFECT  SEASON", cx, 135);
+
+  // Tier label — large, greedily wrapped, shrunk until the longest word fits.
+  ctx.fillStyle = c.accent;
+  const words = c.tier.toUpperCase().split(" ");
+  let fs = 132;
+  ctx.font = `800 ${fs}px sans-serif`;
+  while (fs > 64 && Math.max(...words.map((w) => ctx.measureText(w).width)) > maxW) {
+    fs -= 6;
+    ctx.font = `800 ${fs}px sans-serif`;
+  }
+  const lines: string[] = [];
+  let cur = "";
+  for (const w of words) {
+    const test = cur ? `${cur} ${w}` : w;
+    if (ctx.measureText(test).width > maxW && cur) {
+      lines.push(cur);
+      cur = w;
+    } else cur = test;
+  }
+  if (cur) lines.push(cur);
+  let y = 300;
+  for (const ln of lines) {
+    ctx.fillText(ln, cx, y);
+    y += fs * 1.02;
+  }
+
+  // Record + meta
+  y += 50;
+  ctx.fillStyle = ink;
+  ctx.font = "800 160px sans-serif";
+  ctx.fillText(c.record, cx, y);
+  y += 70;
+  ctx.fillStyle = inkSoft;
+  ctx.font = "bold 38px ui-monospace, monospace";
+  ctx.fillText(`${c.points} PTS  ·  FINISHED #${c.finishRank}${c.wonTitle ? "  ·  CHAMPIONS" : ""}`, cx, y);
+
+  // Verdict line (wrapped)
+  y += 95;
+  ctx.fillStyle = ink;
+  ctx.font = "38px sans-serif";
+  let vcur = "";
+  for (const w of c.verdictLine.split(" ")) {
+    const test = vcur ? `${vcur} ${w}` : w;
+    if (ctx.measureText(test).width > maxW && vcur) {
+      ctx.fillText(vcur, cx, y);
+      y += 50;
+      vcur = w;
+    } else vcur = test;
+  }
+  if (vcur) ctx.fillText(vcur, cx, y);
+
+  if (c.topScorer) {
+    ctx.fillStyle = inkSoft;
+    ctx.font = "bold 30px ui-monospace, monospace";
+    ctx.fillText(`TOP SCORER · ${c.topScorer.toUpperCase()}`, cx, S - 150);
+  }
+  ctx.fillStyle = spot;
+  ctx.font = "bold 32px ui-monospace, monospace";
+  ctx.fillText("CAN YOU BUILD A PERFECT SEASON?", cx, S - 90);
+
+  return await new Promise<Blob>((resolve, reject) =>
+    canvas.toBlob((b) => (b ? resolve(b) : reject(new Error("toBlob failed"))), "image/png")
   );
 }
 

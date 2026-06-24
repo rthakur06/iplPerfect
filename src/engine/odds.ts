@@ -6,19 +6,20 @@ import type { SeasonOdds, TeamRatingBreakdown } from "./types";
 // ~43-56 and the all-time bosses sit ~63-66 — so the achievable range for a good draft is roughly
 // the low 50s to low 60s.
 //
-// Measured outcomes by team overall (3-4k seeds/point), with the steep match engine (sim.ts), the
-// tough league table, and the playoff boost (PLAYOFF_TEAM_BOOST = 9) all in effect:
-//   overall  avgWins  playoff%  title%  unbeaten%  (display rating via toDisplayTeamRating)
-//      56      11.4      75        12       5          ~85
-//      59      12.8      98        16      28          ~90  (13-1, dominates the league)
-//      62      13.6     100        40      67          ~94  (strong title shot)
-//      63      13.7     100        54      76          ~96  (probable champion)
-//      65      13.8     100       ~65      88          ~99  (best XI you can build)
-// A 90 dominates the league; the title gets probable around 95-96. Curves reproduce these rates.
+// Measured outcomes by team overall (4k seeds/point), with the match engine (sim.ts), the league
+// table, and the playoff boost (PLAYOFF_TEAM_BOOST = 7) all in effect. Tuned (June 2026) so the
+// championship is hard and a perfect record is extremely rare, while playoffs stay reachable:
+//   overall  avgWins  playoff%  title%  unbeaten%  perfect%  (display via toDisplayTeamRating)
+//      56      10.4      50         1       1        0.0       ~84
+//      60      12.3      91        11      15        2.1       ~90  (strong; ~12-2)
+//      62      12.9      98        20      30        5.9       ~93
+//      64      13.3      99        32      50       15.4       ~96  (the best XI you can build)
+// Even the best realistic side wins the title only ~1 in 3 and goes unbeaten ~half the time, and a
+// 96 is itself near-impossible to draft — so champions are hard and perfect seasons very rare.
 const LOGISTIC = {
-  playoff: { k: 0.88, mid: 54.6 },
-  title: { k: 0.42, mid: 63 },
-  unbeaten: { k: 0.55, mid: 60.7 },
+  playoff: { k: 0.58, mid: 56 },
+  title: { k: 0.34, mid: 66 },
+  unbeaten: { k: 0.43, mid: 64 },
   woodenSpoon: { k: 0.45, mid: 48 }, // risk of a losing record
 };
 
@@ -30,10 +31,10 @@ function logistic(k: number, x: number, mid: number): number {
 export function computeSeasonOdds(rating: TeamRatingBreakdown): SeasonOdds {
   const overall = rating.overall;
 
-  // Strong teams pull away fast under the steep engine: ~20 points at internal 54, climbing ~1.1
-  // per point of overall; projected finish climbs ~0.83 places per point.
-  const expectedPoints = clamp(Math.round(20 + (overall - 54) * 1.1), 0, 28);
-  const projectedFinish = clamp(Math.round(4.5 - (overall - 55) * 0.83), 1, 15);
+  // ~21 points at internal 56, climbing ~0.72 per point of overall; projected finish climbs ~0.75
+  // places per point against the strong field.
+  const expectedPoints = clamp(Math.round(21 + (overall - 56) * 0.72), 0, 28);
+  const projectedFinish = clamp(Math.round(5 - (overall - 56) * 0.75), 1, 15);
 
   return {
     expectedPoints,

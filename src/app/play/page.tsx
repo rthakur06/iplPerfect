@@ -71,7 +71,9 @@ export default function PlayPage() {
 
 function PlayScreen() {
   const searchParams = useSearchParams();
-  const isHard = searchParams.get("difficulty") === "hard";
+  // Initialise from the URL, but let the player switch mode on this screen (the top-nav Play link
+  // would otherwise lock them into easy).
+  const [isHard, setIsHard] = useState(searchParams.get("difficulty") === "hard");
 
   const playersById = useMemo(() => new Map(Object.entries(PLAYER_SEASONS_BY_ID)), []);
 
@@ -260,30 +262,21 @@ function PlayScreen() {
     const v = buildVerdict(result);
     setSeasonResult(result);
     setVerdict(v);
-    saveRun(result, v);
+    saveRun();
   }
 
-  async function saveRun(result: SeasonResult, v: Verdict) {
+  // Only the XI + difficulty are sent; the server re-simulates to derive the result authoritatively
+  // (so the leaderboard can't be spoofed). The local result shown to the player matches because the
+  // sim is deterministic from the same ordered XI.
+  async function saveRun() {
     setSaveState("saving");
-    const xi = draftState.slots
-      .map((s) => (s.playerId ? playersById.get(s.playerId) : null))
-      .filter((p): p is PlayerSeason => p != null)
-      .map((p) => ({ name: p.name, ovr: p.rating.ovr }));
+    const playerIds = draftState.slots.map((s) => s.playerId);
+    if (playerIds.some((id) => id == null)) return;
     try {
       const res = await fetch("/api/runs", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          difficulty: isHard ? "hard" : "easy",
-          tier: v.tier,
-          finalRank: result.finalRank,
-          points: result.points,
-          wins: result.leagueStage.filter((m) => m.won).length,
-          wonTitle: result.wonTitle,
-          overall: toDisplayTeamRating(teamRating.overall),
-          xi,
-          detail: { result, verdict: v },
-        }),
+        body: JSON.stringify({ difficulty: isHard ? "hard" : "easy", playerIds }),
       });
       if (res.status === 401) setSaveState("needsAuth");
       else if (res.ok) setSaveState("saved");
@@ -324,7 +317,23 @@ function PlayScreen() {
               IPL Perfect Season
             </Link>
             <div className="flex items-center gap-3">
-              <span className="eyebrow border border-[var(--ink)] px-2 py-1">{isHard ? "Hard" : "Easy"} mode</span>
+              {/* Mode is a toggle so players can pick easy/hard here, not just from the cover. */}
+              <div className="flex overflow-hidden border border-[var(--ink)]" title="Easy shows ratings; Hard hides them">
+                {([["easy", false], ["hard", true]] as const).map(([label, hard]) => (
+                  <button
+                    key={label}
+                    onClick={() => setIsHard(hard)}
+                    aria-pressed={isHard === hard}
+                    className="font-mono px-2.5 py-1 text-xs uppercase tracking-wide transition-colors"
+                    style={{
+                      background: isHard === hard ? "var(--ink)" : "transparent",
+                      color: isHard === hard ? "var(--paper-2)" : "var(--ink-soft)",
+                    }}
+                  >
+                    {label}
+                  </button>
+                ))}
+              </div>
               <Link href="/leaderboard" className="font-mono text-xs" style={{ color: "var(--spot-2-deep)" }}>
                 Leaderboard
               </Link>
@@ -456,7 +465,7 @@ function PlayScreen() {
                 verdict={verdict}
                 onDraftAgain={handleReset}
                 saveState={saveState}
-                onSave={() => saveRun(seasonResult, verdict)}
+                onSave={() => saveRun()}
               />
             ) : !pendingSpin ? (
               isComplete ? (
