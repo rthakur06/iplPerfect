@@ -43,6 +43,8 @@ export function SeasonResultView({
   const theme = TIER_THEME[verdict.tier];
   const { user } = useAuth();
   const [showSignIn, setShowSignIn] = useState(false);
+  const [showCelebration, setShowCelebration] = useState(false);
+  const [shared, setShared] = useState(false);
 
   const league = result.leagueStage;
   const playoffs = result.playoffStage;
@@ -90,6 +92,13 @@ export function SeasonResultView({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [done, verdict.easterEgg, result.wonTitle]);
 
+  // A Perfect Season is the rarest outcome — pop a full-screen celebration on a live run.
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-shot trigger when the run resolves
+    if (done && !instant && verdict.tier === "PERFECT_SEASON") setShowCelebration(true);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [done]);
+
   // Retry the save once the user signs in from the nudge.
   useEffect(() => {
     if (user && saveState === "needsAuth") onSave?.();
@@ -102,6 +111,24 @@ export function SeasonResultView({
   const runsFor = league.reduce((s, m) => s + m.yourScore.runs, 0);
   const runsAgainst = league.reduce((s, m) => s + m.theirScore.runs, 0);
   const leaders = useMemo(() => computeLeaders(result.playerStats), [result.playerStats]);
+
+  async function handleShare() {
+    const rec = `${wins}-${losses}${draws > 0 ? `-${draws}` : ""}`;
+    const titleBit = result.wonTitle ? ", and won the title" : "";
+    const text = `IPL Perfect Season — ${theme.label}! I went ${rec} and finished #${result.finalRank}${titleBit}. Think you can do better?`;
+    const url = typeof window !== "undefined" ? window.location.origin : "";
+    try {
+      if (typeof navigator !== "undefined" && navigator.share) {
+        await navigator.share({ title: "IPL Perfect Season", text, url });
+      } else {
+        await navigator.clipboard.writeText(`${text} ${url}`.trim());
+        setShared(true);
+        setTimeout(() => setShared(false), 2500);
+      }
+    } catch {
+      /* user dismissed the share sheet — nothing to do */
+    }
+  }
 
   return (
     <motion.div
@@ -149,17 +176,6 @@ export function SeasonResultView({
         )}
 
         <div className="rule-double my-5" />
-
-        {/* ── League game feed (newest first) ── */}
-        <div className="mb-5 flex flex-col gap-px" style={{ background: "var(--rule)" }}>
-          <AnimatePresence initial={false}>
-            {Array.from({ length: leagueRevealed }, (_, i) => leagueRevealed - 1 - i).map((idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
-                <MatchRow match={league[idx]} />
-              </motion.div>
-            ))}
-          </AnimatePresence>
-        </div>
 
         {/* ── Between league and playoffs ── */}
         {leagueDone && !done && (
@@ -222,6 +238,18 @@ export function SeasonResultView({
           </div>
         )}
 
+        {/* ── League game feed (newest first) — kept below the playoff controls so the buttons sit
+             near the top without scrolling ── */}
+        <div className="mb-1 flex flex-col gap-px" style={{ background: "var(--rule)" }}>
+          <AnimatePresence initial={false}>
+            {Array.from({ length: leagueRevealed }, (_, i) => leagueRevealed - 1 - i).map((idx) => (
+              <motion.div key={idx} initial={{ opacity: 0, y: -6 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.2 }}>
+                <MatchRow match={league[idx]} />
+              </motion.div>
+            ))}
+          </AnimatePresence>
+        </div>
+
         {/* ── Final summary, leaders, actions ── */}
         {done && (
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.3 }}>
@@ -272,6 +300,14 @@ export function SeasonResultView({
                   Draft again
                 </motion.button>
               )}
+              <motion.button
+                whileTap={{ scale: 0.97 }}
+                onClick={handleShare}
+                className="font-display px-6 py-3 text-lg"
+                style={{ background: "var(--spot-2)", color: "var(--spot-2-ink)" }}
+              >
+                {shared ? "Copied ✓" : "Share result"}
+              </motion.button>
               {saveState === "saving" && <span className="font-mono text-xs" style={{ color: "var(--ink-faint)" }}>Saving run…</span>}
               {saveState === "saved" && <span className="font-mono text-xs" style={{ color: "var(--pitch)" }}>✓ Saved to your runs</span>}
               {saveState === "error" && <span className="font-mono text-xs" style={{ color: "var(--spot-deep)" }}>Couldn&rsquo;t save this run.</span>}
@@ -286,11 +322,86 @@ export function SeasonResultView({
       </div>
 
       <AnimatePresence>{showSignIn && <SignInModal onClose={() => setShowSignIn(false)} />}</AnimatePresence>
+      <AnimatePresence>
+        {showCelebration && <PerfectSeasonCelebration onClose={() => setShowCelebration(false)} />}
+      </AnimatePresence>
     </motion.div>
   );
 }
 
 const PER_BATTER_MS = 750; // pace of the final's batter-by-batter reveal (slow enough to follow)
+
+/** Full-screen pay-off for the game's rarest result — a Perfect Season. */
+function PerfectSeasonCelebration({ onClose }: { onClose: () => void }) {
+  useEffect(() => {
+    const colors = ["#ffd700", "#ff4d3d", "var(--spot)", "var(--spot-2)", "var(--pitch)"];
+    let frame = 0;
+    const iv = setInterval(() => {
+      confetti({ particleCount: 120, spread: 160, startVelocity: 55, origin: { y: 0.4 }, colors });
+      confetti({ particleCount: 50, angle: 60, spread: 80, origin: { x: 0, y: 0.6 }, colors });
+      confetti({ particleCount: 50, angle: 120, spread: 80, origin: { x: 1, y: 0.6 }, colors });
+      frame++;
+      if (frame >= 6) clearInterval(iv);
+    }, 500);
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && onClose();
+    document.addEventListener("keydown", onKey);
+    document.body.style.overflow = "hidden";
+    return () => {
+      clearInterval(iv);
+      document.removeEventListener("keydown", onKey);
+      document.body.style.overflow = "";
+    };
+  }, [onClose]);
+
+  return (
+    <motion.div
+      className="fixed inset-0 z-[60] flex items-center justify-center p-4"
+      style={{ background: "rgba(8, 10, 14, 0.82)" }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      onClick={onClose}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Perfect Season"
+    >
+      <motion.div
+        className="sheet print-shadow relative w-full max-w-lg overflow-hidden p-8 text-center"
+        initial={{ scale: 0.9, y: 20, opacity: 0 }}
+        animate={{ scale: 1, y: 0, opacity: 1 }}
+        exit={{ scale: 0.95, opacity: 0 }}
+        transition={{ type: "spring", stiffness: 200, damping: 18 }}
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="absolute left-0 top-0 h-2 w-full" style={{ background: "var(--spot-2)" }} />
+        <span className="eyebrow" style={{ color: "var(--spot-2-deep)" }}>
+          The rarest result
+        </span>
+        <motion.h2
+          className="font-display mt-3 text-5xl leading-[0.95] sm:text-7xl"
+          style={{ color: "var(--spot)" }}
+          initial={{ scale: 0.8 }}
+          animate={{ scale: 1 }}
+          transition={{ delay: 0.1, type: "spring", stiffness: 160 }}
+        >
+          Perfect
+          <br />
+          Season
+        </motion.h2>
+        <p className="mt-4 text-lg" style={{ color: "var(--ink)" }}>
+          Played 14 · Won 14 · Champions
+        </p>
+        <p className="mx-auto mt-3 max-w-sm text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
+          Unbeaten through the league and the all-time gauntlet — something no real IPL side has ever
+          done. You built the perfect team.
+        </p>
+        <button onClick={onClose} className="btn-primary font-display mt-6 px-8 py-3 text-xl">
+          See the scorecard →
+        </button>
+      </motion.div>
+    </motion.div>
+  );
+}
 
 /** A playoff game revealed innings by innings, in the order the teams actually batted. The final
  *  reveals your innings batter by batter. If `revealed`, it shows fully at once (history view). */
@@ -300,17 +411,26 @@ function PlayoffGameCard({ match, onDone, revealed }: { match: PlayoffMatchResul
   const innings: ("you" | "them")[] = match.youBattedFirst ? ["you", "them"] : ["them", "you"];
   const userStep = (match.youBattedFirst ? 0 : 1) + 1; // 1-indexed step at which your innings shows
   const isFinalReveal = !!card && !revealed;
+  // In the final, once you've posted a total, hold the All-Time XI's chase behind a button for
+  // suspense (only when you batted first — otherwise your own chase is the suspense).
+  const bossGate = isFinalReveal && match.youBattedFirst;
 
   const [step, setStep] = useState(revealed ? 3 : 0);
+  const [bossReady, setBossReady] = useState(false);
 
   useEffect(() => {
     if (revealed) return;
     if (step >= 3) return;
+    // After your innings in the final, surface the "bowl to them" button instead of auto-advancing.
+    if (bossGate && step === 1) {
+      const t = setTimeout(() => setBossReady(true), card!.length * PER_BATTER_MS + 600);
+      return () => clearTimeout(t);
+    }
     const dwell =
       step === 0 ? 350 : isFinalReveal && step === userStep ? card!.length * PER_BATTER_MS + 800 : INNINGS_MS;
     const t = setTimeout(() => setStep((s) => s + 1), dwell);
     return () => clearTimeout(t);
-  }, [step, revealed, isFinalReveal, userStep, card]);
+  }, [step, revealed, bossGate, isFinalReveal, userStep, card]);
 
   useEffect(() => {
     if (!revealed && step >= 3) onDone?.();
@@ -400,6 +520,21 @@ function PlayoffGameCard({ match, onDone, revealed }: { match: PlayoffMatchResul
       </div>
       <div className="mt-2 space-y-1">
         {renderInnings(innings[0], 1)}
+        {bossGate && bossReady && step === 1 && (
+          <motion.button
+            initial={{ opacity: 0, y: 6 }}
+            animate={{ opacity: 1, y: 0 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => {
+              setBossReady(false);
+              setStep(2);
+            }}
+            className="font-display mt-2 w-full py-2.5 text-base"
+            style={{ border: "1.5px solid var(--ink)", color: "var(--spot)" }}
+          >
+            Bowl to the All-Time XI →
+          </motion.button>
+        )}
         {renderInnings(innings[1], 2)}
       </div>
       {step >= 3 && match.superOver && (

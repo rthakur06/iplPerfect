@@ -4,6 +4,10 @@ import { createSession, verifyPassword } from "@/lib/auth";
 
 export const runtime = "nodejs";
 
+// A valid-shape hash to verify against when the username doesn't exist, so login takes the same time
+// whether or not the account exists (no username-enumeration timing oracle).
+const DUMMY_HASH = "0".repeat(32) + ":" + "0".repeat(128);
+
 export async function POST(req: Request) {
   const body = await req.json().catch(() => ({}));
   const username = String(body.username ?? "").trim();
@@ -16,7 +20,9 @@ export async function POST(req: Request) {
   });
   const row = rows[0] as unknown as { id: number; username: string; password_hash: string } | undefined;
 
-  if (!row || !verifyPassword(password, String(row.password_hash))) {
+  // Always run the password hash (against a dummy when there's no such user) to equalize timing.
+  const passwordOk = verifyPassword(password, row ? String(row.password_hash) : DUMMY_HASH);
+  if (!row || !passwordOk) {
     return NextResponse.json({ error: "Wrong username or password." }, { status: 401 });
   }
 

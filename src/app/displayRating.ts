@@ -10,14 +10,14 @@ export function toDisplayRating(raw: number): number {
   return Math.max(1, Math.min(99, Math.round(raw * 1.18 - 2)));
 }
 
-// Team ratings use their OWN scale, anchored so 90+ is a "clearly strong draft" — about the top 30%
-// of well-drafted XIs (internal ~59), which is the level that dominates: ~13-1 in the league and a
-// ~30% chance of going unbeaten. The strongest XI you can realistically build (~internal 65) reads
-// 99, and a mediocre side (~internal 50) reads ~76. Anchored on internal 59→90 and 65→99.
+// Team ratings use their OWN scale, anchored so the top end is genuinely hard to reach. internal
+// 60→90 (a clearly strong, ~top-15% draft that dominates the league), 50→75 (mediocre). The very
+// best XI you could possibly assemble — the all-time greats, ~internal 64 — only reads ~96, and a
+// 99 needs internal 66, which is ABOVE that ceiling: near-impossible by design. Map is `raw * 1.5`.
 //
 // One linear map is applied to overall AND batting/bowling/fielding, so Overall stays the weighted
 // average of the three parts shown beside it. Display-only — the sim and odds use the raw internals.
 export function toDisplayTeamRating(raw: number): number {
   if (raw <= 0) return 0;
-  return Math.max(1, Math.min(99, Math.round(raw * 1.5 + 1.5)));
+  return Math.max(1, Math.min(99, Math.round(raw * 1.5)));
 }

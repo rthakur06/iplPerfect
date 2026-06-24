@@ -27,7 +27,7 @@ export default function FrontPage() {
       <div className="mx-auto max-w-3xl">
         {/* ── Top bar ─────────────────────────────────────────────── */}
         <nav className="mb-6 flex items-center justify-between">
-          <span className="eyebrow">Est. spin one</span>
+          <span className="eyebrow">Fantasy cricket</span>
           <div className="flex items-center gap-3">
             <AccountNav />
             <ThemeToggle />

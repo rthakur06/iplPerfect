@@ -1,6 +1,6 @@
 "use client";
 
-import { Suspense, useMemo, useState } from "react";
+import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
@@ -86,6 +86,15 @@ function PlayScreen() {
   // and which slot it's hovering over.
   const [dragInfo, setDragInfo] = useState<{ type: "squad"; player: PlayerSeason } | { type: "slot"; index: number } | null>(null);
   const [dragOverIndex, setDragOverIndex] = useState<number | null>(null);
+  const teamSheetRef = useRef<HTMLElement>(null);
+
+  // On a narrow screen the team sheet sits below the squad list, so after you pick a player scroll
+  // it into view — saves hunting for where to place them on mobile.
+  useEffect(() => {
+    if (!pendingPlayer) return;
+    if (typeof window === "undefined" || window.innerWidth >= 768) return;
+    teamSheetRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, [pendingPlayer]);
   const [error, setError] = useState<string | null>(null);
   const [seasonResult, setSeasonResult] = useState<SeasonResult | null>(null);
   const [verdict, setVerdict] = useState<Verdict | null>(null);
@@ -330,7 +339,7 @@ function PlayScreen() {
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-[330px_1fr]">
           {/* ── Team sheet ──────────────────────────────────────── */}
-          <aside className="sheet order-2 self-start p-5 md:order-1 md:sticky md:top-6">
+          <aside ref={teamSheetRef} className="sheet order-2 self-start p-5 md:order-1 md:sticky md:top-6">
             <div className="flex items-baseline justify-between">
               <h2 className="font-display text-xl">Team sheet</h2>
               <span className="font-mono text-sm" style={{ color: "var(--ink-soft)" }}>

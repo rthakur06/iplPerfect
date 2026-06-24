@@ -36,6 +36,7 @@ export async function createSession(userId: number): Promise<void> {
   store.set(COOKIE, token, {
     httpOnly: true,
     sameSite: "lax",
+    secure: process.env.NODE_ENV === "production", // HTTPS-only cookie in production
     path: "/",
     maxAge: SESSION_MAX_AGE,
   });
@@ -56,9 +57,16 @@ export async function currentUser(): Promise<AuthUser | null> {
   if (!token) return null;
   const db = await getDb();
   const { rows } = await db.execute({
-    sql: "SELECT u.id AS id, u.username AS username FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token = ?",
+    sql: "SELECT u.id AS id, u.username AS username, s.created_at AS created_at FROM sessions s JOIN users u ON u.id = s.user_id WHERE s.token = ?",
     args: [token],
   });
   const row = rows[0];
-  return row ? { id: Number(row.id), username: String(row.username) } : null;
+  if (!row) return null;
+  // Enforce server-side session expiry (the cookie maxAge alone is client-controlled).
+  const createdAt = Date.parse(String(row.created_at));
+  if (Number.isFinite(createdAt) && Date.now() - createdAt > SESSION_MAX_AGE * 1000) {
+    await db.execute({ sql: "DELETE FROM sessions WHERE token = ?", args: [token] });
+    return null;
+  }
+  return { id: Number(row.id), username: String(row.username) };
 }
