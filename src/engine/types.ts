@@ -84,7 +84,6 @@ export interface DraftState {
 export type XiValidationIssue =
   | { code: "TOO_MANY_OVERSEAS"; count: number; max: number }
   | { code: "NO_WICKETKEEPER" }
-  | { code: "TOO_MANY_WICKETKEEPERS"; count: number }
   | { code: "INSUFFICIENT_BOWLING"; bowlingOptions: number; required: number }
   | { code: "INCOMPLETE"; filled: number; required: number };
 
@@ -136,9 +135,20 @@ export interface BatterLine {
   out: boolean; // false = not out / remained at the crease
 }
 
+// A super over decides a tied playoff match (ties in the league stage stay ties for points).
+export interface SuperOverResult {
+  yourRuns: number;
+  yourWickets: number;
+  theirRuns: number;
+  theirWickets: number;
+  youBattedFirst: boolean;
+  won: boolean;
+}
+
 export interface PlayoffMatchResult extends MatchResult {
   stage: PlayoffStage;
   battingCard?: BatterLine[]; // your XI's innings, batter by batter — only built for the FINAL
+  superOver?: SuperOverResult; // present only when the match was tied and went to a super over
 }
 
 // A drafted player's identity + ratings, handed to the sim so it can attribute season stats.

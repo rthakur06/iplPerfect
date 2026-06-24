@@ -8,7 +8,7 @@ import { ALL_TEAM_SEASONS, PLAYER_SEASONS_BY_ID, playersForTeamSeason } from "@/
 import { getFranchise } from "@/engine/data/franchises";
 import { buildWeightedPool, rerollTeam, rerollYear, spinWheel } from "@/engine/wheel";
 import { createEmptyDraftState, movePlayer, placePlayer } from "@/engine/draft";
-import { canAddPlayer, canPlaceInSlot, MAX_KEEPERS, MAX_OVERSEAS, roleLabel, validateXi, XI_SIZE } from "@/engine/rules";
+import { canAddPlayer, canPlaceInSlot, MAX_OVERSEAS, roleLabel, validateXi, XI_SIZE } from "@/engine/rules";
 import { computeTeamRating } from "@/engine/rating";
 import { computeSeasonOdds } from "@/engine/odds";
 import { simulateSeason } from "@/engine/sim";
@@ -345,7 +345,7 @@ function PlayScreen() {
 
             <div className="mt-3 flex gap-2">
               <CountChip label="Overseas" count={overseasCount} max={MAX_OVERSEAS} />
-              <CountChip label="Keeper" count={keeperCount} max={MAX_KEEPERS} />
+              <CountChip label="Keeper" count={keeperCount} min={1} />
             </div>
 
             <ol className="mt-4 space-y-1">
@@ -658,17 +658,18 @@ function RerollButton({ label, used, onClick }: { label: string; used: boolean; 
   );
 }
 
-function CountChip({ label, count, max }: { label: string; count: number; max: number }) {
-  const over = count > max;
+function CountChip({ label, count, max, min }: { label: string; count: number; max?: number; min?: number }) {
+  const bad = (max != null && count > max) || (min != null && count < min);
+  const suffix = max != null ? `/${max}` : min != null ? ` (min ${min})` : "";
   return (
     <span
       className="font-mono px-2 py-1 text-xs"
       style={{
-        background: over ? "var(--spot-deep)" : "var(--paper-3)",
-        color: over ? "var(--spot-ink)" : "var(--ink-soft)",
+        background: bad ? "var(--spot-deep)" : "var(--paper-3)",
+        color: bad ? "var(--spot-ink)" : "var(--ink-soft)",
       }}
     >
-      {label} {count}/{max}
+      {label} {count}{suffix}
     </span>
   );
 }
@@ -834,8 +835,6 @@ function describeIssue(issue: ReturnType<typeof validateXi>["issues"][number]): 
       return `${issue.count} overseas players (max ${issue.max})`;
     case "NO_WICKETKEEPER":
       return "No wicketkeeper drafted";
-    case "TOO_MANY_WICKETKEEPERS":
-      return `${issue.count} wicketkeepers (max ${MAX_KEEPERS})`;
     case "INSUFFICIENT_BOWLING":
       return `Only ${issue.bowlingOptions} bowling options (need ${issue.required})`;
   }

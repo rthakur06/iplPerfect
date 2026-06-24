@@ -97,7 +97,7 @@ export default function HistoryPage() {
         <div className="rule-double mb-6" />
 
         <h1 className="font-display mb-5 text-4xl sm:text-5xl">
-          {user?.username ? `@${user.username}'s runs` : "My runs"}
+          {user?.username ? `${user.username}'s runs` : "My runs"}
         </h1>
 
         {loading ? (

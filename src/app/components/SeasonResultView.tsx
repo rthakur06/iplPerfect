@@ -72,18 +72,23 @@ export function SeasonResultView({
   const done = instant || (leagueDone && (!hasPlayoffs ? true : enteredPlayoffs && playoffsResolved));
 
   // Confetti once a Perfect Season fully reveals.
+  // Celebrate any title win — a championship counts even if the league wasn't unbeaten; a Perfect
+  // Season gets the bigger shower.
   useEffect(() => {
-    if (!done || verdict.easterEgg !== "GOAT") return;
+    if (!done) return;
+    const celebrate = result.wonTitle || verdict.easterEgg === "GOAT";
+    if (!celebrate) return;
+    const big = verdict.easterEgg === "GOAT";
     let frame = 0;
-    const colors = [theme.accent, "#1b1712", "var(--spot)"];
+    const colors = [theme.accent, "var(--spot)", "var(--spot-2)"];
     const interval = setInterval(() => {
-      confetti({ particleCount: 60, spread: 100, startVelocity: 45, origin: { y: 0.3 }, colors });
+      confetti({ particleCount: big ? 70 : 45, spread: 100, startVelocity: 45, origin: { y: 0.3 }, colors });
       frame++;
-      if (frame >= 3) clearInterval(interval);
+      if (frame >= (big ? 4 : 2)) clearInterval(interval);
     }, 350);
     return () => clearInterval(interval);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [done, verdict.easterEgg]);
+  }, [done, verdict.easterEgg, result.wonTitle]);
 
   // Retry the save once the user signs in from the nudge.
   useEffect(() => {
@@ -285,7 +290,7 @@ export function SeasonResultView({
   );
 }
 
-const PER_BATTER_MS = 420; // pace of the final's batter-by-batter reveal
+const PER_BATTER_MS = 750; // pace of the final's batter-by-batter reveal (slow enough to follow)
 
 /** A playoff game revealed innings by innings, in the order the teams actually batted. The final
  *  reveals your innings batter by batter. If `revealed`, it shows fully at once (history view). */
@@ -397,6 +402,26 @@ function PlayoffGameCard({ match, onDone, revealed }: { match: PlayoffMatchResul
         {renderInnings(innings[0], 1)}
         {renderInnings(innings[1], 2)}
       </div>
+      {step >= 3 && match.superOver && (
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="mt-2 border-t pt-1.5 font-mono text-xs"
+          style={{ borderColor: "var(--rule)" }}
+        >
+          <span className="eyebrow" style={{ letterSpacing: "0.14em", color: "var(--spot)" }}>
+            Tied — Super Over
+          </span>
+          <div className="mt-1 flex justify-between">
+            <span>You</span>
+            <span className="font-bold">{match.superOver.yourRuns}/{match.superOver.yourWickets}</span>
+          </div>
+          <div className="flex justify-between" style={{ color: "var(--ink-soft)" }}>
+            <span>{match.opponentName}</span>
+            <span>{match.superOver.theirRuns}/{match.superOver.theirWickets}</span>
+          </div>
+        </motion.div>
+      )}
       {step >= 3 && (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-2">
           <span className="font-display inline-block px-2 py-0.5 text-sm" style={{ background: outColor, color: "var(--paper-2)" }}>

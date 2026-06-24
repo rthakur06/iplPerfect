@@ -148,11 +148,11 @@ function Podium({ podium }: { podium: Entry[] }) {
               <span className="text-sm">{ordinal(idx + 1)}</span>
             </span>
             <span className="mt-1 max-w-full truncate px-1 text-center text-sm font-semibold" title={e.username}>
-              @{e.username}
+              {e.username}
             </span>
             <div
               className="mt-2 flex w-full flex-col items-center justify-start gap-1 p-2 text-center"
-              style={{ height: PODIUM_HEIGHT[idx], background: "var(--paper-3)", borderTop: `4px solid ${medal}` }}
+              style={{ minHeight: PODIUM_HEIGHT[idx], background: "var(--paper-3)", borderTop: `4px solid ${medal}` }}
             >
               <span
                 className="font-display mt-1 px-1.5 py-0.5 text-[11px] leading-tight sm:text-xs"
@@ -185,7 +185,7 @@ function RankRow({ rank, entry }: { rank: number; entry: Entry }) {
         {String(rank).padStart(2, "0")}
       </span>
       <span className="h-3 w-3 shrink-0" style={{ background: theme.accent }} />
-      <span className="min-w-0 flex-1 truncate text-sm font-semibold">@{entry.username}</span>
+      <span className="min-w-0 flex-1 truncate text-sm font-semibold">{entry.username}</span>
       <span className="font-mono hidden text-xs sm:inline" style={{ color: "var(--ink-soft)" }}>
         {entry.wins}/14 · {entry.points} pts
       </span>

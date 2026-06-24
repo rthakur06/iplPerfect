@@ -6,6 +6,7 @@ import type {
   SeasonResult,
   SimPlayerStat,
   SimRosterPlayer,
+  SuperOverResult,
   TeamRatingBreakdown,
 } from "./types";
 import { createRng, samplePoisson } from "./rng";
@@ -50,7 +51,7 @@ const HOME_BOOST = 2;
 // to the constructed team's batting and bowling that makes the title a real, winnable prize rather
 // than a near-impossible wall. Only applied in the gauntlet, so the league stage (and the playoff /
 // unbeaten projections) stay an honest test.
-const PLAYOFF_TEAM_BOOST = 12;
+const PLAYOFF_TEAM_BOOST = 9;
 
 /** Simulate one innings over-by-over. If `target` is set, stops once chased (2nd innings). */
 function simulateInnings(
@@ -67,14 +68,14 @@ function simulateInnings(
     if (wickets >= 10) break;
     if (target != null && runs >= target) break;
 
-    // Rating gap nudges run-rate and wicket chance, but only modestly — T20 is high-variance, so a
-    // small edge is far from a guaranteed win. Only a side that out-rates the field by a wide margin
-    // wins consistently enough to go unbeaten across 14 different quality opponents.
+    // The rating gap drives run-rate and wicket chance. The slopes are steep enough that a clearly
+    // strong XI dominates the league (a 90-rated side averages ~13 wins and goes unbeaten ~30% of
+    // the time), while a weaker one gets ground down — but there's still real T20 variance per game.
     const diff = battingStrength - bowlingStrength;
-    const lambda = Math.max(2, 7.5 + diff * 0.06); // expected runs this over
+    const lambda = Math.max(2, 7.5 + diff * 0.09); // expected runs this over
     let runsThisOver = samplePoisson(rng, lambda);
 
-    const wicketProb = clamp(0.2 - diff * 0.0015, 0.06, 0.45);
+    const wicketProb = clamp(0.2 - diff * 0.0025, 0.04, 0.55);
     if (rng() < wicketProb) {
       wickets++;
       runsThisOver = Math.max(0, runsThisOver - 2);
@@ -132,6 +133,46 @@ function simulateMatch(
     won,
     tied,
   };
+}
+
+/** One side's super-over innings: six balls, all out at two wickets. */
+function simulateSuperOverInnings(bat: number, bowl: number, rng: () => number, target?: number): { runs: number; wickets: number } {
+  let runs = 0;
+  let wickets = 0;
+  for (let ball = 0; ball < 6; ball++) {
+    if (wickets >= 2) break;
+    if (target != null && runs >= target) break;
+    const diff = bat - bowl;
+    let r = samplePoisson(rng, Math.max(0.5, 1.3 + diff * 0.03));
+    if (rng() < clamp(0.09 - diff * 0.0012, 0.03, 0.25)) {
+      wickets++;
+      r = 0;
+    }
+    runs += r;
+  }
+  return { runs, wickets: Math.min(wickets, 2) };
+}
+
+/** Break a tied playoff match with a super over (repeated until someone wins). */
+function simulateSuperOver(yourRating: TeamRatingBreakdown, opponent: TeamStrength, rng: () => number, boost: number): SuperOverResult {
+  for (let attempt = 0; attempt < 6; attempt++) {
+    const yourBat = yourRating.batting + boost;
+    const yourBowl = yourRating.bowling + boost;
+    const youBattedFirst = rng() < 0.5;
+    let ys: { runs: number; wickets: number };
+    let ts: { runs: number; wickets: number };
+    if (youBattedFirst) {
+      ys = simulateSuperOverInnings(yourBat, opponent.bowling, rng);
+      ts = simulateSuperOverInnings(opponent.batting, yourBowl, rng, ys.runs + 1);
+    } else {
+      ts = simulateSuperOverInnings(opponent.batting, yourBowl, rng);
+      ys = simulateSuperOverInnings(yourBat, opponent.bowling, rng, ts.runs + 1);
+    }
+    if (ys.runs !== ts.runs) {
+      return { yourRuns: ys.runs, yourWickets: ys.wickets, theirRuns: ts.runs, theirWickets: ts.wickets, youBattedFirst, won: ys.runs > ts.runs };
+    }
+  }
+  return { yourRuns: 0, yourWickets: 0, theirRuns: 0, theirWickets: 0, youBattedFirst: true, won: rng() < 0.5 };
 }
 
 interface TableRow {
@@ -307,10 +348,17 @@ export function simulateSeason(
       { stage: "FINAL", opp: BOSS_FINAL },
     ];
     for (const { stage, opp } of gauntlet) {
-      const m = simulateMatch(yourRating, opp, false, rng, PLAYOFF_TEAM_BOOST);
+      const base = simulateMatch(yourRating, opp, false, rng, PLAYOFF_TEAM_BOOST);
+      // Playoffs can't end level — a tie goes to a super over.
+      let m = base;
+      let superOver: SuperOverResult | undefined;
+      if (base.tied) {
+        superOver = simulateSuperOver(yourRating, opp, rng, PLAYOFF_TEAM_BOOST);
+        m = { ...base, tied: false, won: superOver.won };
+      }
       // The final is the headline act — break your XI's innings out batter by batter.
       const battingCard = stage === "FINAL" ? buildBattingCard(roster, m.yourScore, rng) : undefined;
-      playoffStage.push({ ...m, stage, battingCard });
+      playoffStage.push({ ...m, stage, battingCard, superOver });
       if (!m.won) break; // knocked out
       if (stage === "FINAL") wonTitle = true;
     }

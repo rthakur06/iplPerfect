@@ -10,15 +10,14 @@ export function toDisplayRating(raw: number): number {
   return Math.max(1, Math.min(99, Math.round(raw * 1.18 - 2)));
 }
 
-// Team ratings use their OWN scale, anchored to the actual playoff/title ODDS so the number predicts
-// results. A 90+ is an uncommon feat (needs a draft stronger than any single real team-season): a 90
-// (internal 60) wins a few playoff games and takes the title ~1 season in 3; a 94 (internal 62) is a
-// coin-flip for the championship; 99 (internal 64, the all-time greats) wins it ~two-thirds. The
-// best real team-season (~56 internal) lands around 81, a mediocre XI (~50) around 68.
+// Team ratings use their OWN scale, anchored so 90+ is a "clearly strong draft" — about the top 30%
+// of well-drafted XIs (internal ~59), which is the level that dominates: ~13-1 in the league and a
+// ~30% chance of going unbeaten. The strongest XI you can realistically build (~internal 65) reads
+// 99, and a mediocre side (~internal 50) reads ~76. Anchored on internal 59→90 and 65→99.
 //
 // One linear map is applied to overall AND batting/bowling/fielding, so Overall stays the weighted
 // average of the three parts shown beside it. Display-only — the sim and odds use the raw internals.
 export function toDisplayTeamRating(raw: number): number {
   if (raw <= 0) return 0;
-  return Math.max(1, Math.min(99, Math.round(raw * 2.25 - 45)));
+  return Math.max(1, Math.min(99, Math.round(raw * 1.5 + 1.5)));
 }

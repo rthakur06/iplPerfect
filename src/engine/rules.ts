@@ -2,7 +2,6 @@ import type { DraftSlot, PlayerRole, PlayerSeason, XiValidationIssue, XiValidati
 
 export const XI_SIZE = 11;
 export const MAX_OVERSEAS = 4;
-export const MAX_KEEPERS = 2; // a designated keeper plus a backup who can also keep — at most two
 export const MIN_BOWLING_OPTIONS = 5; // specialist bowlers + all-rounders, enough to cover 20 overs (max 4 overs/bowler)
 
 // Each role maps to an inclusive band of legal batting slots (0-indexed; slot i == batting
@@ -63,11 +62,10 @@ export function validateXi(
     issues.push({ code: "TOO_MANY_OVERSEAS", count: overseasCount, max: MAX_OVERSEAS });
   }
 
+  // At least one wicketkeeper — there's no upper cap on keepers.
   const keeperCount = filledPlayers.filter((p) => p.isWicketkeeper).length;
   if (keeperCount === 0) {
     issues.push({ code: "NO_WICKETKEEPER" });
-  } else if (keeperCount > MAX_KEEPERS) {
-    issues.push({ code: "TOO_MANY_WICKETKEEPERS", count: keeperCount });
   }
 
   const bowlingOptions = filledPlayers.filter((p) => p.bowlingRole !== "NONE").length;
@@ -97,13 +95,6 @@ export function canAddPlayer(
     const overseasCount = filled.filter((s) => playersById.get(s.playerId!)?.isOverseas).length;
     if (overseasCount >= MAX_OVERSEAS) {
       return { allowed: false, reason: `Already have ${MAX_OVERSEAS} overseas players.` };
-    }
-  }
-
-  if (candidate.isWicketkeeper) {
-    const keeperCount = filled.filter((s) => playersById.get(s.playerId!)?.isWicketkeeper).length;
-    if (keeperCount >= MAX_KEEPERS) {
-      return { allowed: false, reason: `Already have ${MAX_KEEPERS} wicketkeepers — that's the max.` };
     }
   }
 

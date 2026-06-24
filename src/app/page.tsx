@@ -183,7 +183,7 @@ function HowToPlay({ onClose }: { onClose: () => void }) {
           <Section title="XI rules" index="B">
             <Rule>Exactly {XI_SIZE} players — no more, no fewer.</Rule>
             <Rule>Max {MAX_OVERSEAS} overseas players, the real IPL composition rule.</Rule>
-            <Rule>At least one wicketkeeper, up to two.</Rule>
+            <Rule>At least one wicketkeeper (no upper limit).</Rule>
             <Rule>At least {MIN_BOWLING_OPTIONS} bowling options to cover all 20 overs.</Rule>
             <Rule>Bat players only in their role: Top 1&ndash;3, Middle 3&ndash;7, Finisher 3&ndash;8, Lower 7&ndash;11.</Rule>
             <Rule>No drafting the same real person twice.</Rule>

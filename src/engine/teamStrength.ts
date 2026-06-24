@@ -9,7 +9,7 @@
 import { ALL_TEAM_SEASONS, PLAYER_SEASONS_BY_ID } from "./data/dataset";
 import { getFranchise } from "./data/franchises";
 import { computeTeamRating } from "./rating";
-import { canPlaceInSlot, MAX_KEEPERS, MAX_OVERSEAS, XI_SIZE } from "./rules";
+import { canPlaceInSlot, MAX_OVERSEAS, XI_SIZE } from "./rules";
 import type { DraftSlot, PlayerSeason, TeamSeason } from "./types";
 
 export interface TeamStrength {
@@ -31,18 +31,15 @@ function greedyXi(candidates: PlayerSeason[]): DraftSlot[] {
   const sorted = [...candidates].sort((a, b) => b.rating.ovr - a.rating.ovr);
   const usedPerson = new Set<string>();
   let overseas = 0;
-  let keepers = 0;
   for (const p of sorted) {
     if (slots.every((s) => s.playerId != null)) break;
     if (usedPerson.has(p.personId)) continue; // no duplicate real people in an all-time XI
     if (p.isOverseas && overseas >= MAX_OVERSEAS) continue;
-    if (p.isWicketkeeper && keepers >= MAX_KEEPERS) continue;
     const slot = slots.find((s) => s.playerId == null && canPlaceInSlot(p, s.index));
     if (!slot) continue;
     slot.playerId = p.id;
     usedPerson.add(p.personId);
     if (p.isOverseas) overseas++;
-    if (p.isWicketkeeper) keepers++;
   }
   return slots;
 }

@@ -6,7 +6,10 @@ export function determineTier(result: SeasonResult): ResultTier {
   if (result.wonTitle) return "CHAMPIONS";
   if (result.playoffStage.some((m) => m.stage === "FINAL")) return "FINALIST";
   if (result.madePlayoffs) return "PLAYOFF_BOUND";
-  if (result.finalRank <= 7) return "MID_TABLE";
+  // Missed the playoffs: a winning-or-even record (7+ of 14) is a mid-table season; the wooden
+  // spoon is reserved for a losing record (under .500).
+  const wins = result.leagueStage.filter((m) => m.won).length;
+  if (wins >= 7) return "MID_TABLE";
   return "WOODEN_SPOON";
 }
 
@@ -22,10 +25,10 @@ function computeBadges(result: SeasonResult): string[] {
 
 const VERDICT_LINES: Record<ResultTier, string[]> = {
   WOODEN_SPOON: [
-    "Bottom of the table. Lost more than you won and finished where the points put you.",
+    "A losing season — lost more than you won and missed the playoffs.",
     "Rough one. The draft didn't come together — worth another spin.",
   ],
-  MID_TABLE: ["Mid-table finish. Decent in patches, not enough to trouble the top four."],
+  MID_TABLE: ["Mid-table. A winning-ish record, but not enough to crack the top four."],
   PLAYOFF_BOUND: ["Top four, so you're into the playoffs. The hard part starts now."],
   FINALIST: ["Runners-up. You made the final and came up a bit short."],
   CHAMPIONS: ["Champions. Dropped a game or two along the way, but you lifted the trophy."],
