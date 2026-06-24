@@ -2,7 +2,7 @@
 
 import { Suspense, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { AnimatePresence, motion } from "motion/react";
 import { ALL_TEAM_SEASONS, PLAYER_SEASONS_BY_ID, playersForTeamSeason } from "@/engine/data/dataset";
 import { getFranchise } from "@/engine/data/franchises";
@@ -71,6 +71,7 @@ export default function PlayPage() {
 
 function PlayScreen() {
   const searchParams = useSearchParams();
+  const router = useRouter();
   // Difficulty is chosen on the cover and fixed for the run — it can't change mid-draft.
   const isHard = searchParams.get("difficulty") === "hard";
 
@@ -652,7 +653,8 @@ function PlayScreen() {
             >
               <h2 className="font-display text-2xl">Reset draft?</h2>
               <p className="mt-2 text-sm" style={{ color: "var(--ink-soft)" }}>
-                This clears your current XI and starts over. You can&rsquo;t undo it.
+                This clears your current XI and takes you back to the start to pick a mode. You
+                can&rsquo;t undo it.
               </p>
               <div className="mt-5 flex gap-3">
                 <button
@@ -665,7 +667,7 @@ function PlayScreen() {
                 <button
                   onClick={() => {
                     handleReset();
-                    setShowResetConfirm(false);
+                    router.push("/");
                   }}
                   className="font-display flex-1 py-2.5 text-base"
                   style={{ background: "var(--spot-deep)", color: "var(--spot-ink)" }}
