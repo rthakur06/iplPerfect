@@ -7,6 +7,7 @@ import type { ResultTier, SeasonResult, Verdict } from "@/engine/types";
 import { TIER_THEME } from "../tierTheme";
 import { useAuth } from "../components/AuthProvider";
 import { ThemeToggle } from "../components/ThemeToggle";
+import { AccountNav } from "../components/AccountNav";
 import { SignInModal } from "../components/SignInModal";
 import { SeasonResultView } from "../components/SeasonResultView";
 
@@ -85,12 +86,10 @@ export default function HistoryPage() {
             IPL Perfect Season
           </Link>
           <div className="flex items-center gap-2">
-            <Link href="/leaderboard" className="font-mono px-2.5 py-1 text-xs" style={{ border: "1.5px solid var(--ink)", color: "var(--spot-2-deep)" }}>
-              Leaderboard
-            </Link>
             <Link href="/" className="font-mono px-2.5 py-1 text-xs" style={{ border: "1.5px solid var(--ink)" }}>
               Play
             </Link>
+            <AccountNav />
             <ThemeToggle />
           </div>
         </nav>

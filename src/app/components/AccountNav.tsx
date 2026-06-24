@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { AnimatePresence } from "motion/react";
 import { useAuth } from "./AuthProvider";
 import { SignInModal } from "./SignInModal";
@@ -12,6 +13,10 @@ const chipStyle = { border: "1.5px solid var(--ink)", color: "var(--ink)" } as c
 export function AccountNav() {
   const { user, loading, logout } = useAuth();
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  // Don't show a link to the page you're already on.
+  const onLeaderboard = pathname === "/leaderboard";
+  const onHistory = pathname === "/history";
 
   if (loading) {
     return <span className="font-mono text-xs" style={{ color: "var(--ink-faint)" }}>…</span>;
@@ -20,12 +25,16 @@ export function AccountNav() {
   if (user) {
     return (
       <div className="flex items-center gap-2">
-        <Link href="/leaderboard" className={chip} style={{ ...chipStyle, color: "var(--spot-2-deep)" }}>
-          Leaderboard
-        </Link>
-        <Link href="/history" className={chip} style={chipStyle}>
-          My runs
-        </Link>
+        {!onLeaderboard && (
+          <Link href="/leaderboard" className={chip} style={{ ...chipStyle, color: "var(--spot-2-deep)" }}>
+            Leaderboard
+          </Link>
+        )}
+        {!onHistory && (
+          <Link href="/history" className={chip} style={chipStyle}>
+            My runs
+          </Link>
+        )}
         <button onClick={logout} className={chip} style={chipStyle}>
           Sign out
         </button>
@@ -35,9 +44,11 @@ export function AccountNav() {
 
   return (
     <>
-      <Link href="/leaderboard" className={chip} style={{ ...chipStyle, color: "var(--spot-2-deep)" }}>
-        Leaderboard
-      </Link>
+      {!onLeaderboard && (
+        <Link href="/leaderboard" className={chip} style={{ ...chipStyle, color: "var(--spot-2-deep)" }}>
+          Leaderboard
+        </Link>
+      )}
       <button
         onClick={() => setOpen(true)}
         title="Save your runs and rank on the leaderboard"
