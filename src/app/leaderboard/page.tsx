@@ -123,9 +123,9 @@ function Board({ title, accent, entries }: { title: string; accent: string; entr
 }
 
 const MEDALS = ["var(--gold)", "var(--silver)", "var(--bronze)"];
-// Visual order on the podium: 2nd, 1st, 3rd — the classic staggered podium.
-const PODIUM_ORDER = [1, 0, 2];
-const PODIUM_HEIGHT = [148, 196, 120];
+// Left-to-right by rank: 1st (tallest), 2nd, 3rd (shortest).
+const PODIUM_ORDER = [0, 1, 2];
+const PODIUM_HEIGHT = [196, 148, 120];
 
 function Podium({ podium }: { podium: Entry[] }) {
   return (
